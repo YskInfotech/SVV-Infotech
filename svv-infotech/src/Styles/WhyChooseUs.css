@@ -1,0 +1,124 @@
+
+.section-title {
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
+  font-family: Arial, sans-serif;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #4a4a4a;
+  max-width: 700px;
+  margin: 0 auto 2.5rem auto;
+  line-height: 1.5;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+
+.why-container {
+  margin: 3rem auto;
+}
+
+
+.why-card {
+  border: none;
+  background: #fff;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+
+.why-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+.card-title-text {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #000;
+  text-align: center;
+  margin-bottom: 1.2rem;
+  font-family: Arial, sans-serif;
+  line-height: 1.3;
+  min-height: 45px;
+}
+
+
+.icon-circle {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+
+.icon-circle::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 100%;
+  border: 2px solid transparent;
+  border-top: 2px solid #07167B;
+  border-right: 2px solid #07167B;
+  animation: rotateBorder 2s linear infinite;
+  z-index: 1;
+}
+
+
+.icon-circle img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+}
+
+
+@keyframes rotateBorder {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+@media (max-width: 992px) {
+  .why-card {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-title-text {
+    font-size: 0.9rem;
+  }
+  .icon-circle {
+    width: 60px;
+    height: 60px;
+  }
+  .icon-circle img {
+    width: 26px;
+    height: 26px;
+  }
+}

@@ -1,0 +1,177 @@
+.about-section {
+  background-color: #fff;
+  padding: 2em 0;
+}
+
+.about-row {
+  display: flex;
+  align-items: center;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-title {
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: #000;
+  letter-spacing: 0.5px;
+}
+
+.about-text {
+  font-size: 1.10rem;
+  color: black;
+  line-height: 1.7;
+  max-width: 90%;
+}
+
+
+ .reach-btn {
+  background-color: #07167B !important;
+  border: none;
+  color: #fff;
+  width: 150px;
+  padding: 10px 28px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 50px !important; 
+  transition: 0.3s;
+}
+
+
+
+.reach-btn:hover {
+  background-color: #07167B;
+}
+
+.about-image-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+   
+
+}
+
+.about-img-container {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  display: inline-block;
+  margin-left: 4.8cm; 
+}
+
+.about-img {
+  width: 100%;
+  height: auto;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  position: relative;
+  z-index: 3;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.blue-card {
+  position: absolute;
+  background-color: #07167B;
+  z-index: 1;
+  width: 60%;
+  height: 60%;
+  border-radius: 50px;
+}
+
+.blue-card.top-right {
+  top: -7px;
+  right: -7px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 0;
+  width: 60%;
+  height: 60%;
+  z-index: 1;
+}
+
+.blue-card.bottom-left {
+  bottom: -7px;
+  left: -7px;
+  border-bottom-left-radius: 40px;
+  border-top-right-radius: 0;
+  width: 60%;
+  height: 60%;
+  z-index: 2;
+}
+
+
+@media (max-width: 992px) {
+  .about-content {
+    text-align: center;
+  }
+
+  .about-text {
+    max-width: 100%;
+  }
+
+  .reach-btn {
+    margin: 0 auto;
+  }
+
+  .about-image-col {
+    margin-top: 2rem;
+  }
+
+  .about-img-container {
+    max-width: 90%;
+    margin-left: 0; 
+  }
+
+  .blue-card.top-right,
+  .blue-card.bottom-left {
+    width: 60%;
+    height: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-row {
+    flex-direction: column;
+  }
+
+  .about-title {
+    font-size: 1.5rem;
+  }
+
+  .about-text {
+    font-size: 0.95rem;
+  }
+
+  .reach-btn {
+    width: 130px;
+    padding: 8px 24px;
+  }
+
+  .about-img-container {
+    max-width: 80%;
+    margin-left: 0; 
+  }
+}
+
+@media (max-width: 480px) {
+  .about-title {
+    font-size: 1.3rem;
+  }
+
+  .about-text {
+    font-size: 0.9rem;
+  }
+
+  .reach-btn {
+    width: 120px;
+    padding: 7px 20px;
+  }
+
+  .about-img-container {
+    margin-left: 0; 
+  }
+}

@@ -1,0 +1,125 @@
+.services-section {
+  background-color: #ffffff;
+  color: #000;
+  padding-bottom: 0;
+}
+
+.services-header {
+  background-color: #fff;
+  padding: 2rem 0 1rem;
+}
+
+.services-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.3rem;
+}
+
+.services-subtitle {
+  color: #1b3af5;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.services-bg {
+  background-color: #00247d;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 3rem 1rem;
+  color: #fff;
+}
+
+.service-card {
+  background: transparent;
+  border: none;
+  color: #fff;
+  text-align: center;
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.overlay-shape {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px solid #fff;
+  width: 60%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.overlay-shape::before {
+  content: "";
+  position: absolute;
+  border: 3px solid #fff;
+  width: 80%;
+  height: 80%;
+  transform: rotate(45deg);
+}
+
+.card-content {
+  margin-top: 1.2rem;
+}
+
+.card-content h5 {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.card-content p {
+  color: #dcdcdc;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.service-btn {
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  padding: 0.4rem 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.service-btn:hover {
+  background-color: #fff;
+  color: #00247d;
+}
+
+@media (max-width: 768px) {
+  .overlay-shape {
+    width: 70%;
+    height: 70%;
+    font-size: 0.9rem;
+  }
+
+  .card-content p {
+    font-size: 0.9rem;
+  }
+
+  .services-bg {
+    padding: 2rem 1rem;
+  }
+}
