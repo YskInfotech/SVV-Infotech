@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { Navbar as BootstrapNavbar, Nav, NavDropdown, Container, Button } from "react-bootstrap";
 import logo from "../assets/logo.png";
+import { useNavigate } from "react-router-dom";
 import "../Styles/Navbar.css";
 
+
+
 function Navbar() {
+
+  const navigate = useNavigate();
   const [showServices, setShowServices] = useState(false);
   const [showITServices, setShowITServices] = useState(false);
   const [showStaffing, setShowStaffing] = useState(false);
@@ -83,7 +88,10 @@ function Navbar() {
               </NavDropdown>
             </NavDropdown>
 
-            <Nav.Link onClick={() => scrollToSection("careers")} className="nav-link-custom">Careers</Nav.Link>
+            
+<Nav.Link onClick={() => navigate("/carrerlayout")} className="nav-link-custom">
+  Careers
+</Nav.Link>
             <Nav.Link onClick={() => scrollToSection("contact")} className="nav-link-custom">Contact</Nav.Link>
 
             <Button variant="outline-primary" className="login-btn ms-3 px-4">
