@@ -32,8 +32,9 @@ function Navbar() {
         <BootstrapNavbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto align-items-center">
             
-            <Nav.Link onClick={() => scrollToSection("home")} className="nav-link-custom">Home</Nav.Link>
-            <Nav.Link onClick={() => scrollToSection("about")} className="nav-link-custom">About Us</Nav.Link>
+            <Nav.Link onClick={() => scrollToSection("home")} className="nav-link-custom nav-hed-text">Home</Nav.Link>
+           
+            <Nav.Link onClick={() => scrollToSection("about")} className="nav-link-custom nav-hed-text">About Us</Nav.Link>
 
             
             <NavDropdown
@@ -41,12 +42,12 @@ function Navbar() {
                 <span
                   style={{ cursor: "pointer" }}
                   onClick={() => scrollToSection("services")}
+                  className="nav-hed-text nav-link-custom"
                 >
                   Our Services
                 </span>
               }
-              id="services-dropdown"
-              className="nav-link-custom"
+              id="services-dropdown" 
               show={showServices}
               onMouseEnter={() => setShowServices(true)}
               onMouseLeave={() => setShowServices(false)}
@@ -88,11 +89,14 @@ function Navbar() {
               </NavDropdown>
             </NavDropdown>
 
+
             
-<Nav.Link onClick={() => navigate("/carrerlayout")} className="nav-link-custom">
+<Nav.Link onClick={() => navigate("/carrerlayout")} className="nav-link-custom nav-hed-text">
   Careers
 </Nav.Link>
-            <Nav.Link onClick={() => scrollToSection("contact")} className="nav-link-custom">Contact</Nav.Link>
+            <Nav.Link onClick={() => scrollToSection("contact")} className="nav-link-custom nav-hed-text">Contact</Nav.Link>
+
+
 
             <Button variant="outline-primary" className="login-btn ms-3 px-4">
               Login

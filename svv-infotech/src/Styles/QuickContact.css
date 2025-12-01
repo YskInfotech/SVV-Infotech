@@ -60,7 +60,7 @@
 .flag-box {
   display: flex;
   align-items: center;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   border-radius: 6px;
   padding: 6px 10px;
   background: #f8f9fa;
@@ -80,6 +80,7 @@
 
 .icon.whatsapp {
   color: #25d366;
+  margin-left: 10px;
 }
 
 .icon.email {
@@ -92,6 +93,8 @@
   font-weight: bold;
   border: 1px solid #ccc;
 }
+
+
 
 
 .btn-success {
