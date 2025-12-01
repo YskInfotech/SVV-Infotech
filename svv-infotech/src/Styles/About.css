@@ -59,7 +59,7 @@
 .about-img-container {
   position: relative;
   width: 100%;
-  max-width: 420px;
+  max-width: 620px;
   display: inline-block;
   margin-left: 4.8cm; 
 }
@@ -78,9 +78,9 @@
   position: absolute;
   background-color: #07167B;
   z-index: 1;
-  width: 60%;
-  height: 60%;
-  border-radius: 50px;
+  width: 40%;
+  height: 40%;
+  /* border-radius: 50px; */
 }
 
 .blue-card.top-right {
@@ -88,8 +88,8 @@
   right: -7px;
   border-top-right-radius: 40px;
   border-bottom-left-radius: 0;
-  width: 60%;
-  height: 60%;
+  width: 30%;
+  height: 30%;
   z-index: 1;
 }
 
@@ -98,8 +98,8 @@
   left: -7px;
   border-bottom-left-radius: 40px;
   border-top-right-radius: 0;
-  width: 60%;
-  height: 60%;
+  width: 50%;
+  height: 50%;
   z-index: 2;
 }
 

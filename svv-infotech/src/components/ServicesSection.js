@@ -1,13 +1,13 @@
 import React from "react";
 import { Container, Row, Col, Button, Image } from "react-bootstrap";
 import "../Styles/ServicesSection.css";
-import itImg from "../assets/ITstaff.png";
+import itImg from "../assets/itstaff.png";
 import staffImg from "../assets/staff.png";
-import bgImg from "../assets/service-bg.png"; 
+import bgImg from "../assets/service-bg.png";
 
 const ServicesSection = () => {
   return (
-    <section className="services-section"  id="services">
+    <section className="services-section" id="services">
       <div className="services-header text-center">
         <h2 className="services-title">OUR SERVICES</h2>
         <p className="services-subtitle">Solutions and Focus Areas</p>
@@ -24,16 +24,17 @@ const ServicesSection = () => {
               <div className="service-card">
                 <div className="image-wrapper">
                   <Image src={itImg} alt="IT Services" fluid />
-                 
+
                 </div>
                 <div className="card-content text-center">
                   <h5>IT SERVICES</h5>
                   <p>
-                    We deliver complete <strong>IT solutions</strong> that blend
-                    innovation and expertise, helping businesses streamline
-                    operations and achieve lasting digital growth.
+                    SVV Infotech provides end-to-end IT services designed to optimize<br></br> business performance and efficiency.
+                     Our expert team delivers<br></br> innovative,
+                     secure, and scalable technology solutions tailored<br></br> to client needs. 
+                     We help organizations embrace digital transformation<br></br> and achieve sustainable growth in a competitive world.
                   </p>
-                  <Button className="service-btn">View Services</Button>
+                  <Button className="service-btn-it">View Services</Button>
                 </div>
               </div>
             </Col>
@@ -43,16 +44,18 @@ const ServicesSection = () => {
               <div className="service-card">
                 <div className="image-wrapper">
                   <Image src={staffImg} alt="Staffing Solutions" fluid />
-                  
+
                 </div>
                 <div className="card-content text-center">
                   <h5>STAFFING SOLUTIONS</h5>
                   <p>
-                    We deliver end-to-end staffing for <strong>IT and Non-IT</strong>, 
-                    ensuring every hire is the right talent who adds real value to your organization.
-                    
+                    SVV Infotech provides complete staffing solutions for both<br></br> IT and Non-IT domains,
+                     tailored to meet diverse business needs.<br></br> We focus on sourcing skilled professionals who bring value,<br></br>
+                      boost productivity, and align with your organizational goals.<br></br>
+                     Our goal is to connect you with talent that drives business success. 
+
                   </p>
-                  <Button className="service-btn">Find Talent</Button>
+                  <Button className="service-btn-it">Find Talent</Button>
                 </div>
               </div>
             </Col>

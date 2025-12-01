@@ -77,7 +77,7 @@ const Footer = () => {
             <h6 className="footer-heading">Our Services</h6>
             <ul className="footer-services">
               <li className="footer-service-title">
-                IT Services <span className="dropdown-symbol">▼</span>
+                IT Services
               </li>
               <li>Product-Based Solutions</li>
               <li>Service-Based Solutions</li>

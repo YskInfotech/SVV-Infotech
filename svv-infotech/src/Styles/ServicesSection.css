@@ -45,7 +45,7 @@
 }
 
 .image-wrapper img {
-  width: 100%;
+  width: 80%;
   height: auto;
   border-radius: 4px;
 }
@@ -67,15 +67,6 @@
   letter-spacing: 2px;
 }
 
-.overlay-shape::before {
-  content: "";
-  position: absolute;
-  border: 3px solid #fff;
-  width: 80%;
-  height: 80%;
-  transform: rotate(45deg);
-}
-
 .card-content {
   margin-top: 1.2rem;
 }
@@ -93,9 +84,9 @@
   margin-bottom: 1rem;
 }
 
-.service-btn {
-  background-color: transparent;
-  border: 2px solid #fff;
+.service-btn-it {
+  background: none !important;
+  border: 2px solid white !important;
   color: #fff;
   font-size: 0.9rem;
   border-radius: 5px;
@@ -103,9 +94,10 @@
   transition: all 0.3s ease;
 }
 
-.service-btn:hover {
-  background-color: #fff;
-  color: #00247d;
+.service-btn-it:hover {
+  background: blue !important;
+  color:white ;
+  border: none !important;
 }
 
 @media (max-width: 768px) {
