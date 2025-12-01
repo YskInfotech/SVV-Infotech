@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Styles/QuickContact.css";
-import { FaWhatsapp, FaEnvelope } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
 import contactImg from "../assets/contact-img.jpeg";
 import indiaFlag from "../assets/flag.png";
 import { useState } from "react";
@@ -16,50 +16,47 @@ const QuickContact = () => {
 
       <div className="container contact-box shadow">
         <div className="row g-0">
-          
+
           <div className="col-md-6 contact-img-container">
             <img src={contactImg} alt="Contact Team" className="contact-img" />
           </div>
 
-          
+
           <div className="col-md-6 bg-white p-4 rounded-end form-container">
             <form>
-             
+
               <div className="mb-3">
                 <label className="form-label">Full Name</label>
                 <input type="text" className="form-control" placeholder="Full Name" />
               </div>
 
-              
+
               <div className="mb-3">
                 <label className="form-label">Phone Number</label>
-                <div className="d-flex align-items-center flex-wrap gap-2">
                   <div className="flag-box">
                     <img src={indiaFlag} alt="India" className="flag-icon" />
                     <span className="ms-1">+91</span>
-                  </div>
-                  <input type="text" className="form-control phone-input flex-grow-1" placeholder="Phone Number" />
-                  <FaWhatsapp className="icon whatsapp" />
+                     <input type="text" className="form-control phone-input flex-grow-1 number-quick" placeholder="Phone Number" />
+                      <FaWhatsapp className="icon whatsapp" />
                   <div className="form-check mx-1">
-                     <input
-      className="form-check-input"
-      type="checkbox"
-      id="checkMsg"
-      checked={isChecked}
-      onChange={(e) => setIsChecked(e.target.checked)}
-    />
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      id="checkMsg"
+                      checked={isChecked}
+                      onChange={(e) => setIsChecked(e.target.checked)}
+                    />
                   </div>
-                  {/* <FaEnvelope className="icon email" /> */}
-                </div>
+                  </div>
               </div>
 
-            
+
               <div className="mb-3">
                 <label className="form-label">Email Id</label>
                 <input type="email" className="form-control" placeholder="Email Id" />
               </div>
 
-             
+
               <div className="mb-3">
                 <label className="form-label">Leave message</label>
                 <textarea
@@ -72,7 +69,7 @@ const QuickContact = () => {
                 </small>
               </div>
 
-             
+
               <div className="mb-3">
                 <label className="form-label">Captcha</label>
                 <div className="row g-2">
@@ -94,7 +91,7 @@ const QuickContact = () => {
                 </div>
               </div>
 
-             
+
               <div className="d-grid mt-4">
                 <button className="btn btn-success" type="submit">
                   Submit

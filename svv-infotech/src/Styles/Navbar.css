@@ -18,7 +18,12 @@
 .nav-link-custom {
   color: #2c2c2c !important;
   margin: 0 10px;
-  font-weight: 600;
+  /* font-weight: 900; */
+  /* font-size: 18px; */
+}
+
+.nav-hed-text{
+  font-size: 18px !important;
 }
 
 .nav-link-custom:hover,
@@ -29,6 +34,7 @@
 .navbar .dropdown-menu {
   border-radius: 6px;
   font-size: 14px;
+  font-weight: 900;
   padding: 0;
   min-width: 220px; 
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
