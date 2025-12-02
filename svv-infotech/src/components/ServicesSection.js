@@ -1,11 +1,14 @@
 import React from "react";
 import { Container, Row, Col, Button, Image } from "react-bootstrap";
 import "../Styles/ServicesSection.css";
-import itImg from "../assets/itstaff.png";
+import itImg from "../assets/ITstaff.png";
 import staffImg from "../assets/staff.png";
 import bgImg from "../assets/service-bg.png";
+import { useNavigate } from "react-router-dom";
 
 const ServicesSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="services-section" id="services">
       <div className="services-header text-center">
@@ -34,7 +37,7 @@ const ServicesSection = () => {
                      secure, and scalable technology solutions tailored<br></br> to client needs. 
                      We help organizations embrace digital transformation<br></br> and achieve sustainable growth in a competitive world.
                   </p>
-                  <Button className="service-btn-it">View Services</Button>
+                  <Button className="service-btn-it"  onClick={() => navigate("/itservices")}>View Services</Button>
                 </div>
               </div>
             </Col>
@@ -55,7 +58,7 @@ const ServicesSection = () => {
                      Our goal is to connect you with talent that drives business success. 
 
                   </p>
-                  <Button className="service-btn-it">Find Talent</Button>
+                  <Button className="service-btn-it" onClick={() => navigate("/staffing")}>Find Talent</Button>
                 </div>
               </div>
             </Col>

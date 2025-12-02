@@ -8,6 +8,7 @@ function CarrersLayout() {
      <div className="container mt-5 mb-5">
     
       <CarrerHome />
+      
       <Footer/>
 
     

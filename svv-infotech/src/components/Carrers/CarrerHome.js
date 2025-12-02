@@ -3,7 +3,11 @@ import "../Carrers/CarrerStyles/carrerhome.css"
 import carrerhome1 from "../../assets/carreerhome1.png";
 import carrerhome2 from "../../assets/carrerhome2.png";
 import carrerhome3 from "../../assets/carreerhome3.png";
+import { useNavigate } from "react-router-dom";
+
 function CarrerHome() {
+  const navigate = useNavigate();
+
   return (
     <div className="careers-container">
 
@@ -11,6 +15,7 @@ function CarrerHome() {
       <div className="career-banner">
         <h1>Find your Dream job</h1>
         <p>Unlocking opportunities to step into a successful career ahead</p>
+        <button className="view-ope">View Openings</button>
         <button className="apply-btn">Apply Now</button>
       </div>
 
@@ -50,7 +55,15 @@ function CarrerHome() {
             <div className="job-card" key={i}>
               <span className="job-title">{role}</span>
               <span className="job-type">Full time | Hyderabad, Telangana</span>
-              <button className="view-btn">View Job</button>
+
+            
+              <button
+                className="view-btn"
+                onClick={() => navigate("/carrerroutes/carrerapply")}
+              >
+                View Job
+              </button>
+
             </div>
           ))}
         </div>

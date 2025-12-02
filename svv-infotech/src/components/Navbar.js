@@ -1,14 +1,31 @@
 import React, { useState } from "react";
 import { Navbar as BootstrapNavbar, Nav, NavDropdown, Container, Button } from "react-bootstrap";
 import logo from "../assets/logo.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation  } from "react-router-dom";
 import "../Styles/Navbar.css";
 
 
 
 function Navbar() {
+  
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const handleHomeClick = () => {
+  if (location.pathname === "/") {
+    
+    scrollToSection("home");   
+  } else {
+    
+    navigate("/");
+    
+    setTimeout(() => {
+      scrollToSection("home");
+    }, 100);
+  }
+};
+
+  
   const [showServices, setShowServices] = useState(false);
   const [showITServices, setShowITServices] = useState(false);
   const [showStaffing, setShowStaffing] = useState(false);
@@ -32,8 +49,9 @@ function Navbar() {
         <BootstrapNavbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto align-items-center">
             
-            <Nav.Link onClick={() => scrollToSection("home")} className="nav-link-custom nav-hed-text">Home</Nav.Link>
-           
+               <Nav.Link onClick={handleHomeClick} className="nav-link-custom nav-hed-text">
+  Home
+</Nav.Link>
             <Nav.Link onClick={() => scrollToSection("about")} className="nav-link-custom nav-hed-text">About Us</Nav.Link>
 
             

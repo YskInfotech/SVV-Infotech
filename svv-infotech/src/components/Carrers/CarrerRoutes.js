@@ -2,6 +2,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import CarrerHome from "./CarrerHome";
+import Carrerapply from "./Carrerapply";
+import Carrerapplicationform from "./Carrerapplicationform";
 
 
 function CarrerRoutes() {
@@ -9,7 +11,9 @@ function CarrerRoutes() {
     
     <Routes>
           <Route path="/carrerhome" element={<CarrerHome/>} />
-             
+          <Route path="/carrerapply" element={<Carrerapply/>} />
+          <Route path="/carrerapplicationform" element={<Carrerapplicationform/>} />
+
 
     </Routes>
   );

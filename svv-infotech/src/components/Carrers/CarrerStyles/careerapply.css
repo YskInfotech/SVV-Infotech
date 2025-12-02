@@ -1,0 +1,103 @@
+/* src/components/Carrers/CarrerStyles/carrerapply.css */
+
+.jobdetail-page {
+  background-color: #ffffff;
+  min-height: 100vh;
+  padding: 40px 20px 60px;
+  font-family: "Poppins", sans-serif;
+}
+
+.jobdetail-page-title {
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.jobdetail-card {
+  max-width: 760px;
+  margin: 0 auto;
+  border: 1px solid #d3d3d3;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+
+/* blue header */
+.jobdetail-header {
+  background-color: #07167b;
+  color: #ffffff;
+  padding: 18px 28px;
+  border-radius: 4px 4px 0 0;
+}
+
+.jobdetail-header h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.jobdetail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 13px;
+}
+
+.jobdetail-meta span::before {
+  content: "• ";
+}
+
+/* body */
+.jobdetail-body {
+  padding: 25px 28px 30px;
+}
+
+.jobdetail-section + .jobdetail-section {
+  margin-top: 18px;
+}
+
+.jobdetail-section h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.jobdetail-section ul {
+  padding-left: 18px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* apply button */
+.jobdetail-apply-wrap {
+  margin-top: 28px;
+  text-align: center;
+}
+
+.jobdetail-apply-btn {
+  background-color: #07167b;
+  border: none;
+  color: #ffffff;
+  padding: 10px 40px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.jobdetail-apply-btn:hover {
+  opacity: 0.9;
+}
+
+/* responsive */
+@media (max-width: 600px) {
+  .jobdetail-card {
+    margin: 0 5px;
+  }
+
+  .jobdetail-header,
+  .jobdetail-body {
+    padding: 16px 16px 20px;
+  }
+}
