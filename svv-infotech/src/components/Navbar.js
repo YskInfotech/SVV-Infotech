@@ -30,7 +30,7 @@ function Navbar() {
   const [showITServices, setShowITServices] = useState(false);
   const [showStaffing, setShowStaffing] = useState(false);
 
- 
+
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
@@ -48,13 +48,16 @@ function Navbar() {
         <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
         <BootstrapNavbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto align-items-center">
+
             
                <Nav.Link onClick={handleHomeClick} className="nav-link-custom nav-hed-text">
   Home
 </Nav.Link>
+
+
             <Nav.Link onClick={() => scrollToSection("about")} className="nav-link-custom nav-hed-text">About Us</Nav.Link>
 
-            
+
             <NavDropdown
               title={
                 <span
@@ -65,12 +68,12 @@ function Navbar() {
                   Our Services
                 </span>
               }
-              id="services-dropdown" 
+              id="services-dropdown"
               show={showServices}
               onMouseEnter={() => setShowServices(true)}
               onMouseLeave={() => setShowServices(false)}
             >
-              
+
               <NavDropdown
                 title="IT Services"
                 id="it-services-dropdown"
@@ -88,7 +91,7 @@ function Navbar() {
                 </NavDropdown.Item>
               </NavDropdown>
 
-              
+
               <NavDropdown
                 title="Staffing Solutions"
                 id="staffing-dropdown"
@@ -106,14 +109,14 @@ function Navbar() {
                 </NavDropdown.Item>
               </NavDropdown>
             </NavDropdown>
-
-
             
-<Nav.Link onClick={() => navigate("/carrerlayout")} className="nav-link-custom nav-hed-text">
-  Careers
-</Nav.Link>
-            <Nav.Link onClick={() => scrollToSection("contact")} className="nav-link-custom nav-hed-text">Contact</Nav.Link>
 
+
+
+            <Nav.Link onClick={() => navigate("/carrerlayout")} className="nav-link-custom nav-hed-text">
+              Careers
+            </Nav.Link>
+            <Nav.Link onClick={() => scrollToSection("contact")} className="nav-link-custom nav-hed-text">Contact</Nav.Link>
 
 
             <Button variant="outline-primary" className="login-btn ms-3 px-4">
