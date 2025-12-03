@@ -7,22 +7,19 @@ import {
   FaHome,
   FaUserTie,
   FaBriefcase,
-  FaUsers,
-  FaCogs,
-  FaUserShield,
   FaChevronDown,
   FaChevronUp,
-  FaBars,
   FaUserCircle,
-  FaBlackTie,
 } from "react-icons/fa";
 
 
 
 function Sidebar() {
-  const navigate = useNavigate(); // ✅ CORRECT PLACE
+  // eslint-disable-next-line
+  const navigate = useNavigate();
 
   const [openMenus, setOpenMenus] = useState({});
+  // eslint-disable-next-line
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const toggleMenu = (menu) => {

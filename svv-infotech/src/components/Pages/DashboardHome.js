@@ -1,10 +1,14 @@
 import React from "react";
 import { FaUserTie, FaUserGraduate, FaUserShield } from "react-icons/fa";
+
 import { MdOutlinePhoneCallback } from "react-icons/md";
 import { IoIosPeople } from "react-icons/io";
 import { PiSuitcaseSimple } from "react-icons/pi";
 
 import "../../Styles/DashboardHome.css"
+
+import "../../Styles/DashboardHome.css";
+
 
 function DashboardHome() {
   const cards = [

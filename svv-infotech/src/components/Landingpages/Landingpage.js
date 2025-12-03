@@ -8,22 +8,24 @@ import QuickContact from '../QuickContact';
 import ClientsSection from '../ClientsSection';
 import ContactUs from '../ContactUs';
 import Footer from '../Footer';
+// import Login from "../adminlogin/Login";
 
 
 
-function Landingpage(){
-    return(
+function Landingpage() {
+    return (
         <>
-        <Navbar />
-       <HeroSection id="home"/>
-      <About id="about"/>
-      <ServicesSection id="services"/>
-      <WhyChooseUs id="why-choose-us"/>
-      <QuickContact id="quick-contact"/>
-      <ClientsSection id="clients"/>
-      <ContactUs id="contact"/>
-      <Footer/>        
-        
+            <Navbar />
+            <HeroSection id="home" />
+            <About id="about" />
+            <ServicesSection id="services" />
+            <WhyChooseUs id="why-choose-us" />
+            <QuickContact id="quick-contact" />
+            <ClientsSection id="clients" />
+            <ContactUs id="contact" />
+            <Footer />
+
+
         </>
     )
 }

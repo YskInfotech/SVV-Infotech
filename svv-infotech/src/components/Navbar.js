@@ -1,31 +1,32 @@
 import React, { useState } from "react";
 import { Navbar as BootstrapNavbar, Nav, NavDropdown, Container, Button } from "react-bootstrap";
 import logo from "../assets/logo.png";
-import { useNavigate,useLocation  } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "../Styles/Navbar.css";
 
 
 
+
 function Navbar() {
-  
+
 
   const navigate = useNavigate();
   const location = useLocation();
   const handleHomeClick = () => {
-  if (location.pathname === "/") {
-    
-    scrollToSection("home");   
-  } else {
-    
-    navigate("/");
-    
-    setTimeout(() => {
-      scrollToSection("home");
-    }, 100);
-  }
-};
+    if (location.pathname === "/") {
 
-  
+      scrollToSection("home");
+    } else {
+
+      navigate("/");
+
+      setTimeout(() => {
+        scrollToSection("home");
+      }, 100);
+    }
+  };
+
+
   const [showServices, setShowServices] = useState(false);
   const [showITServices, setShowITServices] = useState(false);
   const [showStaffing, setShowStaffing] = useState(false);
@@ -39,6 +40,7 @@ function Navbar() {
   };
 
   return (
+
     <BootstrapNavbar expand="lg" className="custom-navbar shadow-sm fixed-top">
       <Container>
         <BootstrapNavbar.Brand href="#">
@@ -49,10 +51,10 @@ function Navbar() {
         <BootstrapNavbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto align-items-center">
 
-            
-               <Nav.Link onClick={handleHomeClick} className="nav-link-custom nav-hed-text">
-  Home
-</Nav.Link>
+
+            <Nav.Link onClick={handleHomeClick} className="nav-link-custom nav-hed-text">
+              Home
+            </Nav.Link>
 
 
             <Nav.Link onClick={() => scrollToSection("about")} className="nav-link-custom nav-hed-text">About Us</Nav.Link>
@@ -112,7 +114,7 @@ function Navbar() {
                 </NavDropdown.Item>
               </NavDropdown>
             </NavDropdown>
-            
+
 
 
 
@@ -122,13 +124,14 @@ function Navbar() {
             <Nav.Link onClick={() => scrollToSection("contact")} className="nav-link-custom nav-hed-text">Contact</Nav.Link>
 
 
-            <Button variant="outline-primary" className="login-btn ms-3 px-4">
+            <Button variant="outline-primary" className="login-btn ms-3 px-4" onClick={() => navigate("/Login")}>
               Login
             </Button>
           </Nav>
         </BootstrapNavbar.Collapse>
       </Container>
     </BootstrapNavbar>
+
   );
 }
 
