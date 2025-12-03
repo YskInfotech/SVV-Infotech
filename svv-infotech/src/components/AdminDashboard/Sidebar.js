@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import "../../Styles/Sidebar.css"
+import { IoMdDocument } from "react-icons/io";
 
 import {
   FaHome,
@@ -140,7 +141,7 @@ function Sidebar() {
               `sidebar-link ${isActive ? "active" : ""}`
             }
           >
-            <FaHome className="admin-icon" />
+            <IoMdDocument  className="admin-icon" />
             <span className="admin-menu-item2">On boarding</span>
           </NavLink>
         </li>
