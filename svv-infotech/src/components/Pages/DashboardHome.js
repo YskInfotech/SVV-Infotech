@@ -1,9 +1,5 @@
 import React from "react";
-import { FaUserTie, FaUserGraduate, FaUserShield,FaGlobe } from "react-icons/fa";
-import { MdOutlineCardTravel,MdQuickreply } from "react-icons/md";
-import { IoNewspaperSharp } from "react-icons/io5";
-import { GiTeamIdea } from "react-icons/gi";
-import { FaHeadSideVirus } from "react-icons/fa6";
+import { FaUserTie, FaUserGraduate, FaUserShield } from "react-icons/fa";
 import "../../Styles/DashboardHome.css";
 
 function DashboardHome() {

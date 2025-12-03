@@ -3,6 +3,7 @@ import { Navbar as BootstrapNavbar, Nav, NavDropdown, Container, Button } from "
 import logo from "../assets/logo.png";
 import { useNavigate,useLocation  } from "react-router-dom";
 import "../Styles/Navbar.css";
+import { ToastContainer } from "react-toastify";
 
 
 
@@ -39,6 +40,7 @@ function Navbar() {
   };
 
   return (
+    <>
     <BootstrapNavbar expand="lg" className="custom-navbar shadow-sm fixed-top">
       <Container>
         <BootstrapNavbar.Brand href="#">
@@ -122,13 +124,15 @@ function Navbar() {
             <Nav.Link onClick={() => scrollToSection("contact")} className="nav-link-custom nav-hed-text">Contact</Nav.Link>
 
 
-            <Button variant="outline-primary" className="login-btn ms-3 px-4">
+            <Button variant="outline-primary" className="login-btn ms-3 px-4" onClick={()=>navigate("/Login")}>
               Login
             </Button>
           </Nav>
         </BootstrapNavbar.Collapse>
       </Container>
     </BootstrapNavbar>
+     <ToastContainer />
+  </>
   );
 }
 
