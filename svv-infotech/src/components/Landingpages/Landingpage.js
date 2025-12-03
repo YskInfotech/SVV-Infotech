@@ -7,6 +7,7 @@ import QuickContact from '../QuickContact';
 import ClientsSection from '../ClientsSection';
 import ContactUs from '../ContactUs';
 import Footer from '../Footer';
+import Login from "../adminlogin/Login";
 
 
 
@@ -20,7 +21,8 @@ function Landingpage(){
       <QuickContact id="quick-contact"/>
       <ClientsSection id="clients"/>
       <ContactUs id="contact"/>
-      <Footer/>        
+      <Footer/>  
+            
         
         </>
     )

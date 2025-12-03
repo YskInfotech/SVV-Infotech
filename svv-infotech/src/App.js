@@ -7,6 +7,7 @@ import CarrersLayout from ".././src/components/Carrers/CarrersLayout";
 import Itservices from ".././src/components/Services/Itservices";
 import CarrerRoutes from './components/Carrers/CarrerRoutes';
 import Staffing from './components/Services/Staffing';
+import Login from './components/adminlogin/Login';
 
 
 function App() {
@@ -19,6 +20,8 @@ function App() {
          <Route path="/carrerroutes/*" element={<CarrerRoutes/>} />
          <Route path="/itservices" element={<Itservices/>} />
          <Route path="/staffing" element={<Staffing/>} />
+         <Route path="/Login" element={<Login/>} />
+
         
       </Routes>
     </Router>
