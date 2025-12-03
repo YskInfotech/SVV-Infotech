@@ -1,5 +1,7 @@
 // src/components/ItServicesvv.jsx
 import React from "react";
+import Navbar from "../Navbar";
+import Footer from  "../Footer";
 import "../Services/Serstyles/itservicesvv.css"
 import appimg from "../../assets/appimg.png";
 import dataanalyst from "../../assets/dataanalyst.png";
@@ -21,11 +23,13 @@ const Itservices = () => {
 
 
     <>
+     <Navbar />
+     <br/>
       {/* 🔹 BANNER SECTION */}
       <div className="itservicesvv-banner mt-5">
-        <h1>Find your Dream Job</h1>
-        <p>Unlocking opportunities to step into a successful career ahead</p>
-        
+        <h1 className="itserviceh1">Comprehensive IT & Staffing Solutions.</h1>
+        <p className="itservicep">"We believe that great technology needs great people. Our dual-focus </p>
+        <p >approach ensures your infrastructure is secure and your teams are capable."</p>
       </div>
        
     <section className="itservicesvv">
@@ -60,40 +64,42 @@ const Itservices = () => {
             <img src={appimg} alt="App Development" className="itservicesvv-card-icon" />
             <h3 className="itservicesvv-card-title">App Development</h3>
             <p className="itservicesvv-card-text">
-              Design, build, and maintain scalable web and mobile applications
-              tailored to your business goals.
+              Custom iOS, Android, and 
+             web applications engineered 
+            to scale with your business growth.
             </p>
           </div>
           <div className="itservicesvv-card">
             <img src={erp} alt="App Development" className="itservicesvv-card-icon" />
             <h3 className="itservicesvv-card-title">ERP / CRM Management</h3>
             <p className="itservicesvv-card-text">
-              Optimize operations with customized ERP and CRM solutions that
-              centralize data and workflows.
+              Integrated systems to streamline and enhance 
+              customer relationship lifecycles.
             </p>
           </div>
           <div className="itservicesvv-card">
             <img src={qa} alt="App Development" className="itservicesvv-card-icon" />
             <h3 className="itservicesvv-card-title">QA &amp; Testing</h3>
             <p className="itservicesvv-card-text">
-              End-to-end manual and automated testing to ensure performance,
-              reliability, and security.
+               Rigorous automated and 
+           manual testing protocols 
+           to ensure zero-defect software delivery
             </p>
           </div>
           <div className="itservicesvv-card">
             <img src={deploy} alt="App Development" className="itservicesvv-card-icon" />
             <h3 className="itservicesvv-card-title">Deployment &amp; Hosting</h3>
             <p className="itservicesvv-card-text">
-              Secure, high-availability deployment and infrastructure management
-              across cloud and on-prem.
+              Secure, high-availability hosting environments with seamless continuous deployment pipelines.
             </p>
           </div>
           <div className="itservicesvv-card">
             <img src={version} alt="App Development" className="itservicesvv-card-icon" />
             <h3 className="itservicesvv-card-title">Version Control</h3>
             <p className="itservicesvv-card-text">
-              Robust source-code management, CI/CD pipelines, and release
-              governance.
+              Robust source code 
+              management to ensure data 
+             integrity and collaborative efficiency.
             </p>
           </div>
         </div>
@@ -118,8 +124,7 @@ const Itservices = () => {
               Cloud Services &amp; Management
             </h3>
             <p className="itservicesvv-card-text">
-              Design, migrate, and manage workloads on AWS, Azure, and Google
-              Cloud.
+              Scalable cloud architecture design, migration, and optimization for AWS, Azure, and Google Cloud
             </p>
           </div>
           <div className="itservicesvv-card">
@@ -129,8 +134,7 @@ const Itservices = () => {
               IT Consulting &amp; Strategy
             </h3>
             <p className="itservicesvv-card-text">
-              Strategic technology roadmaps aligned with your business
-              objectives and growth plans.
+              Strategic technology roadmaps aligning your IT infrastructure with long-term business objectives
             </p>
           </div>
           <div className="itservicesvv-card">
@@ -139,24 +143,21 @@ const Itservices = () => {
               Cyber Security &amp; Compliance
             </h3>
             <p className="itservicesvv-card-text">
-              Proactive security monitoring, risk assessment, and compliance
-              management for your digital assets.
+              Advanced threat protection and regulatory compliance frameworks to safeguard your digital assets.
             </p>
           </div>
           <div className="itservicesvv-card">
             <img src={manimg} alt="App Development" className="itservicesvv-card-icon" />
             <h3 className="itservicesvv-card-title">Managed Services</h3>
             <p className="itservicesvv-card-text">
-              24/7 monitoring, maintenance, and support for critical systems and
-              applications.
+              Proactive 24/7 IT monitoring and support to minimize downtime and maximize productivity.
             </p>
           </div>
           <div className="itservicesvv-card">
             <img src={dataanalyst} alt="App Development" className="itservicesvv-card-icon" />
             <h3 className="itservicesvv-card-title">Data Analytics &amp; BI</h3>
             <p className="itservicesvv-card-text">
-              Transform raw data into actionable insights with dashboards and
-              advanced analytics.
+              Transforming raw data into actionable business intelligence through advanced visualization and analytics.
             </p>
           </div>
         </div>
@@ -166,6 +167,7 @@ const Itservices = () => {
         </div>
       </div>
     </section>
+    <Footer/>
      </>
   );
 };

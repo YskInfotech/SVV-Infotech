@@ -11,15 +11,33 @@
 }
 
 .itservicesvv-banner h1 {
-  font-size: 40px;
+  font-size: 35px;
   font-weight: 700;
   margin-bottom: 12px;
+}
+.itservicep{
+    position: relative;
+    top: 40px;
+    font-size: 18px;
+    /* margin-bottom: 26px; */
+    padding-top: 10px;
+    padding-bottom: 6px;
+
+}
+.itserviceh1{
+    position: relative;
+    top: 40px;
+     font-size: 35px;
+  font-weight: 700;
+  margin-bottom: 12px;
+
 }
 
 .itservicesvv-banner p {
   font-size: 18px;
   margin-bottom: 26px;
-}/* src/components/itservicesvv.css */
+
+}
 
 .itservicesvv {
   width: 100%;
@@ -77,7 +95,8 @@
 }
 
 .itservicesvv-tab-muted {
-  color: #9ca3af;
+  color: #243f8f;
+  font-weight: 500;
 }
 
 .itservicesvv-section-heading {
@@ -112,10 +131,11 @@
 }
 
 .itservicesvv-card {
-  border: 1px solid #d0d7e2;
+  border: 1px solid #8cacd8;
   border-radius: 10px;
   padding: 18px 16px 20px;
   text-align: center;
+  max-width: 80%;
   background: #ffffff;
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
   transition: transform 0.15s ease, box-shadow 0.15s ease,
@@ -124,7 +144,7 @@
 
 .itservicesvv-card:hover {
   transform: translateY(-3px);
-  border-color: #243f8f;
+  border: 2px solid  #243f8f;
   box-shadow: 0 10px 22px rgba(15, 23, 42, 0.09);
 }
 

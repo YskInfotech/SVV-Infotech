@@ -1,5 +1,5 @@
 import React from "react";
-import "../Carrers/CarrerStyles/carrerhome.css"
+import "../Carrers/CarrerStyles/carrerhome.css";
 import carrerhome1 from "../../assets/carreerhome1.png";
 import carrerhome2 from "../../assets/carrerhome2.png";
 import carrerhome3 from "../../assets/carreerhome3.png";
@@ -9,10 +9,9 @@ function CarrerHome() {
   const navigate = useNavigate();
 
   return (
-    <div className="careers-container">
-
+    <>
       {/* Hero Banner */}
-      <div className="career-banner">
+      <div className="career-banner-svv mt-5">
         <h1>Find your Dream job</h1>
         <p>Unlocking opportunities to step into a successful career ahead</p>
         <button className="view-ope">View Openings</button>
@@ -56,19 +55,17 @@ function CarrerHome() {
               <span className="job-title">{role}</span>
               <span className="job-type">Full time | Hyderabad, Telangana</span>
 
-            
               <button
                 className="view-btn"
                 onClick={() => navigate("/carrerroutes/carrerapply")}
               >
                 View Job
               </button>
-
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

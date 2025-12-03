@@ -1,6 +1,8 @@
 // src/components/Staffingsvv.jsx
 import React from "react";
 import "../Services/Serstyles/staffingsvv.css"
+import Navbar from "../Navbar";
+import Footer from "../Footer";
 import it from "../../assets/it.png";
 import nonit from "../../assets/non-it.png";
 import Rpo from "../../assets/Rpo.png";
@@ -13,9 +15,12 @@ const Staffing = () => {
     const navigate = useNavigate();
   return (
     <>
+    <Navbar />
+    <br/>
      <div className="staffingsvv-banner mt-5">
-        <h1>Find your Dream Job</h1>
-        <p>Unlocking opportunities to step into a successful career ahead</p>
+        <h1 className="staffingh1">Comprehensive IT & Staffing Solutions.</h1>
+        <p className="staffingp">"We believe that great technology needs great people. Our dual-focus </p>
+        <p>approach ensures your infrastructure is secure and your teams are capable."</p>
         
       </div>
     <section className="staffingsvv">
@@ -89,6 +94,7 @@ Outsourcing (RPO)
         </div>
       </div>
     </section>
+    <Footer/>
     </>
   );
 };

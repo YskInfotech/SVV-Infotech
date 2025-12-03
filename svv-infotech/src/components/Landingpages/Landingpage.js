@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from "../Navbar"
 import HeroSection from '../HeroSection';
 import About from '../About';
 import ServicesSection from "../ServicesSection";
@@ -13,6 +14,7 @@ import Footer from '../Footer';
 function Landingpage(){
     return(
         <>
+        <Navbar />
        <HeroSection id="home"/>
       <About id="about"/>
       <ServicesSection id="services"/>

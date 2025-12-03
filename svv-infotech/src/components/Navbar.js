@@ -82,6 +82,8 @@ function Navbar() {
                 show={showITServices}
                 onMouseEnter={() => setShowITServices(true)}
                 onMouseLeave={() => setShowITServices(false)}
+                onClick={() => navigate("/itservices")}
+
               >
                 <NavDropdown.Item onClick={() => scrollToSection("services")}>
                   Product-Based Solutions
@@ -100,6 +102,7 @@ function Navbar() {
                 show={showStaffing}
                 onMouseEnter={() => setShowStaffing(true)}
                 onMouseLeave={() => setShowStaffing(false)}
+                onClick={() => navigate("/staffing")}
               >
                 <NavDropdown.Item onClick={() => scrollToSection("services")}>
                   IT Staffing

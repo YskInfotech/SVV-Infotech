@@ -109,7 +109,9 @@ function CarrerApply() {
           
 
           <div className="jobdetail-apply-wrap">
+            <button className="jobdetail-back-btn" onClick={() => navigate("/carrerlayout")}>Back</button>
             <button className="jobdetail-apply-btn" onClick={() => navigate("/carrerroutes/carrerapplicationform")}>Apply</button>
+            
           </div>
         </div>
       </div>

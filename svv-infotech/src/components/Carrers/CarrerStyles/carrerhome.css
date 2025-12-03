@@ -1,18 +1,16 @@
-.careers-container {
-  width: 100%;
-  background: #ffffff;
-  margin-top: 100px;
-  font-family: "Poppins", sans-serif;
-}
+
 
 
 /* Banner */
-.career-banner {
-  background: url("../../../assets/carrerbanner.jpg") no-repeat center/cover;
+.career-banner-svv{
+  background: url("../../../assets/carrerbanner.jpg") no-repeat center center;
+  background-size: cover;
   height: 400px;
   text-align: center;
+  position: relative;
+  margin-top: 60px;
   color: #fff;
-  padding-top: 90px;
+  padding-top: 120px;
 }
 .career-banner h1 {
   font-size: 42px;

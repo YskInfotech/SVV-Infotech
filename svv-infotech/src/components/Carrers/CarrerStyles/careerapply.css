@@ -85,6 +85,16 @@
   font-weight: 500;
   cursor: pointer;
 }
+.jobdetail-back-btn{
+    background-color: rgb(56, 55, 55);
+  border: none;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 4px;
+  display: flex;
+  font-weight: 500;
+  cursor: pointer;
+}
 
 .jobdetail-apply-btn:hover {
   opacity: 0.9;

@@ -1,0 +1,174 @@
+.jobform-container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+  background: #f7f2f2;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.jobform-heading {
+  background: #002b45;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 4px;
+}
+
+.jobform-section {
+  margin-top: 25px;
+  background: white;
+  padding: 18px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.jobform-section-title {
+  background: #002b45;
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.jobform-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.col-full {
+  grid-column: span 2;
+}
+
+.jobform-label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  display: block;
+  color: black !important;
+  font-weight: bold !important;
+}
+
+.jobform-input,
+.jobform-select,
+.jobform-textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.jobform-file {
+  padding: 5px;
+}
+
+.jobform-textarea {
+  height: 80px;
+}
+
+/* EXPERIENCE SECTION */
+.jobform-exp-wrapper {
+  margin-top: 15px;
+}
+
+.jobform-exp-card {
+  background: #fafafa;
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+}
+
+.jobform-exp-title {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.jobform-exp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.jobform-add-btn {
+  background: #004d66;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.jobform-add-btn:hover {
+  background: #003548;
+}
+
+/* CAPTCHA ROW */
+.jobform-captcha-row {
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.jobform-captcha {
+    color: black !important;
+  font-size: 18px;
+  font-weight: bold;
+  background: #fff;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.jobform-input.small {
+  width: 150px;
+}
+
+.jobform-submit-btn {
+  background: #1e8f2e;
+  color: white;
+  padding: 9px 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.jobform-submit-btn:hover {
+  background: #146c22;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .jobform-grid,
+  .jobform-exp-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .col-full {
+    grid-column: span 1;
+  }
+
+  .jobform-captcha-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .jobform-input.small {
+    width: 100%;
+  }
+}
+.carappliback{
+    position: relative;
+    margin-left: auto;
+    /* background: #1e8f2e; */
+    color: #000;
+    padding: 5px 18px;
+    border: 1px solid #000;
+    border-radius: 6px;
+}

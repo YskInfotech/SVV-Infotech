@@ -1,11 +1,15 @@
 import React from "react";
+import Navbar from "../Navbar";
 import CarrerHome from "../Carrers/CarrerHome";
 import Footer from "../Footer";
 
 
 function CarrersLayout() {
   return (
-     <div className="container mt-5 mb-5">
+    <>
+    <Navbar />
+    
+     
     
       <CarrerHome />
       
@@ -13,7 +17,8 @@ function CarrersLayout() {
 
     
     
-    </div>
+    
+    </>
   );
 }
 
