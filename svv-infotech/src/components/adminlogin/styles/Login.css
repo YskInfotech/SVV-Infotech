@@ -103,6 +103,11 @@
 }
 
 .login-btn1:hover{
+    color: white !important;
+    background-color: #00a2f7!important;
+}
+
+.login-btn1:hover{
     
     border: none !important;
 }
