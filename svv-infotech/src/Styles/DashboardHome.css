@@ -1,18 +1,21 @@
-.hrdh-dashboard-main {
-  background:#F7F5F5;
+.dashboard-main {
+  background: #F7F5F5;
   padding: 35px;
   min-height: 100vh;
+  margin-top: 70px;
 }
 
-.hrdh-card-row {
-  display: flex;
-  justify-content: center;
-  gap:40px;
+.dashboard-card-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);   
+  gap: 40px;
+  justify-items: center;
 }
 
-.hrdh-big-card {
+
+.dashboard-big-card {
   width: 300px;
-  background:#07167B;
+  background: #07167B;
   padding: 25px;
   border-radius: 12px;
   color: white;
@@ -20,31 +23,29 @@
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
 }
 
-.hrdh-big-card:hover {
+.dashboard-big-card:hover {
   /* border:1px solid #06222c; */
   box-shadow: 0 0 15px rgba(11, 43, 54, 0.5);
 }
 
-    
-.hrdh-big-icon {
+.dashboard-big-icon {
   font-size: 40px;
   margin-bottom: 10px;
   color: white;
 }
 
-.hrdh-card-title {
+.dashboard-card-title {
   font-size: 18px;
   margin-bottom: 20px;
 }
 
-.hrdh-status-boxes {
+.dashboard-status-boxes {
   display: flex;
   justify-content: center;
   gap: 10px;
 }
 
-
-.hrdh-status-item {
+.dashboard-status-item {
   width: auto;
   padding: 10px;
   border-radius: 8px;
@@ -52,32 +53,32 @@
   color: white;
 }
 
-.hrdh-status-item h4 {
+.dashboard-status-item h4 {
   margin: 0;
   font-size: 18px;
 }
 
-.hrdh-status-item p {
+.dashboard-status-item p {
   margin: 0;
   font-size: 16px;
   font-weight: bold;
 }
 
-/* Color variants – tied to the second class on the element */
-/* .hrdh-status-item.hrdh-green { */
-  /* background: #0C7C0C; */
-/* } */
+/* Color variants */
+/* .dashboard-status-item.dashboard-green {
+  background: #0C7C0C;
+} */
 
-.hrdh-status-item.hrdh-red {
+.dashboard-status-item.dashboard-red {
   background: #DA0606;
 }
 
-.hrdh-status-item.hrdh-yellow {
+.dashboard-status-item.dashboard-yellow {
   background: #E2A60A;
 }
 
-.count-num{
+.dashboard-count-num {
   width: 50px;
   font-size: 20px;
-  
+  font-weight: 500;
 }

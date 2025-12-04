@@ -83,7 +83,7 @@ function Sidebar() {
           >
             <li>
               <NavLink
-                to="/dashboard/ViewEmployeeRegistration"
+                to="/dashboard/Candidate"
                 className={({ isActive }) =>
                   isActive ? "submenu-link active-submenu" : "submenu-link"
                 }
@@ -107,7 +107,7 @@ function Sidebar() {
           <ul className={`admin-submenu ${openMenus.jobs ? "open" : ""}`}>
             <li>
               <NavLink
-                to="/dashboard/AddOnJobForm"
+                to="/dashboard/AddonJob"
                 className={({ isActive }) =>
                   isActive ? "submenu-link active-submenu" : "submenu-link"
                 }
@@ -118,7 +118,7 @@ function Sidebar() {
 
             <li>
               <NavLink
-                to="/dashboard/ViewJobsAdmin"
+                to="/dashboard/Viewjobs"
                 className={({ isActive }) =>
                   isActive ? "submenu-link active-submenu" : "submenu-link"
                 }
@@ -132,7 +132,7 @@ function Sidebar() {
         </li>
         <li>
           <NavLink
-            to="/dashboard"
+            to="/dashboard/onboarding"
             end
             className={({ isActive }) =>
               `sidebar-link ${isActive ? "active" : ""}`

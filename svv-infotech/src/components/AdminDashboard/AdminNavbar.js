@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { CgProfile } from "react-icons/cg";
 import {
-  FaUserCircle,
+  
   FaBell,
   FaCog,
   FaUser,
@@ -11,7 +12,7 @@ import {
 import { useNavigate } from "react-router-dom"; 
 import "../../Styles/AdminNav.css";
 
-import profilePic from "../../assets/board1.jpg";
+import profilePic from "../../assets/client3.png";
 
 function AdminNavbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -47,7 +48,7 @@ function AdminNavbar() {
     <nav className="adminnav-container">
       <div className="adminnav-left">
         <Link to="/dashboard" className="adminnav-icon-link">
-  <FaUserCircle className="adminnav-icon" />
+  <CgProfile  className="adminnav-icon" />
 </Link>
 
 <Link to="/dashboard" className="adminnav-title-link">

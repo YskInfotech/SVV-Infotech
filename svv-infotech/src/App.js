@@ -17,7 +17,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Landingpage />} />
-        <Route path="/dashboard" element={<DashboardLayout />} />
+        <Route path="/dashboard*" element={<DashboardLayout />} />
         <Route path="/carrerlayout" element={<CarrersLayout />} />
         <Route path="/carrerroutes/*" element={<CarrerRoutes />} />
         <Route path="/itservices" element={<Itservices />} />

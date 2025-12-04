@@ -25,19 +25,18 @@
   border-radius: 6px;
 }
 
-/* Prevent hover from changing active link */
-.submenu-link.active-submenu:hover {
-  background: #6297e7 !important;  /* Keep active blue */
+/* .submenu-link.active-submenu:hover {
+  background: #6297e7 !important;  
   color: #fff !important;
-}
+} */
 
-/* ACTIVE COLOR */
-.active-submenu {
-  background: #6297e7;;       /* Blue background */
+
+/* .active-submenu {
+  background: #6297e7;;       
   color: #fff !important;
-  /* font-weight: 0px; */
+  font-weight: 0px;
   
-}
+} */
 
 .admin-sidebar-header {
   display: flex;
@@ -67,19 +66,19 @@
   background: #0a3a4a;
 }
 
-/* ACTIVE TAB */
-.sidebar-active {
+
+/* .sidebar-active {
   background: #6e8ebe;
   color: #fff !important;
-  /* font-weight: 600; */
+  font-weight: 600;
   
 }
 
-/* ACTIVE TAB should keep same color on hover */
+
 .sidebar-active:hover {
   background: #86ade7 !important;
   color: #fff !important;
-}
+} */
 
 .admin-sidebar-logo {
   font-size: 1.1rem;
@@ -179,7 +178,11 @@
   border-bottom: 1px solid #f0f0f0;
 }
 
-a{
+.adminnav-title-link{
+  text-decoration: none;
+}
+
+.submenu-link{
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -191,6 +194,23 @@ a{
   transition: all 0.3s ease;
   cursor: pointer;
 }
+
+
+.admin-menu-item2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;       
+  width: 100%;     
+  color: #001b47 !important;
+  padding: 5px 18px;
+  text-decoration: none !important;
+  font-size: medium;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
 
 .admin-menu-item:hover,
 .admin-sidebar-menu li a:hover {
