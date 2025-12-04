@@ -3,6 +3,7 @@ import { FaUserTie, FaUserGraduate, FaUserShield } from "react-icons/fa";
 import { MdOutlinePhoneCallback } from "react-icons/md";
 import { IoIosPeople } from "react-icons/io";
 import { PiSuitcaseSimple } from "react-icons/pi";
+  import { GrDocumentSound } from "react-icons/gr";   
 
 import "../../Styles/DashboardHome.css";
 
@@ -24,6 +25,11 @@ function DashboardHome() {
       title: "JOB APPLICATIONS",
       status: [{ count: 50, label: "Jobs", color: "green" }],
     },
+     {
+          icon: <GrDocumentSound />,
+          title: "JOB APPLICATIONS",
+          status: [{ count: 30, label: "ON Boarding", color: "green" }],
+        },
   ];
 
   return (
