@@ -1,4 +1,4 @@
-.candit-wrapper {
+.onboarding-wrapper {
   width: 100%;
   padding: 20px 30px;
   background: #f4f4f4;
@@ -7,7 +7,7 @@
   margin-top: 0.8cm;
 }
 
-.candit-title {
+.onboarding-title {
   text-align: center;
   font-size: 32px;
   font-weight: 700;
@@ -15,9 +15,9 @@
   margin-bottom: 25px;
 }
 
-.candit-filter-row {
+.onboarding-filter-row {
   display: flex;
-  gap: 30px;
+  justify-content: space-between;
   padding: 15px;
   background: white;
   border-radius: 10px;
@@ -26,7 +26,7 @@
   flex-wrap: wrap;
 }
 
-.candit-reject-btn{
+.onboarding-reject-btn{
     background: white;
   border-radius: 10px;
   box-shadow: 0px 3px 10px rgba(0,0,0,0.08);
@@ -34,47 +34,50 @@
 
 }
 
-.candit-email-btn{
+.onboarding-email-btn{
     background: white;
   border-radius: 10px;
   box-shadow: 0px 3px 10px rgba(0,0,0,0.08);
  
 }
 
-.candit-forward-btn{
+.onboarding-forward-btn{
     background: white;
   border-radius: 10px;
   box-shadow: 0px 3px 10px rgba(0,0,0,0.08);
  
 }
 
-.candit-download-btn{
+.onboarding-download-btn{
     background: white;
   border-radius: 10px;
   box-shadow: 0px 3px 10px rgba(0,0,0,0.08);
  
 }
 
-.icon-candit{
+.icon-onboarding{
     margin-bottom: 2px;
+    margin-left: 10px;
 }
 
-.candit-delete-btn{
-    background: white;
+.onboarding-delete-btn{
+    background: red;
+    color: white;
   border-radius: 10px;
-  box-shadow: 0px 3px 10px rgba(0,0,0,0.08);
+  border: none;
+  
   
 }
 
-.candit-shortlist-btn{
+.onboarding-shortlist-btn{
     background: white;
   border-radius: 10px;
   box-shadow: 0px 3px 10px rgba(0,0,0,0.08);
  
 }
 
-.candit-filter-input {
-  width: 220px;
+.onboarding-filter-input {
+  width: 250px;
   height: 42px;
   border: 1px solid #cfcfcf;
   border-radius: 8px;
@@ -87,13 +90,23 @@
   justify-content: end;
 }
 
+.onboarding-del-down{
+ display: flex;
+  gap: 30px;
+}
+
+.onboarding-forward{
+    display: flex;
+  gap: 30px;
+}
+
 
 .jas-tag.green {
     background: #e6fbe7;
     color: #16a34a;
 }
 
-.candit-apply-btn {
+.onboarding-apply-btn {
   background: #0023ff;
   color: white;
   border: none;
@@ -105,8 +118,8 @@
   box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
 }
 
-.candit-dlt-btn {
-  background: #dc2626 ;
+.onboarding-apply-btn {
+  background: #5426dc ;
   color: white;
   border: none;
   width: 120px;
@@ -117,7 +130,7 @@
   box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
 }
 
-.candit-table {
+.onboarding-table {
   width: 100%;
   border-collapse: collapse;
   background: white;
@@ -126,19 +139,18 @@
   box-shadow: 0px 3px 10px rgba(0,0,0,0.08);
 }
 
-.candit-table thead {
+.onboarding-table thead {
   background: #002147;
   color: white;
-  text-align: center;
 }
 
-.candit-table th {
+.onboarding-table th {
   padding: 14px;
   font-size: 15px;
   font-weight: 600;
 }
 
-.candit-table td {
+.onboarding-table td {
   padding: 14px;
   text-align: center;
   font-size: 14px;
@@ -146,7 +158,7 @@
   border-bottom: 1px solid #ececec;
 }
 
-.candit-tag {
+.onboarding-tag {
   padding: 5px 12px;
   font-weight: 700;
   border-radius: 6px;
@@ -157,7 +169,7 @@
 .previousjob-orange { background: #fff1e5; color: #f97316; }
 .previousjob-red { background: #ffe5e5; color: #dc2626; }
 
-.candit-view-btn {
+.onboarding-view-btn {
   background: #0048ff;
   padding: 6px 12px;
   color: white;
@@ -168,69 +180,13 @@
   box-shadow: 0px 2px 6px rgba(0,0,0,0.15);
 }
 
-.candit-list-view{
+.onboarding-list-view{
     display: flex;
-    /* margin: 10px; */
-    justify-content:space-between;
-}
-
-.candit-filter-group{
-  display: flex;
-  gap: 30px;
-}
-
-.candit-filter{
-  margin-top: 0.4cm;
-}
-
-.shortlist-count{
-    /* border: 1px solid black; */
-     margin: 10px;
-     width: 100px;
-     height: 60px;
-     text-align: center;
-     border-radius: 10px;
-     padding-top: 10px;
-     box-shadow:  0px 2px 3px black;
-}
-
-.shortlist-count:hover{
-  background-color: #07167B;
-  color: white;
-  cursor: pointer;
-}
-
-
-.reject-count{
-    /* border: 1px solid black;  */
-     margin: 10px;
-     width: 100px;
-     height: 60px;
-     text-align: center;
-     padding-top: 8px;
-     border-radius: 10px;
-     box-shadow:  0px 2px 3px black;
-}
-
-.reject-count:hover{
-  background-color: #07167B;
-  color: white;
-  cursor: pointer;
-}
-
-.pending-count{
-    /* border: 1px solid black; */
     margin: 10px;
-    width: 100px;
-     height: 60px;
-     text-align: center;
-     border-radius: 10px;
-     padding-top: 10px;
-     box-shadow:  0px 2px 3px black;
+    justify-content: space-around;
 }
 
-.pending-count:hover{
-  background-color: #07167B;
-  color: white;
-  cursor: pointer;
-}
+
+
+
+

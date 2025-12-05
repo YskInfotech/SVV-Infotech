@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "../../Styles/Candidatesview.css";
 import { useNavigate } from "react-router-dom";
-import { RiShareForwardLine,RiDownloadFill } from "react-icons/ri";
-import { MdOutlineBlock,MdOutlineDeleteOutline } from "react-icons/md";
+import { RiShareForwardLine, RiDownloadFill } from "react-icons/ri";
+import { MdOutlineBlock, MdOutlineDeleteOutline } from "react-icons/md";
 import { HiOutlineMail } from "react-icons/hi";
-
+import { TbArrowBadgeLeftFilled } from "react-icons/tb";
 
 const Candidateview = () => {
   const navigate = useNavigate();
@@ -50,43 +50,47 @@ const Candidateview = () => {
     setExperienceList(updated);
   };
 
- 
 
- 
+
+
 
   return (
     <div className="candidate-container">
-        <h3 className="candidate-heading">Candidate Name:-</h3>
+      <h3 className="candidate-heading">Candidate Name:-</h3>
 
-         <div className="candit-filter-row">
-        
-                  <button className="candit-shortlist-btn" >
-                     <RiShareForwardLine className="icon-candit"/> Shortlist
-                    </button>
-                    <button className="candit-reject-btn" >
-                      <MdOutlineBlock className="icon-candit" />Reject
-                    </button>
-                    <button className="candit-email-btn" >
-                     <HiOutlineMail className="icon-candit"/> Email
-                    </button>
-                    <button className="candit-forward-btn">
-                     <RiShareForwardLine className="icon-candit" /> Forward
-                    </button>
-        
-                    <button className="candit-download-btn" >
-                      <RiDownloadFill className="icon-candit"/>Download
-                    </button>
-        
-                    <button className="candit-delete-btn" >
-                     <MdOutlineDeleteOutline className="icon-candit"/> Delete
-                    </button>
-                  </div>
+      <div className="candit-filter-row">
+
+        <button className="candit-shortlist-btn" >
+          <RiShareForwardLine className="icon-candit" /> Shortlist
+        </button>
+        <button className="candit-reject-btn" >
+          <MdOutlineBlock className="icon-candit" />Reject
+        </button>
+        <button className="candit-email-btn" >
+          <HiOutlineMail className="icon-candit" /> Email
+        </button>
+        <button className="candit-forward-btn">
+          <RiShareForwardLine className="icon-candit" /> Forward
+        </button>
+
+        <button className="candit-download-btn" >
+          <RiDownloadFill className="icon-candit" />Download
+        </button>
+
+        <button className="candit-delete-btn" >
+          <MdOutlineDeleteOutline className="icon-candit" /> Delete
+        </button>
+      </div>
+
+
+      <button className="carappliback" onClick={() => navigate("/dashboard/Registercandidates")}>  <TbArrowBadgeLeftFilled className="back-icon"/>Back</button>
+
 
       <form >
         {/* ---------- PERSONAL INFO ---------- */}
         <div className="candidate-section">
           <h4 className="candidate-section-title">Personal & Contact Information</h4>
-          <br/>
+          <br />
           <div className="candidate-grid">
             <label className="candidate-label">First Name
               <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange} required className="candidate-input" />
@@ -142,11 +146,11 @@ const Candidateview = () => {
             </label>
           </div>
         </div>
-     <br/>
+        <br />
         {/* ---------- EDUCATION ---------- */}
         <div className="candidate-section">
           <h4 className="candidate-section-title">Educational Information</h4>
-          <br/>
+          <br />
           <div className="candidate-grid">
             <label className="candidate-label">Highest Qualification
               <input type="text" name="qualification" value={formData.qualification} onChange={handleInputChange} className="candidate-input" />
@@ -169,11 +173,11 @@ const Candidateview = () => {
             </label>
           </div>
         </div>
-        <br/>
+        <br />
         {/* ---------- JOB DETAILS ---------- */}
         <div className="candidate-section">
           <h4 className="jobform-section-title">Job Details</h4>
-          <br/>
+          <br />
           <div className="candidate-grid">
             <label className="candidate-label">Position Applied For
               <input type="text" name="positionApplied" value={formData.positionApplied} onChange={handleInputChange} className="candidate-input" />
@@ -201,49 +205,36 @@ const Candidateview = () => {
             </label>
           </div>
         </div>
- <br/>
+        <br />
         {/* ---------- EXPERIENCE ---------- */}
         <div className="candidate-section">
           <h4 className="candidate-section-title">Professional Experience</h4>
-          <br/>
-          <label className="candidate-label">Level of Experience
-            <select value={experienceType} onChange={(e) => setExperienceType(e.target.value)} className="candidate-input">
-              <option value="">Select...</option>
-              <option value="Fresher">Fresher</option>
-              <option value="Experienced">Experienced</option>
-            </select>
-          </label>
-         <br/>
-          {experienceType === "Experienced" && (
-            <div className="candidate-exp-wrapper">
-              {experienceList.map((exp, index) => (
-                <div key={index} className="candidate-exp-card">
-                  <h5 className="candidate-exp-title">Experience {index + 1}</h5>
+          <br />
+           
+              
+                <div  className="candidate-exp-card">
+                  <h5 className="candidate-exp-title">Experience </h5>
                   <div className="candidate-exp-grid">
                     <label className="candidate-label">Previous Company
-                      <input type="text" value={exp.company} onChange={(e) => handleExperienceChange(index, "company", e.target.value)} className="candidate-input" />
+                      <input type="text"  className="candidate-input" />
                     </label>
 
                     <label className="candidate-label">Previous Role
-                      <input type="text" value={exp.role} onChange={(e) => handleExperienceChange(index, "role", e.target.value)} className="candidate-input" />
+                      <input type="text"   className="candidate-input" />
                     </label>
 
                     <label className="candidate-label">Joining Date
-                      <input type="date" value={exp.joining} onChange={(e) => handleExperienceChange(index, "joining", e.target.value)} className="candidate-input" />
+                      <input type="date"  className="candidate-input" />
                     </label>
 
                     <label className="candidate-label">Relieving Date
-                      <input type="date" value={exp.relieving} onChange={(e) => handleExperienceChange(index, "relieving", e.target.value)} className="candidate-input" />
+                      <input type="date"   className="candidate-input" />
                     </label>
                   </div>
                 </div>
-              ))}
-              
             </div>
-          )}
-        </div>
       </form>
-      
+
     </div>
   );
 };
