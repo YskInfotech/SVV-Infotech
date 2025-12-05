@@ -3,11 +3,13 @@ import "../../Styles/Registercandidates.css";
 import { RiShareForwardLine,RiDownloadFill } from "react-icons/ri";
 import { MdOutlineBlock,MdOutlineDeleteOutline } from "react-icons/md";
 import { HiOutlineMail } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
 
 
 
 const Rejectcandidates = () => {
 
+  const navigate=useNavigate()
 
   const experienceOptions = ["Fresher (0-1 Years)", "Experienced (1+ Years)"];
 
@@ -61,6 +63,22 @@ const Rejectcandidates = () => {
     setSelectedRows([]);
   };
 
+   const handleShortlistview = () => {
+    navigate("/dashboard/Shortlistcandidates")
+  }
+
+  const handleRejectview = () => {
+    navigate("/dashboard/Rejectcandidates")
+  }
+
+  const handlePendingview = () => {
+    navigate("/dashboard/Pendingcandidates")
+  }
+
+  const handlecandidateview = () => {
+    navigate("/dashboard/Candidateview")
+  }
+
 
   return (
     <div className="candit-wrapper">
@@ -94,32 +112,34 @@ const Rejectcandidates = () => {
             </button>
           </div>
           <div className="candit-list-view">
-            <div className="shortlist-count">
-             <div></div>
+        <div className="candit-filter-group">
+          <div className="shortlist-count" onClick={handleShortlistview} >
             <p className="mb-0">Shortlisted</p>
-            <p className="mt-0" style={{color:"#33E613", fontSize:"20px", fontWeight:"bold"}}>07</p>
-            </div>
-            <div className="reject-count">
-             
-             <p className="mb-0">Rejected</p>
-            <p className="mt-0"style={{color:"#F00C0C", fontSize:"20px", fontWeight:"bold"}}>10</p>
-            </div>
-            <div className="pending-count">
-               <p className="mb-0">Pending</p>
-            <p className="mt-0"style={{color:"#FFBD07", fontSize:"20px", fontWeight:"bold"}}>04</p>
-            </div>
-                 <select
-              className="candit-filter-input"
-              onChange={(e) =>
-                setFilters({ ...filters, experience: e.target.value })
-              }
-            >
-              <option value="">Filter by Experience</option>
-              {experienceOptions.map((ex) => (
-                <option key={ex}>{ex}</option>
-              ))}
-            </select>
+            <p className="mt-0" style={{ color: "#33E613", fontSize: "20px", fontWeight: "bold" }}>07</p>
           </div>
+          <div className="reject-count" onClick={handleRejectview}>
+            <p className="mb-0">Rejected</p>
+            <p className="mt-0" style={{ color: "#F00C0C", fontSize: "20px", fontWeight: "bold" }}>10</p>
+          </div>
+          <div className="pending-count" onClick={handlePendingview}>
+            <p className="mb-0">Pending</p>
+            <p className="mt-0" style={{ color: "#FFBD07", fontSize: "20px", fontWeight: "bold" }}>04</p>
+          </div>
+        </div>
+        <div className="candit-filter" >
+          <select
+            className="candit-filter-input"
+            onChange={(e) =>
+              setFilters({ ...filters, experience: e.target.value })
+            }
+          >
+            <option value="">Filter by Experience</option>
+            {experienceOptions.map((ex) => (
+              <option key={ex}>{ex}</option>
+            ))}
+          </select>
+        </div>
+      </div>
 
           <table className="candit-table">
             <thead>
@@ -163,7 +183,7 @@ const Rejectcandidates = () => {
                       className="candit-view-btn"
                       onClick={() => setViewData(item)}
                     >
-                      View / Edit
+                      View 
                     </button>
                   </td>
                 </tr>

@@ -116,7 +116,7 @@ const JobApplication = () => {
       <table className="viewjobs-svv-table">
         <thead>
           <tr>
-            <th>Si No</th>
+            <th></th>
             <th>Job Title</th>
             <th>Department</th>
             <th>Location</th>

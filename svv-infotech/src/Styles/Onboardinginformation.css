@@ -1,0 +1,79 @@
+.onboarding-main-cont{
+    margin-top: 1.4cm;
+}
+
+
+
+.onboarding-sub-cont{
+      display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 3px 10px rgba(0,0,0,0.08);
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.personal-information{
+    border: 1px solid black;
+    border-radius: 15px;
+   width: 200px;
+   height: 40px;
+   text-align: center;
+   padding-top: 5px;
+}
+
+.personal-information:hover{
+    background-color: blue;
+    color: white;
+    border: none;
+}
+
+
+
+.documents-information{
+ border: 1px solid black;
+    border-radius: 15px;
+    width: 200px;
+   height: 40px;
+   text-align: center;
+   padding-top: 5px;
+    
+}
+
+.documents-information:hover{
+    background-color: blue;
+    color: white;
+    border: none;
+}
+
+.nominee-information{
+    border: 1px solid black;
+    border-radius: 15px;
+    padding-top: 5px;
+    width: 250px;
+   height: 40px;
+   text-align: center;
+}
+
+.nominee-information:hover{
+    background-color: blue;
+    color: white;
+    border: none;
+}
+
+.joining-information{
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 200px;
+   height: 40px;
+   text-align: center;
+   padding-top: 5px;
+}
+
+.joining-information:hover{
+    background-color: blue;
+    color: white;
+    border: none;
+}

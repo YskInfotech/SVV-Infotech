@@ -32,7 +32,7 @@ const Registercandidates = () => {
   });
 
   const [selectedRows, setSelectedRows] = useState([]);
-  
+
 
   const applyFilters = () => {
     let filtered = initialData;
@@ -64,19 +64,19 @@ const Registercandidates = () => {
 
 
 
-  const handleShortlistview=()=>{
+  const handleShortlistview = () => {
     navigate("/dashboard/Shortlistcandidates")
   }
 
-   const handleRejectview=()=>{
+  const handleRejectview = () => {
     navigate("/dashboard/Rejectcandidates")
   }
 
-   const handlePendingview=()=>{
+  const handlePendingview = () => {
     navigate("/dashboard/Pendingcandidates")
   }
 
-  const handlecandidateview=()=>{
+  const handlecandidateview = () => {
     navigate("/dashboard/Candidateview")
   }
 
@@ -111,29 +111,33 @@ const Registercandidates = () => {
         </button>
       </div>
       <div className="candit-list-view">
-        <div className="shortlist-count" onClick={handleShortlistview} >
-          <p className="mb-0">Shortlisted</p>
-          <p className="mt-0" style={{ color: "#33E613", fontSize: "20px", fontWeight: "bold" }}>07</p>
+        <div className="candit-filter-group">
+          <div className="shortlist-count" onClick={handleShortlistview}  >
+            <p className="mb-0">Shortlisted</p>
+            <p className="mt-0" style={{ color: "#33E613", fontSize: "20px", fontWeight: "bold" }}>07</p>
+          </div>
+          <div className="reject-count" onClick={handleRejectview}>
+            <p className="mb-0">Rejected</p>
+            <p className="mt-0" style={{ color: "#F00C0C", fontSize: "20px", fontWeight: "bold" }}>10</p>
+          </div>
+          <div className="pending-count" onClick={handlePendingview}>
+            <p className="mb-0">Pending</p>
+            <p className="mt-0" style={{ color: "#FFBD07", fontSize: "20px", fontWeight: "bold" }}>04</p>
+          </div>
         </div>
-        <div className="reject-count" onClick={handleRejectview}>
-          <p className="mb-0">Rejected</p>
-          <p className="mt-0" style={{ color: "#F00C0C", fontSize: "20px", fontWeight: "bold" }}>10</p>
+        <div className="candit-filter" >
+          <select
+            className="candit-filter-input"
+            onChange={(e) =>
+              setFilters({ ...filters, experience: e.target.value })
+            }
+          >
+            <option value="">Filter by Experience</option>
+            {experienceOptions.map((ex) => (
+              <option key={ex}>{ex}</option>
+            ))}
+          </select>
         </div>
-        <div className="pending-count" onClick={handlePendingview}>
-          <p className="mb-0">Pending</p>
-          <p className="mt-0" style={{ color: "#FFBD07", fontSize: "20px", fontWeight: "bold" }}>04</p>
-        </div>
-        <select
-          className="candit-filter-input"
-          onChange={(e) =>
-            setFilters({ ...filters, experience: e.target.value })
-          }
-        >
-          <option value="">Filter by Experience</option>
-          {experienceOptions.map((ex) => (
-            <option key={ex}>{ex}</option>
-          ))}
-        </select>
       </div>
 
       <table className="candit-table">
@@ -178,7 +182,7 @@ const Registercandidates = () => {
                   className="candit-view-btn"
                   onClick={handlecandidateview}
                 >
-                  View / Edit
+                  View 
                 </button>
               </td>
             </tr>
