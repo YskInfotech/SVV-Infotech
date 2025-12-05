@@ -10,10 +10,10 @@ import Shortlistcandidates from "../Pages/Shortlistcandidates";
 import Rejectcandidates from "../Pages/Rejectcandidates";
 import Pendingcandidates from "../Pages/Pendingcandidates";
 import Candidateview from "../Pages/Candidateview";
-import Pesonalinformation from "../Pages/Pesonalinformation";
 import Documents_ID from "../Pages/Documents_ID";
 import Nominee_Bankdetails from "../Pages/Nominee_Bankdetails";
 import JoiningDoc from "../Pages/JoiningDoc";
+import PersonalInformation from "../Pages/Personalinformation";
 
 
 
@@ -31,7 +31,7 @@ function DashboardRoutes() {
        <Route path="/Rejectcandidates" element={<Rejectcandidates/>}/>
        <Route path="/Pendingcandidates" element={<Pendingcandidates/>}/>
        <Route path="/Candidateview" element={<Candidateview/>}/> 
-       <Route path="/pesonalinformation" element={<Pesonalinformation/>}/> 
+       <Route path="/personalinformation" element={<PersonalInformation/>}/> 
        <Route path="/Documents_id" element={<Documents_ID/>}/>
        <Route path="/Nominee_bankdetails" element={<Nominee_Bankdetails/>}/>
        <Route path="/JoiningDoc" element={<JoiningDoc/>}/>

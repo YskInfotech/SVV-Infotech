@@ -1,4 +1,4 @@
-.pi-container {
+  .pi-container {
   width: 55%;
   max-width: 1100px;
   margin: auto;
@@ -7,6 +7,15 @@
   border-radius: 6px;
   border: 1px solid #ccc;
   margin-top: 70px;
+}
+
+.personal-title {
+  background: #f1f7ff;
+  color: #000;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 22px;
+  font-weight: 600;
 }
 .pi-radio-group {
   display: flex;

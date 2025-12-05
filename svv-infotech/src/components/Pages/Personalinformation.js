@@ -4,7 +4,7 @@ import "../../Styles/personalinfo.css";
 function PersonalInformation() {
   return (
     <div className="pi-container">
-      <h4 className="pi-section-title">Personal Information Form</h4>
+      <h4 className="personal-title">Personal Information Form</h4>
       <br />
 
       <div className="pi-grid-2">
