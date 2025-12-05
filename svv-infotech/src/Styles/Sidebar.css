@@ -25,18 +25,20 @@
   border-radius: 6px;
 }
 
-/* .submenu-link.active-submenu:hover {
-  background: #6297e7 !important;  
-  color: #fff !important;
-} */
+.submenu-link.active-submenu:hover {
+  background:  #98bcf3 !important;  
+  color: #333 !important;
+} 
 
-
-/* .active-submenu {
-  background: #6297e7;;       
+.active-submenu {
+  background:  #98bcf3;;       
   color: #fff !important;
   font-weight: 0px;
   
-} */
+}
+
+
+/*  
 
 .admin-sidebar-header {
   display: flex;
@@ -135,17 +137,17 @@
 }
 
 
-/* .sidebar-link.active {
-  background: #6297e7;;         
+.sidebar-link.active {
+  background: #98bcf3;        
   color: #fff !important;       
   font-weight: 200px;
 }
 
 
 .sidebar-link.active:hover {
-  background: #6297e7 !important;
+  background:  #98bcf3 !important;
   color: #fff !important;
-} */
+}
 
 
 

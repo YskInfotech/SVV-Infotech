@@ -1,4 +1,4 @@
-.pi-container {
+  .pi-container {
   width: 55%;
   max-width: 1100px;
   margin: auto;
@@ -8,6 +8,7 @@
   border: 1px solid #ccc;
 }
 
+<<<<<<< HEAD
 .next-button{
   background-color: blue;
   border-radius: 15px;
@@ -35,6 +36,16 @@
   font-size: 15px;
 }
 
+=======
+.personal-title {
+  background: #f1f7ff;
+  color: #000;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 22px;
+  font-weight: 600;
+}
+>>>>>>> 5972d1910de51ed101db50f04342ebf9e6b68475
 .pi-radio-group {
   display: flex;
   align-items: center;

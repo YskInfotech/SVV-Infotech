@@ -1,7 +1,9 @@
 import React,{useState} from "react";
 import "../../../Styles/Onboardinginformation.css";
 
+
 import { useNavigate } from "react-router-dom";
+
 
 function Onboardinginformation() {
     const navigate =useNavigate()

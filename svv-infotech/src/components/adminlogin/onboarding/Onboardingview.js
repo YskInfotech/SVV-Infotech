@@ -7,9 +7,9 @@ import { HiOutlineMail } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 
 
-// __define-ocg__
+    
 const Onboardingview = () => {
-    //   const varOcg = true;
+    
     const navigate=useNavigate()
 
     const experienceOptions = ["Fresher (0-1 Years)", "Experienced (1+ Years)"];
