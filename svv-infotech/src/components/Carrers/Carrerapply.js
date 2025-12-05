@@ -1,4 +1,4 @@
-// src/components/Carrers/CarrerApply.js
+
 import React from "react";
 import "../Carrers/CarrerStyles/careerapply.css";
 import { useNavigate } from "react-router-dom";

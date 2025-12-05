@@ -125,12 +125,16 @@ const Candidateview = () => {
               <input type="text" name="pan" value={formData.pan} onChange={handleInputChange} className="candidate-input" />
             </label>
 
+              <label className="candidate-label">Upload Pan
+              <input type="file" name="pan" onChange={handleInputChange} className="candidate-input" />
+            </label>
+
             <label className="candidate-label">Upload Resume
-              <input type="file" name="resume" onChange={handleInputChange} className="candidate-file" />
+              <input type="file" name="resume" onChange={handleInputChange} className="candidate-input" />
             </label>
 
             <label className="candidate-label">Upload Photo
-              <input type="file" name="photo" onChange={handleInputChange} className="candidate-file" />
+              <input type="file" name="photo" onChange={handleInputChange} className="candidate-input" />
             </label>
 
             <label className="candidate-label col-full">LinkedIn / Portfolio URL

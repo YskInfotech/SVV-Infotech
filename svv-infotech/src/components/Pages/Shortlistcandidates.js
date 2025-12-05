@@ -56,7 +56,7 @@ const Shortlistcandidates = () => {
       prev.includes(name) ? prev.filter((x) => x !== name) : [...prev, name]
     );
   };
-
+  
   const deleteSelected = () => {
     setRecords(records.filter((item) => !selectedRows.includes(item.id)));
     setSelectedRows([]);

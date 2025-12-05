@@ -15,11 +15,11 @@ import {
 
 
 function Sidebar() {
-  // eslint-disable-next-line
+  
   const navigate = useNavigate();
 
   const [openMenus, setOpenMenus] = useState({});
-  // eslint-disable-next-line
+  
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const toggleMenu = (menu) => {
@@ -30,7 +30,7 @@ function Sidebar() {
     <div className={`admin-sidebar ${isCollapsed ? "collapsed" : ""}`}>
      
       <ul className="admin-sidebar-menu">
-        {/* Dashboard */}
+        
         <li>
           <NavLink
             to="/dashboard"
@@ -67,7 +67,7 @@ function Sidebar() {
           </ul>
         </li>
 
-        {/* Registration */}
+      
         <li>
           <div
             className="admin-menu-item"
@@ -136,8 +136,8 @@ function Sidebar() {
           </ul>
         </li>
         <li>
-          <NavLink
-            to="/dashboard/onboarding"
+          <NavLink  
+            to="/dashboard/ "
             end
             className={({ isActive }) =>
               `sidebar-link ${isActive ? "active" : ""}`

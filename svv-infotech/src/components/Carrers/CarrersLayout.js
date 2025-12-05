@@ -8,15 +8,9 @@ function CarrersLayout() {
   return (
     <>
     <Navbar />
-    
-     
-    
       <CarrerHome />
       
       <Footer/>
-
-    
-    
     
     </>
   );
