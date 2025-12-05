@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import "../../Styles/joiningdate.css";
+import { useNavigate } from "react-router-dom";
+import {  MdKeyboardDoubleArrowLeft } from "react-icons/md";
+
+
+
 
 const documentsList = [
   "Aadhar Card Photo Copy",
@@ -11,6 +16,7 @@ const documentsList = [
 ];
 
 const JoiningDoc = () => {
+  const navigate = useNavigate()
   const [submitted, setSubmitted] = useState({});
 
   const toggleCheckbox = (index) => {
@@ -56,6 +62,9 @@ const JoiningDoc = () => {
           ))}
         </tbody>
       </table>
+
+        <button className="bc-button mt-3" onClick={() => { navigate("/dashboard/Onboardinglanding/Nomineebankdetails") }}><MdKeyboardDoubleArrowLeft className="bc-ic" />Back</button>
+
     </div>
   );
 };

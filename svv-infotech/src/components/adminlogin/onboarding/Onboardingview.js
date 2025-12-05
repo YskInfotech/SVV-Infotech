@@ -38,7 +38,7 @@ const Onboardingview = () => {
     };
 
     const handleonboardviewinfo=()=>{
-        navigate("/dashboard/Onboardinginformaion")
+        navigate("/dashboard/Onboardinglanding")
     }
 
 

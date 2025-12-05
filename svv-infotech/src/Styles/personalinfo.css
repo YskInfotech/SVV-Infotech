@@ -6,8 +6,35 @@
   padding: 20px;
   border-radius: 6px;
   border: 1px solid #ccc;
-  margin-top: 70px;
 }
+
+.next-button{
+  background-color: blue;
+  border-radius: 15px;
+  color: white;
+  border: none;
+  width: 70px;
+  height: 40px;
+  padding: 0px 10px;
+  text-align: center;
+}
+
+.bc-button{
+  background-color: #595656;
+  border-radius: 15px;
+  color: white;
+  border: none;
+  width: 70px;
+  height: 40px;
+  padding: 0px 10px;
+  text-align: center;
+}
+
+.bc-ic{
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+
 .pi-radio-group {
   display: flex;
   align-items: center;

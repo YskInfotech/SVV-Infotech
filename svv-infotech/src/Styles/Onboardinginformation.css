@@ -2,6 +2,20 @@
     margin-top: 1.4cm;
 }
 
+.box {
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.box.active {
+  background: blue;
+  color: white;
+  transform: scale(1.03);
+  border: none !important;
+}
+
 
 
 .onboarding-sub-cont{

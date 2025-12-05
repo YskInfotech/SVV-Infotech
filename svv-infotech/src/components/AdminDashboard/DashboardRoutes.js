@@ -10,46 +10,27 @@ import Shortlistcandidates from "../Pages/Shortlistcandidates";
 import Rejectcandidates from "../Pages/Rejectcandidates";
 import Pendingcandidates from "../Pages/Pendingcandidates";
 import Candidateview from "../Pages/Candidateview";
-
-import Pesonalinformation from "../Pages/Pesonalinformation";
-import Documents_ID from "../Pages/Documents_ID";
-import Nominee_Bankdetails from "../Pages/Nominee_Bankdetails";
-import JoiningDoc from "../Pages/JoiningDoc";
-
-
-
 import Onboardingview from "../adminlogin/onboarding/Onboardingview";
-import Onboardinginformation from "../adminlogin/onboarding/Oboardinginformation";
+import Onboardlanding from "../adminlogin/onboarding/Onboardlanding";
+
 
 
 function DashboardRoutes() {
   return (
     <Routes>
        <Route path="/" element={<DashboardHome />} />
-
        <Route path="AddonJob" element={<AddonJob/>} />
        <Route path="AddonJobs" element={<AddonJobs/>} />
        <Route path="Viewjobs" element={<Viewjobs/>} />
-
-
-
-
        <Route path="/Quickadmin" element={<Quickadmin/>}/>
        <Route path="/Registercandidates" element={<Registercandidates/>}/>
        <Route path="/Shortlistcandidates" element={<Shortlistcandidates/>}/>
        <Route path="/Rejectcandidates" element={<Rejectcandidates/>}/>
        <Route path="/Pendingcandidates" element={<Pendingcandidates/>}/>
        <Route path="/Candidateview" element={<Candidateview/>}/> 
-
-       <Route path="/pesonalinformation" element={<Pesonalinformation/>}/> 
-       <Route path="/Documents_id" element={<Documents_ID/>}/>
-       <Route path="/Nominee_bankdetails" element={<Nominee_Bankdetails/>}/>
-       <Route path="/JoiningDoc" element={<JoiningDoc/>}/>
-       
-
-
        <Route path="/Onboardingview" element={<Onboardingview/>}/>
-       <Route path="/Onboardinginformaion" element={<Onboardinginformation/>}/>
+       <Route path="/Onboardinglanding/*" element={<Onboardlanding/>}/>
+       
 
 
     </Routes>

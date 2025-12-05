@@ -1,7 +1,11 @@
 import React from "react";
 import "../../Styles/Nominee_bankdetails.css";
+import { useNavigate } from "react-router-dom";
+import { MdOutlineDoubleArrow, MdKeyboardDoubleArrowLeft } from "react-icons/md";
+
 
 function Nominee_Bankdetails() {
+  const navigate = useNavigate()
   return (
     <div className="pi-container">
       <h4 className="pi-section-title">Nominee, Family & Bank Details</h4>
@@ -262,9 +266,15 @@ function Nominee_Bankdetails() {
 
 
 </div>
-       
-          
-     
+      <div className=" d-flex justify-content-between">
+              <div>
+                <button className="bc-button" onClick={() => { navigate("/dashboard/Onboardinglanding/Documentsid") }}><MdKeyboardDoubleArrowLeft className="bc-ic" />Back</button>
+              </div>
+              <div>
+                <button className="next-button" onClick={() => { navigate("/dashboard/Onboardinglanding/JoiningDoc") }}>Next<MdOutlineDoubleArrow /></button>
+              </div>
+            </div> 
+      
     </div>
   );
 }

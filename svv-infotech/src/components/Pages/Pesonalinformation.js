@@ -1,7 +1,10 @@
 import React from "react";
 import "../../Styles/personalinfo.css";
+import { MdOutlineDoubleArrow } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 function PersonalInformation() {
+  const navigate=useNavigate()
   return (
     <div className="pi-container">
       <h4 className="pi-section-title">Personal Information Form</h4>
@@ -118,8 +121,9 @@ function PersonalInformation() {
             <input type="text" required className="pi-input" />
           </label>
         </div>
-    
-     
+    <div className="d-flex justify-content-end">
+     <button className="next-button" onClick={()=>{navigate("/dashboard/Onboardinglanding/Documentsid")}}>Next<MdOutlineDoubleArrow /></button>
+     </div>
     </div>
   );
 }
