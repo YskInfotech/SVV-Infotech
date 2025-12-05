@@ -1,5 +1,5 @@
 .pi-container {
-  width: 55%;
+  width: 80%;
   max-width: 1100px;
   margin: auto;
   background: #f1f7ff;
@@ -54,9 +54,29 @@
   margin-bottom: 15px;
 }
 
+
+.nomineeheading{
+    font-size: large;
+    font-weight: 600;
+    color: #202020;
+    margin-bottom: 10px;
+}
+.nomineepara{
+    font-size: medium;
+     color: #000;
+     font-weight: 500;
+
+}
 .pi-grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.pi-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 15px;
   margin-bottom: 15px;
 }

@@ -9,7 +9,7 @@ function PersonalInformation() {
 
       <div className="pi-grid-2">
         <label className="pi-label">
-          Name
+          Name (Mr./Ms.)
           <input type="text" required className="pi-input" />
         </label>
 
