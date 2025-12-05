@@ -15,11 +15,11 @@ import {
 
 
 function Sidebar() {
-  // eslint-disable-next-line
+  
   const navigate = useNavigate();
 
   const [openMenus, setOpenMenus] = useState({});
-  // eslint-disable-next-line
+  
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const toggleMenu = (menu) => {
@@ -30,7 +30,7 @@ function Sidebar() {
     <div className={`admin-sidebar ${isCollapsed ? "collapsed" : ""}`}>
      
       <ul className="admin-sidebar-menu">
-        {/* Dashboard */}
+        
         <li>
           <NavLink
             to="/dashboard"
@@ -55,7 +55,7 @@ function Sidebar() {
           <ul className={`admin-submenu ${openMenus.contact ? "open" : ""}`}>
             <li>
               <NavLink
-                to="/dashboard/QuickContacts"
+                to="/dashboard/Quickadmin"
                 className={({ isActive }) =>
                   isActive ? "submenu-link active-submenu" : "submenu-link"
                 }
@@ -67,7 +67,7 @@ function Sidebar() {
           </ul>
         </li>
 
-        {/* Registration */}
+      
         <li>
           <div
             className="admin-menu-item"
@@ -83,7 +83,9 @@ function Sidebar() {
           >
             <li>
               <NavLink
-                to="/dashboard/Candidate"
+
+                to="/dashboard/Registercandidates"
+
                 className={({ isActive }) =>
                   isActive ? "submenu-link active-submenu" : "submenu-link"
                 }
@@ -107,7 +109,9 @@ function Sidebar() {
           <ul className={`admin-submenu ${openMenus.jobs ? "open" : ""}`}>
             <li>
               <NavLink
+
                 to="/dashboard/AddonJob"
+
                 className={({ isActive }) =>
                   isActive ? "submenu-link active-submenu" : "submenu-link"
                 }
@@ -119,6 +123,7 @@ function Sidebar() {
             <li>
               <NavLink
                 to="/dashboard/Viewjobs"
+
                 className={({ isActive }) =>
                   isActive ? "submenu-link active-submenu" : "submenu-link"
                 }
@@ -131,8 +136,8 @@ function Sidebar() {
           </ul>
         </li>
         <li>
-          <NavLink
-            to="/dashboard/onboarding"
+          <NavLink  
+            to="/dashboard/ "
             end
             className={({ isActive }) =>
               `sidebar-link ${isActive ? "active" : ""}`

@@ -4,13 +4,15 @@
   background-color: #ffffff;
   min-height: 100vh;
   padding: 40px 20px 60px;
+  position: relative;
+  top: 80px;
   font-family: "Poppins", sans-serif;
 }
 
 .jobdetail-page-title {
   text-align: center;
   letter-spacing: 2px;
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 20px;
 }
 

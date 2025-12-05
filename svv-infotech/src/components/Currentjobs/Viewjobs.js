@@ -16,7 +16,7 @@ const JobApplication = () => {
   const [records, setRecords] = useState(initialData);
   const [filters, setFilters] = useState({
     title: "",
-    status: "", // "", "Active", "Inactive"
+    status: "", 
     experience: "",
   });
 
@@ -154,8 +154,7 @@ const JobApplication = () => {
         </tbody>
       </table>
 
-      {/* You can later use viewData for a modal */}
-      {/* {viewData && <JobViewModal data={viewData} onClose={() => setViewData(null)} />} */}
+     
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { CgProfile } from "react-icons/cg";
 import {
   
   FaBell,
-  FaCog,
+  // FaCog,
   FaUser,
   FaLock,
   FaSignOutAlt,
