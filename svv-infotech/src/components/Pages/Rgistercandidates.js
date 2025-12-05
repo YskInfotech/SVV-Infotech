@@ -5,10 +5,9 @@ import { MdOutlineBlock, MdOutlineDeleteOutline } from "react-icons/md";
 import { HiOutlineMail } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 
-
-// __define-ocg__
 const Registercandidates = () => {
-  //   const varOcg = true;
+  const [activeTab, setActiveTab] = useState("shortlisted");
+
 
   const navigate = useNavigate()
 
@@ -110,9 +109,10 @@ const Registercandidates = () => {
           <MdOutlineDeleteOutline className="icon-candit" /> Delete
         </button>
       </div>
-      <div className="candit-list-view">
+
+     <div className="candit-list-view">
         <div className="candit-filter-group">
-          <div className="shortlist-count" onClick={handleShortlistview}  >
+          <div className="shortlist-count active " onClick={handleShortlistview} >
             <p className="mb-0">Shortlisted</p>
             <p className="mt-0" style={{ color: "#33E613", fontSize: "20px", fontWeight: "bold" }}>07</p>
           </div>
@@ -125,6 +125,10 @@ const Registercandidates = () => {
             <p className="mt-0" style={{ color: "#FFBD07", fontSize: "20px", fontWeight: "bold" }}>04</p>
           </div>
         </div>
+
+
+
+
         <div className="candit-filter" >
           <select
             className="candit-filter-input"

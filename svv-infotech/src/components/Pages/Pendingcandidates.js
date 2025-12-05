@@ -116,7 +116,7 @@ const navigate = useNavigate()
             <p className="mb-0">Rejected</p>
             <p className="mt-0" style={{ color: "#F00C0C", fontSize: "20px", fontWeight: "bold" }}>10</p>
           </div>
-          <div className="pending-count" onClick={handlePendingview}>
+          <div className="pending-count active" onClick={handlePendingview}>
             <p className="mb-0">Pending</p>
             <p className="mt-0" style={{ color: "#FFBD07", fontSize: "20px", fontWeight: "bold" }}>04</p>
           </div>

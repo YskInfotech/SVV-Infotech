@@ -1,7 +1,7 @@
 import React from "react";
 import "../../Styles/personalinfo.css";
 
-function PersonalInformation() {
+function Pesonalinformation() {
   return (
     <div className="pi-container">
       <h4 className="personal-title">Personal Information Form</h4>
@@ -124,4 +124,4 @@ function PersonalInformation() {
   );
 }
 
-export default PersonalInformation;
+export default Pesonalinformation;

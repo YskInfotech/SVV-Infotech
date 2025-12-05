@@ -117,7 +117,7 @@ const Rejectcandidates = () => {
             <p className="mb-0">Shortlisted</p>
             <p className="mt-0" style={{ color: "#33E613", fontSize: "20px", fontWeight: "bold" }}>07</p>
           </div>
-          <div className="reject-count" onClick={handleRejectview}>
+          <div className="reject-count active" onClick={handleRejectview}>
             <p className="mb-0">Rejected</p>
             <p className="mt-0" style={{ color: "#F00C0C", fontSize: "20px", fontWeight: "bold" }}>10</p>
           </div>
