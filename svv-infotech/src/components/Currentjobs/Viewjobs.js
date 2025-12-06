@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../Styles/viewjobs.css";
 
 const JobApplication = () => {
+  const navigate = useNavigate()
   const experienceOptions = ["Fresher (0-1 Years)", "Experienced (1+ Years)"];
 
   const initialData = [
@@ -23,6 +25,8 @@ const JobApplication = () => {
   const [selectedRows, setSelectedRows] = useState([]);
   const [viewData, setViewData] = useState(null);
 
+
+  
   const applyFilters = () => {
     let filtered = initialData;
 
@@ -142,12 +146,13 @@ const JobApplication = () => {
               <td>{item.exp} Years</td>
               <td>{item.sal} LPA</td>
               <td>
-                <button
-                  className="viewjobs-svv-view-btn"
-                  onClick={() => setViewData(item)}
-                >
-                  View / Edit
-                </button>
+              <button
+  className="viewjobs-svv-view-btn"
+  onClick={() => navigate("/dashboard/AddonJob", { state: { data: item } })}
+>
+  View / Edit
+</button>
+
               </td>
             </tr>
           ))}

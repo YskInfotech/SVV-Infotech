@@ -50,10 +50,10 @@
 }
 
 .staffingsvv-kicker {
-  font-size: 13px;
+  font-size: 15px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #777e90;
+  color: #000;
   margin-bottom: 4px;
 }
 
@@ -69,7 +69,7 @@
 .staffingsvv-tabs {
   display: inline-flex;
   border-bottom: 1px solid #d0d7e2;
-  margin-bottom: 32px;
+  margin-bottom: 15px;
 }
 
 .staffingsvv-tab {
@@ -86,11 +86,13 @@
   border-bottom: 3px solid #243f8f;
   font-weight: 600;
   color: #243f8f;
+  font-size: medium;
 }
 
 .staffingsvv-tab-muted {
   color: #243f8f;
   font-weight: 500;
+  font-size: medium;
 }
 
 .staffingsvv-section-heading {
@@ -111,7 +113,7 @@
   font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #6b7280;
+  color: #3e4044;
 }
 
 .staffingsvv-grid {

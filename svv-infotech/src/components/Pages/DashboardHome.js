@@ -1,46 +1,52 @@
 import React from "react";
-import { FaUserTie, FaUserGraduate, FaUserShield } from "react-icons/fa";
 import { MdOutlinePhoneCallback } from "react-icons/md";
 import { IoIosPeople } from "react-icons/io";
 import { PiSuitcaseSimple } from "react-icons/pi";
-  import { GrDocumentSound } from "react-icons/gr";   
-
+import { GrDocumentSound } from "react-icons/gr";
+import { useNavigate } from "react-router-dom";
 import "../../Styles/DashboardHome.css";
 
-// __define-ocg__: dashboard cards configuration
 function DashboardHome() {
+  const navigate = useNavigate();
+
   const varOcg = [
     {
       icon: <MdOutlinePhoneCallback />,
-      title: "LIVE JOB POSTS",
+      title: "QUICK CONTACTS",
+      path: "/dashboard/Quickadmin",
       status: [{ count: 15, label: "Quick Contacts", color: "green" }],
     },
     {
       icon: <IoIosPeople />,
-      title: "PREVIOUS JOBS",
+      title: "CANDIDATES",
+      path: "/dashboard/Registercandidates",
       status: [{ count: 121, label: "Candidates", color: "green" }],
     },
     {
       icon: <PiSuitcaseSimple />,
-      title: "JOB APPLICATIONS",
+      title: "JOBS",
+      path: "/dashboard/Viewjobs",
       status: [{ count: 50, label: "Jobs", color: "green" }],
     },
-     {
-          icon: <GrDocumentSound />,
-          title: "JOB APPLICATIONS",
-          status: [{ count: 30, label: "ON Boarding", color: "green" }],
-        },
+    {
+      icon: <GrDocumentSound />,
+      title: "ON BOARDING",
+      path: "/dashboard/Onboardingview",
+      status: [{ count: 30, label: "ON Boarding", color: "green" }],
+    },
   ];
 
   return (
     <div className="dashboard-main">
       <div className="dashboard-card-row">
         {varOcg.map((card, index) => (
-          <div className="dashboard-big-card" key={index}>
+          <div
+            className="dashboard-big-card"
+            key={index}
+            onClick={() => navigate(card.path)}
+            style={{ cursor: "pointer" }}
+          >
             <div className="dashboard-big-icon">{card.icon}</div>
-
-            {/* If you want to show the title, uncomment this */}
-            {/* <h3 className="dashboard-card-title">{card.title}</h3> */}
 
             <div className="dashboard-status-boxes">
               {card.status.map((s, i) => (
@@ -52,7 +58,6 @@ function DashboardHome() {
                 </div>
               ))}
             </div>
-
           </div>
         ))}
       </div>
