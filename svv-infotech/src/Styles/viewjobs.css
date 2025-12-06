@@ -8,6 +8,21 @@
   font-family: "Inter", sans-serif;
 }
 
+
+ .viewjob-filter-input {
+    width: 220px;
+    height: 42px;
+    border: 1px solid #cfcfcf;
+    border-radius: 8px;
+    padding: 0 12px;
+    font-size: 14px;
+    background: #ffffff;
+    box-shadow: inset 0px 1px 4px rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: flex-end;
+
+  }
+
 /* Page title */
 .viewjobs-svv-title {
   text-align: center;
@@ -42,7 +57,7 @@
   border: none;
   width: 120px;
   height: 42px;
-  border-radius: 8px;
+  border-radius: 20px;
   font-weight: 600;
   cursor: pointer;
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
@@ -56,6 +71,9 @@
 .viewjobs-svv-delete-btn {
   background: #dc2626;
   color: #ffffff;
+  position: relative;
+  top: 20px;
+  margin-right: auto;
 }
 
 /* Active / Inactive status cards row */
@@ -130,6 +148,7 @@
 .viewjobs-svv-table th {
   padding: 14px;
   font-size: 15px;
+  text-align: center;
   font-weight: 600;
 }
 

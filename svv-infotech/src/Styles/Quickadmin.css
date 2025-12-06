@@ -57,8 +57,10 @@
     height: 30px;
     width: 100px;
     border: none;
+    position: relative;
+    top: 10px;
     border-radius: 10px;
-    margin-bottom: 10px;
+    
 }
 
 .quick-no-data {
@@ -145,6 +147,12 @@
   color: #002060;
 }
 
+.quickcontactusrow{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
 
 .quick-popup-header {
   text-align: center;

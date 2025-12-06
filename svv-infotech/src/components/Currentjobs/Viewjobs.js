@@ -4,7 +4,7 @@ import "../../Styles/viewjobs.css";
 
 const JobApplication = () => {
   const navigate = useNavigate()
-  const experienceOptions = ["Fresher (0-1 Years)", "Experienced (1+ Years)"];
+  const experienceOptions = ["Job Title", "Experience"];
 
   const initialData = [
     { id: 1, title: "Software Engineer",      dep: "IT",        loc: "Bangalore", exp: "2-5", sal: "1-3", status: "Active" },
@@ -72,25 +72,17 @@ const JobApplication = () => {
       <h2 className="viewjobs-svv-title">View Jobs</h2>
 
       {/* Filter row (Select all + Apply + Delete) */}
-      <div className="viewjobs-svv-filter-row">
-        <input
-          type="checkbox"
-          className="viewjobs-svv-check-all"
-          onChange={(e) =>
-            setSelectedRows(e.target.checked ? records.map((r) => r.id) : [])
-          }
-        />
-
-        <button className="viewjobs-svv-apply-btn" onClick={applyFilters}>
-          Apply
-        </button>
-        <button className="viewjobs-svv-delete-btn" onClick={deleteSelected}>
+      <div className="d-flex justify-content-around">
+      <div>     
+      <button className="viewjobs-svv-delete-btn" onClick={deleteSelected}>
           Delete
         </button>
-      </div>
+        </div>
 
       {/* Active / Inactive cards row */}
       <div className="viewjobs-svv-status-row">
+
+        
         <div
           className={`viewjobs-svv-status-card viewjobs-svv-status-active ${
             filters.status === "Active" ? "is-selected" : ""
@@ -114,13 +106,37 @@ const JobApplication = () => {
             {inactiveCount.toString().padStart(2, "0")}
           </span>
         </div>
+        
       </div>
+
+       <div className="candit-filter" >
+          <select
+            className="viewjob-filter-input"
+            onChange={(e) =>
+              setFilters({ ...filters, experience: e.target.value })
+            }
+          >
+            <option value="">Sort By Relavance</option>
+            {experienceOptions.map((ex) => (
+              <option key={ex}>{ex}</option>
+            ))}
+          </select>
+        </div>
+        </div>
 
       {/* Table */}
       <table className="viewjobs-svv-table">
         <thead>
           <tr>
-            <th></th>
+            <th>
+               <input
+          type="checkbox"
+          className="viewjobs-svv-check-all"
+          onChange={(e) =>
+            setSelectedRows(e.target.checked ? records.map((r) => r.id) : [])
+          }
+        />
+        </th>
             <th>Job Title</th>
             <th>Department</th>
             <th>Location</th>

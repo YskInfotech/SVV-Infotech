@@ -21,7 +21,7 @@ function CarrerHome() {
       {/* LIFE @ SVV Section */}
       <div className="life-section">
         <h2>LIFE @ SVV INFOTECH</h2>
-        <p>We grow together — because teamwork always innovates.</p>
+        <p className="carrerhomep">We grow together — because teamwork always innovates.</p>
 
         <div className="life-images">
           <img src={carrerhome1} alt="Life" />
