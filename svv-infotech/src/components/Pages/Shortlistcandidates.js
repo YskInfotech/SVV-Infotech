@@ -66,7 +66,7 @@ const navigate =useNavigate()
   };
 
    const handleShortlistview = () => {
-    navigate("/dashboard/Shortlistcandidates")
+    navigate("/dashboard/Candidateview")
   }
 
   const handleRejectview = () => {
@@ -81,6 +81,7 @@ const navigate =useNavigate()
     navigate("/dashboard/Candidateview")
   }
 
+ 
 
   return (
     <div className="candit-wrapper">
@@ -183,7 +184,7 @@ const navigate =useNavigate()
                   <td>
                     <button
                       className="candit-view-btn"
-                      onClick={() => setViewData(item)}
+                      onClick={handleShortlistview}
                     >
                       View 
                     </button>

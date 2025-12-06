@@ -78,7 +78,9 @@ const Rejectcandidates = () => {
   const handlecandidateview = () => {
     navigate("/dashboard/Candidateview")
   }
-
+const handleRejectlistview = () => {
+    navigate("/dashboard/Candidateview")
+  }
 
   return (
     <div className="candit-wrapper">
@@ -181,7 +183,7 @@ const Rejectcandidates = () => {
                   <td>
                     <button
                       className="candit-view-btn"
-                      onClick={() => setViewData(item)}
+                      onClick={handleRejectlistview}
                     >
                       View 
                     </button>

@@ -75,7 +75,9 @@ const navigate = useNavigate()
     navigate("/dashboard/Candidateview")
   }
 
- 
+ const handlePendinglistview = () => {
+    navigate("/dashboard/Candidateview")
+  }
 
 
   return (
@@ -176,7 +178,7 @@ const navigate = useNavigate()
                   <td>
                     <button
                       className="candit-view-btn"
-                      onClick={() => setViewData(item)}
+                      onClick={handlePendinglistview}
                     >
                       View 
                     </button>
