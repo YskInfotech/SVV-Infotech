@@ -38,10 +38,6 @@ function DashboardHome() {
         {varOcg.map((card, index) => (
           <div className="dashboard-big-card" key={index}>
             <div className="dashboard-big-icon">{card.icon}</div>
-
-            {/* If you want to show the title, uncomment this */}
-            {/* <h3 className="dashboard-card-title">{card.title}</h3> */}
-
             <div className="dashboard-status-boxes">
               {card.status.map((s, i) => (
                 <div key={i}>
