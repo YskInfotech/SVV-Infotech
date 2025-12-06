@@ -9,6 +9,17 @@
 }
 
 
+.next-buttononbord{
+  background-color: #032ea1;
+  border-radius: 15px;
+  color: white;
+  border: none;
+  width: 70px;
+  height: 40px;
+  padding: 0px 10px;
+  text-align: center;
+}
+
 .next-button{
   background-color: blue;
   border-radius: 15px;
