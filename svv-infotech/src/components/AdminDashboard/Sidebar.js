@@ -74,7 +74,7 @@ function Sidebar() {
             onClick={() => toggleMenu("registration")}
           >
             <FaUserTie className="admin-icon" />
-            <span>Registration</span>
+            <span>Job Applications</span>
             {openMenus.registration ? <FaChevronUp /> : <FaChevronDown />}
           </div>
 
