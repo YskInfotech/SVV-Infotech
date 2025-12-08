@@ -99,6 +99,15 @@ const AddonJob = () => {
           ></textarea>
         </div>
 
+       <div className="addonjobsvv-field">
+          <label>Job Summary*</label>
+          <textarea
+            name="roles"
+            placeholder="Enter job summary..."
+            value={formData.roles}
+            onChange={handleChange}
+          ></textarea>
+        </div>
         <div className="addonjobsvv-field">
           <label>Required Skills*</label>
           <div className="addonjobsvv-skillbox">

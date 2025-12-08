@@ -17,7 +17,7 @@ function CarrerApply() {
           <div className="jobdetail-meta">
             <span>IT</span>
             <span>3 – 5 years</span>
-            <span>Hyderabad, Telangana</span>
+            
           </div>
         </div>
 
@@ -78,6 +78,14 @@ function CarrerApply() {
             <ul>
                
               <li>Hyderabad Metro Area</li>
+              
+            </ul>
+          </section>
+           <section className="jobdetail-section">
+            <h4>Work Mode</h4>
+            <ul>
+               
+              <li>On-Site</li>
               
             </ul>
           </section>
