@@ -7,6 +7,7 @@ import {
   FaHome,
   FaUserTie,
   FaBriefcase,
+  FaBars,
   FaChevronDown,
   FaChevronUp,
   FaUserCircle,
@@ -28,6 +29,23 @@ function Sidebar() {
 
   return (
     <div className={`admin-sidebar ${isCollapsed ? "collapsed" : ""}`}>
+
+      <div className="admin-sidebar-header">
+        {/* <h3 className="admin-sidebar-logo">ADMIN</h3> */}
+        <button
+          className="admin-toggle-btn"
+          onClick={() => setIsCollapsed(!isCollapsed)}
+        >
+          <FaBars />
+        </button>
+
+        <NavLink
+          to="/dashboard"
+          end
+        >
+          {/* <span className="dashboard-tit">Dashboard</span> */}
+        </NavLink>
+      </div>  
      
       <ul className="admin-sidebar-menu">
         
@@ -45,28 +63,22 @@ function Sidebar() {
         </li>
 
         {/* Contact */}
-        <li>
-          <div className="admin-menu-item" onClick={() => toggleMenu("contact")}>
-            <FaUserCircle className="admin-icon" />
-            <span>Contact Us</span>
-            {openMenus.contact ? <FaChevronUp /> : <FaChevronDown />}
-          </div>
+        
+ <li>
+ 
 
-          <ul className={`admin-submenu ${openMenus.contact ? "open" : ""}`}>
-            <li>
-              <NavLink
-                to="/dashboard/Quickadmin"
-                className={({ isActive }) =>
-                  isActive ? "submenu-link active-submenu" : "submenu-link"
-                }
-              >
-                Quick Contact Us
-              </NavLink>
-            </li>
-           
-          </ul>
+          <NavLink
+            to="/dashboard/Quickadmin"
+
+            end
+            className={({ isActive }) =>
+              `sidebar-link ${isActive ? "active" : ""}`
+            }
+          >
+            <FaUserCircle  className="admin-icon" />
+            <span className="admin-menu-item2">Quick Contact Us</span>
+          </NavLink>
         </li>
-
       
         <li>
           <div

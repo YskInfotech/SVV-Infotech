@@ -1,9 +1,31 @@
 import React from "react";
 import { Container, Row, Col, Button, Image } from "react-bootstrap";
 import "../Styles/About.css";
+import { useNavigate, useLocation } from "react-router-dom";
 import aboutImg from "../assets/about-us.png"; 
 
 const AboutSection = () => {
+ const navigate = useNavigate();
+  const location = useLocation();
+
+
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const goToContact = () => {
+    if (location.pathname === "/") {
+      scrollToSection("contact");
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        scrollToSection("contact");
+      }, 100);
+    }
+  };
   return (
     <section className="about-section" id="about">
       <Container fluid="lg" className="px-md-5">
@@ -17,7 +39,7 @@ const AboutSection = () => {
               help businesses accelerate growth through technology and trusted
               talent.
             </p>
-            <Button className="reach-btn mt-3 round">REACH US</Button>
+            <Button className="reach-btn mt-3 round"  onClick={goToContact}>REACH US</Button>
           </Col>
 
          

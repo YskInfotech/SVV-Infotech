@@ -1,8 +1,44 @@
 import React from 'react';
 import '../Styles/HeroSection.css';
+import { useNavigate, useLocation } from "react-router-dom";
 import backgroundVideo from '../assets/bg-video.mp4'; 
 
 function HeroSection() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+
+  const goToAbout = () => {
+    if (location.pathname === "/") {
+      scrollToSection("about");
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        scrollToSection("about");
+      }, 100);
+    }
+  };
+
+
+  const goToServices = () => {
+    if (location.pathname === "/") {
+      scrollToSection("services");
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        scrollToSection("services");
+      }, 100);
+    }
+  };
+
   return (
     <section className="hero-container" id="home">
       <video className="hero-video" autoPlay loop muted playsInline>
@@ -19,8 +55,13 @@ function HeroSection() {
           </p>
 
           <div className="hero-buttons">
-            <button className="btn-learn">Learn More</button>
-            <button className="btn-join">JOIN US</button>
+            <button className="btn-learn" onClick={goToAbout}>
+              Know More
+            </button>
+
+            <button className="btn-join" onClick={goToServices}>
+              JOIN US
+            </button>
           </div>
         </div>
       </div>

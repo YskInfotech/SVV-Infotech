@@ -12,62 +12,7 @@ function  Navbar() {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const handleHomeClick = () => {
-    if (location.pathname === "/") {
-
-      scrollToSection("home");
-    } else {
-
-      navigate("/");
-
-      setTimeout(() => {
-        scrollToSection("home");
-      }, 100);
-    }
-  };
-
-   const aboutHomeClick = () => {
-    if (location.pathname === "/") {
-
-      scrollToSection("about");
-    } else {
-
-      navigate("/");
-
-      setTimeout(() => {
-        scrollToSection("about");
-      }, 100);
-    }
-  };
-
-  const serviceHomeClick = () => {
-    if (location.pathname === "/") {
-
-      scrollToSection("services");
-    } else {
-
-      navigate("/");
-
-      setTimeout(() => {
-        scrollToSection("services");
-      }, 100);
-    }
-  };
-
-   const contactHomeClick = () => {
-    if (location.pathname === "/") {
-
-      scrollToSection("contact");
-    } else {
-
-      navigate("/");
-
-      setTimeout(() => {
-        scrollToSection("contact");
-      }, 100);
-    }
-  };
-
+  
 
 
   const [showServices, setShowServices] = useState(false);
@@ -95,19 +40,20 @@ function  Navbar() {
           <Nav className="ms-auto align-items-center">
 
 
-            <Nav.Link onClick={handleHomeClick} className="nav-link-custom nav-hed-text">
+            <Nav.Link href="#home"  className="nav-link-custom nav-hed-text" onClick={() => navigate("/")} >
+              
               Home
             </Nav.Link>
 
 
-            <Nav.Link onClick={aboutHomeClick}  className="nav-link-custom nav-hed-text">About Us</Nav.Link>
+            <Nav.Link href="#about"   className="nav-link-custom nav-hed-text" onClick={() => navigate("/")} >About Us</Nav.Link>
 
 
             <NavDropdown
               title={
                 <span
                   style={{ cursor: "pointer" }}
-                  onClick={serviceHomeClick}
+                  
                   className="nav-hed-text nav-link-custom"
                 >
                   Our Services
@@ -161,10 +107,10 @@ function  Navbar() {
 
 
 
-            <Nav.Link onClick={() => navigate("/carrerlayout")} className="nav-link-custom nav-hed-text">
+            <Nav.Link   onClick={() => navigate("/carrerlayout")} className="nav-link-custom nav-hed-text">
               Careers
             </Nav.Link>
-            <Nav.Link onClick={contactHomeClick} className="nav-link-custom nav-hed-text">Contact</Nav.Link>
+            <Nav.Link   href="#contact"  className="nav-link-custom nav-hed-text" onClick={() => navigate("/")} >Contact</Nav.Link>
 
 
             <Button variant="outline-primary" className="login-btn ms-3 px-4" onClick={() => navigate("/Login")}>

@@ -52,9 +52,9 @@ function Login() {
                         <IoIosCloseCircle className="login-icon" />
                     </div>
 
-                    <div className="row g-0">
+                    <div className="row g-0 p-0">
 
-                        <div className="login-body">
+                        <div className="login-body ">
                             <h3 className="login-tittle"> Admin LogIn  </h3>
                             <form onSubmit={handlesubmit} autoComplete="off">
                                 <div className="mb-2">

@@ -112,7 +112,7 @@ const Registercandidates = () => {
 
      <div className="candit-list-view">
         <div className="candit-filter-group">
-          <div className="shortlist-count active " onClick={handleShortlistview} >
+          <div className="shortlist-count" onClick={handleShortlistview} >
             <p className="mb-0">Shortlisted</p>
             <p className="mt-0" style={{ color: "#33E613", fontSize: "20px", fontWeight: "bold" }}>07</p>
           </div>

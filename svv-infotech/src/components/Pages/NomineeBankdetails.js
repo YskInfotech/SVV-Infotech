@@ -195,6 +195,33 @@ function Nominee_Bankdetails() {
         <h5 className="nomineeheading">4. References</h5>
         
          <p className="nomineepara">A. Employer Reference</p>
+          <p className="nomineepara">Reference 1</p>
+     <div className="pi-grid-2">
+          <label className="pi-label">
+            Name
+            <input type="text" required className="pi-input"/>
+          </label>
+
+          <label className="pi-label">
+            Designation
+            <input type="email" required className="pi-input"/>
+          </label>
+           <label className="pi-label">
+            Phone Number
+            <input type="text" required className="pi-input"/>
+          </label>
+           <label className="pi-label">
+            Email ID
+            <input type="text" required className="pi-input"/>
+          </label>
+           <label className="pi-label">
+            Last Employer
+            <input type="text" required className="pi-input"/>
+          </label>
+          
+          
+       </div>
+         <p className="nomineepara">Reference 2</p>
      <div className="pi-grid-2">
           <label className="pi-label">
             Name

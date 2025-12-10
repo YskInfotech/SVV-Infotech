@@ -5,12 +5,14 @@
   margin-top: 70px;
 }
 
+
 .dashboard-card-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);   
-  gap: 40px;
-  justify-items: center;
+  grid-template-columns: repeat(3, 300px); 
+  justify-content: center;                 
+  gap: 20px;                              
 }
+
 
 
 .dashboard-big-card {
@@ -22,6 +24,50 @@
   text-align: center;
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
 }
+
+
+
+
+/* iPad Portrait & Landscape */
+@media only screen 
+  and (min-width: 768px) 
+  and (max-width: 1024px) {
+
+  .dashboard-card-row {
+    display: grid;
+    grid-template-columns: repeat(2, 300px); 
+    justify-content: center;                 
+    gap: 20px;                               
+  }
+
+  .dashboard-big-card {
+    width: 300px;       /* keep card size */
+    padding: 22px;      
+  }
+
+}
+
+/* iPad Mini Portrait & Landscape (768–819 width) */
+@media only screen 
+  and (min-width: 768px)
+  and (max-width: 819px) {
+
+  .dashboard-card-row {
+    display: grid;
+    grid-template-columns: repeat(2, 280px); /* slightly smaller */
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .dashboard-big-card {
+    width: 280px;
+    padding: 20px;
+  }
+}
+
+
+
+
 
 .dashboard-big-card:hover {
   /* border:1px solid #06222c; */
@@ -81,4 +127,7 @@
   width: 50px;
   font-size: 20px;
   font-weight: 500;
+  background-color: #009c3b;
+  padding: 0px 10px;
+  border-radius: 5px;
 }
