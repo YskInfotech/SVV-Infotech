@@ -7,6 +7,66 @@
   margin-top: 0.8cm;
 }
 
+
+
+
+@media only screen
+  and (min-width: 769px)
+  and (max-width: 821px) {
+  .admin-main-content {
+  /* margin-top: 60px; */
+  margin-left: 270px; 
+  padding: 20px;
+  background: #ffff !important;
+  min-height: calc(100vh -30px);
+  transition: margin-left 0.3s ease;
+}
+
+.onboarding-wrapper {
+  width: 100%;
+  padding: 20px 30px;
+  background: #ffff;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  margin-top: 0.8cm;
+}
+
+}
+
+
+@media only screen
+
+  and (max-width: 1025px) {
+     .admin-main-content {
+  /* margin-top: 60px; */
+  margin-left: 270px; 
+  padding: 20px;
+  background: #ffff !important;
+  min-height: calc(100vh -30px);
+  transition: margin-left 0.3s ease;
+}
+
+.onboarding-wrapper {
+  width: 100%;
+  padding: 20px 30px;
+  background: #ffff;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  margin-top: 0.8cm;
+}
+
+.onboarding-title {
+  font-size: 25px !important;
+    text-align: center;
+    font-weight: 700;
+    color: #b91c1c;
+    margin-bottom: 25px;
+
+}
+  }
+
+
+
 .onboarding-title {
   text-align: center;
   font-size: 32px;
