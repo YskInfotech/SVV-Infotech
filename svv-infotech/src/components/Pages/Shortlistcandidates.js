@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import "../../Styles/Registercandidates.css";
-import { RiShareForwardLine,RiDownloadFill } from "react-icons/ri";
-import { MdOutlineBlock,MdOutlineDeleteOutline } from "react-icons/md";
+import { RiShareForwardLine, RiDownloadFill } from "react-icons/ri";
+import { MdOutlineBlock, MdOutlineDeleteOutline } from "react-icons/md";
 import { HiOutlineMail } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
-
+import { saveAs } from "file-saver";
+import { Document, Packer, Paragraph, TextRun } from "docx";
 
 // __define-ocg__
 const Shortlistcandidates = () => {
-//   const varOcg = true;
+  // example usage variable requested by user
+  const varOcg = "shortlist_candidates_doc";
 
-const navigate =useNavigate()
+  const navigate = useNavigate();
 
   const experienceOptions = ["Fresher (0-1 Years)", "Experienced (1+ Years)"];
 
@@ -29,6 +31,7 @@ const navigate =useNavigate()
     experience: "",
   });
 
+  // selectedRows stores candidate names (keeps consistent with existing code)
   const [selectedRows, setSelectedRows] = useState([]);
   const [viewData, setViewData] = useState(null);
 
@@ -59,142 +62,189 @@ const navigate =useNavigate()
       prev.includes(name) ? prev.filter((x) => x !== name) : [...prev, name]
     );
   };
-  
-  const deleteSelected = () => {
-    setRecords(records.filter((item) => !selectedRows.includes(item.id)));
+
+  // Delete selected candidates (based on name selection)
+  const handleDeleteSelected = () => {
+    if (selectedRows.length === 0) {
+      alert("Please select at least one candidate to delete.");
+      return;
+    }
+    const confirmDelete = window.confirm("Are you sure you want to delete the selected candidate(s)?");
+    if (!confirmDelete) return;
+
+    setRecords((prev) => prev.filter((item) => !selectedRows.includes(item.name)));
     setSelectedRows([]);
+    alert("Selected candidate(s) deleted successfully.");
   };
 
-   const handleShortlistview = () => {
-    navigate("/dashboard/Candidateview")
-  }
+  // Download selected candidates as a .docx (one section per candidate)
+  const handleDownloadSelected = async () => {
+    if (selectedRows.length === 0) {
+      alert("Please select at least one candidate to download.");
+      return;
+    }
+
+    const selected = records.filter((r) => selectedRows.includes(r.name));
+    if (selected.length === 0) {
+      alert("No matching records found for download.");
+      return;
+    }
+
+    const doc = new Document({
+      sections: selected.map((item) => ({
+        properties: {},
+        children: [
+          new Paragraph({
+            children: [
+              new TextRun({ text: "Candidate - Details", bold: true, size: 28 }),
+            ],
+          }),
+          new Paragraph({ text: "" }),
+          new Paragraph({ children: [new TextRun(`ID: ${item.id}`)] }),
+          new Paragraph({ children: [new TextRun(`Name: ${item.name}`)] }),
+          new Paragraph({ children: [new TextRun(`Applied For: ${item.appliedfor || "N/A"}`)] }),
+          new Paragraph({ children: [new TextRun(`Email: ${item.email || "N/A"}`)] }),
+          new Paragraph({ children: [new TextRun(`Phone: ${item.phone || "N/A"}`)] }),
+          new Paragraph({ children: [new TextRun(`Experience: ${item.exp} Years`)] }),
+          new Paragraph({ children: [new TextRun(`Status: ${item.status || "N/A"}`)] }),
+          new Paragraph({ text: "" }),
+          new Paragraph({ children: [new TextRun("--------------------------------------------------")] }),
+          new Paragraph({ text: "" }),
+        ],
+      })),
+    });
+
+    try {
+      const blob = await Packer.toBlob(doc);
+      const fname = `shortlisted_candidates_${new Date().toISOString().slice(0,19).replace(/[:T]/g, "-")}.docx`;
+      saveAs(blob, fname);
+    } catch (err) {
+      console.error("Download error:", err);
+      alert("Failed to generate document. See console for details.");
+    }
+  };
+
+  const handleShortlistview = () => {
+    navigate("/dashboard/Candidateview");
+  };
 
   const handleRejectview = () => {
-    navigate("/dashboard/Rejectcandidates")
-  }
+    navigate("/dashboard/Rejectcandidates");
+  };
 
   const handlePendingview = () => {
-    navigate("/dashboard/Pendingcandidates")
-  }
-
-  const handlecandidateview = () => {
-    navigate("/dashboard/Candidateview")
-  }
-
- 
+    navigate("/dashboard/Pendingcandidates");
+  };
 
   return (
     <div className="candit-wrapper">
+      <>
+        <h2 className="candit-title">Candidates</h2>
 
-      
-       
-        <>
-          <h2 className="candit-title">Candidates</h2>
-
-          <div className="candit-filter-row">
-
+        <div className="candit-filter-row">
           <button className="candit-shortlist-btn" >
-             <RiShareForwardLine className="icon-candit"/> Shortlist
-            </button>
-            <button className="candit-reject-btn" onClick={applyFilters}>
-              <MdOutlineBlock className="icon-candit" />Reject
-            </button>
-            <button className="candit-email-btn" onClick={applyFilters}>
-             <HiOutlineMail className="icon-candit"/> Email
-            </button>
-            <button className="candit-forward-btn" onClick={applyFilters}>
-             <RiShareForwardLine className="icon-candit" /> Forward
-            </button>
+            <RiShareForwardLine className="icon-candit" /> Shortlist
+          </button>
+          <button className="candit-reject-btn" onClick={applyFilters}>
+            <MdOutlineBlock className="icon-candit" />Reject
+          </button>
+          <button className="candit-email-btn" onClick={applyFilters}>
+            <HiOutlineMail className="icon-candit" /> Email
+          </button>
+          <button className="candit-forward-btn" onClick={applyFilters}>
+            <RiShareForwardLine className="icon-candit" /> Forward
+          </button>
 
-            <button className="candit-download-btn" onClick={applyFilters}>
-              <RiDownloadFill className="icon-candit"/>Download
-            </button>
+          <button className="candit-download-btn" onClick={handleDownloadSelected}>
+            <RiDownloadFill className="icon-candit" />Download
+          </button>
 
-            <button className="candit-delete-btn" onClick={deleteSelected}>
-             <MdOutlineDeleteOutline className="icon-candit"/> Delete
-            </button>
+          <button className="candit-delete-btn" onClick={handleDeleteSelected}>
+            <MdOutlineDeleteOutline className="icon-candit" /> Delete
+          </button>
+        </div>
+
+        <div className="candit-list-view">
+          <div className="candit-filter-group">
+            <div className="shortlist-count active " onClick={handleShortlistview} >
+              <p className="mb-0">Shortlisted</p>
+              <p className="mt-0" style={{ color: "#33E613", fontSize: "20px", fontWeight: "bold" }}>07</p>
+            </div>
+            <div className="reject-count" onClick={handleRejectview}>
+              <p className="mb-0">Rejected</p>
+              <p className="mt-0" style={{ color: "#F00C0C", fontSize: "20px", fontWeight: "bold" }}>10</p>
+            </div>
+            <div className="pending-count" onClick={handlePendingview}>
+              <p className="mb-0">Pending</p>
+              <p className="mt-0" style={{ color: "#FFBD07", fontSize: "20px", fontWeight: "bold" }}>04</p>
+            </div>
           </div>
-          <div className="candit-list-view">
-        <div className="candit-filter-group">
-          <div className="shortlist-count active " onClick={handleShortlistview} >
-            <p className="mb-0">Shortlisted</p>
-            <p className="mt-0" style={{ color: "#33E613", fontSize: "20px", fontWeight: "bold" }}>07</p>
-          </div>
-          <div className="reject-count" onClick={handleRejectview}>
-            <p className="mb-0">Rejected</p>
-            <p className="mt-0" style={{ color: "#F00C0C", fontSize: "20px", fontWeight: "bold" }}>10</p>
-          </div>
-          <div className="pending-count" onClick={handlePendingview}>
-            <p className="mb-0">Pending</p>
-            <p className="mt-0" style={{ color: "#FFBD07", fontSize: "20px", fontWeight: "bold" }}>04</p>
+          <div className="candit-filter" >
+            <select
+              className="candit-filter-input"
+              onChange={(e) =>
+                setFilters({ ...filters, experience: e.target.value })
+              }
+            >
+              <option value="">Filter by Experience</option>
+              {experienceOptions.map((ex) => (
+                <option key={ex}>{ex}</option>
+              ))}
+            </select>
           </div>
         </div>
-        <div className="candit-filter" >
-          <select
-            className="candit-filter-input"
-            onChange={(e) =>
-              setFilters({ ...filters, experience: e.target.value })
-            }
-          >
-            <option value="">Filter by Experience</option>
-            {experienceOptions.map((ex) => (
-              <option key={ex}>{ex}</option>
-            ))}
-          </select>
-        </div>
-      </div>  
 
-          <table className="candit-table">
-            <thead>
-              <tr>
-                <th>
+        <table className="candit-table">
+          <thead>
+            <tr>
+              <th>
+                <input
+                  type="checkbox"
+                  onChange={(e) =>
+                    setSelectedRows(e.target.checked ? records.map((r) => r.name) : [])
+                  }
+                  checked={records.length > 0 && selectedRows.length === records.length}
+                />
+              </th>
+              <th>Application Name</th>
+              <th>Applied For</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Experience</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {records.map((item) => (
+              <tr key={item.name}>
+                <td>
                   <input
                     type="checkbox"
-                    onChange={(e) =>
-                      setSelectedRows(e.target.checked ? records.map((r) => r.name) : [])
-                    }
+                    checked={selectedRows.includes(item.name)}
+                    onChange={() => toggleSelect(item.name)}
                   />
-                </th>
-                <th>Application Name</th>
-                <th>Applied For</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Experience</th>
-                <th>Action</th>
+                </td>
+
+                <td>{item.name}</td>
+                <td>{item.appliedfor}</td>
+                <td>{item.email}</td>
+                <td>{item.phone}</td>
+                <td>{item.exp} Years</td>
+
+                <td>
+                  <button
+                    className="candit-view-btn"
+                    onClick={handleShortlistview}
+                  >
+                    View
+                  </button>
+                </td>
               </tr>
-            </thead>
-
-            <tbody>
-              {records.map((item) => (
-                <tr key={item.name}>
-                  <td>
-                    <input
-                      type="checkbox"
-                      checked={selectedRows.includes(item.name)}
-                      onChange={() => toggleSelect(item.name)}
-                    />
-                  </td>
-
-                  <td>{item.name}</td>
-                  <td>{item.appliedfor}</td>
-                  <td>{item.email}</td>
-                  <td>{item.phone}</td>
-                  <td>{item.exp} Years</td>
-
-                  <td>
-                    <button
-                      className="candit-view-btn"
-                      onClick={handleShortlistview}
-                    >
-                      View 
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </>
-     
+            ))}
+          </tbody>
+        </table>
+      </>
     </div>
   );
 };

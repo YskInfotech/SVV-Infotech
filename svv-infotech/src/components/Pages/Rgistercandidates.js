@@ -4,12 +4,13 @@ import { RiShareForwardLine, RiDownloadFill } from "react-icons/ri";
 import { MdOutlineBlock, MdOutlineDeleteOutline } from "react-icons/md";
 import { HiOutlineMail } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
+import { saveAs } from "file-saver";
+import { Document, Packer, Paragraph, TextRun } from "docx";
 
 const Registercandidates = () => {
   const [activeTab, setActiveTab] = useState("shortlisted");
 
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const experienceOptions = ["Fresher (0-1 Years)", "Experienced (1+ Years)"];
 
@@ -32,6 +33,8 @@ const Registercandidates = () => {
 
   const [selectedRows, setSelectedRows] = useState([]);
 
+  // __define-ocg__ : use varOcg for any temporary state/constant here if needed
+  const varOcg = "register_candidates_doc"; // example usage variable (per user's request)
 
   const applyFilters = () => {
     let filtered = initialData;
@@ -61,33 +64,89 @@ const Registercandidates = () => {
     );
   };
 
-
-
   const handleShortlistview = () => {
-    navigate("/dashboard/Shortlistcandidates")
-  }
+    navigate("/dashboard/Shortlistcandidates");
+  };
 
   const handleRejectview = () => {
-    navigate("/dashboard/Rejectcandidates")
-  }
+    navigate("/dashboard/Rejectcandidates");
+  };
 
   const handlePendingview = () => {
-    navigate("/dashboard/Pendingcandidates")
-  }
+    navigate("/dashboard/Pendingcandidates");
+  };
 
   const handlecandidateview = () => {
-    navigate("/dashboard/Candidateview")
-  }
+    navigate("/dashboard/Candidateview");
+  };
 
+  // Download functionality added (similar to Onboardingview)
+  const handleDownloadSelected = async () => {
+    if (selectedRows.length === 0) {
+      alert("Please select at least one candidate to download.");
+      return;
+    }
 
+    const selected = records.filter((r) => selectedRows.includes(r.name));
+    if (selected.length === 0) {
+      alert("No matching records found for download.");
+      return;
+    }
+
+    // Build a docx document with one section per selected candidate
+    const doc = new Document({
+      sections: selected.map((item) => ({
+        properties: {},
+        children: [
+          new Paragraph({
+            children: [
+              new TextRun({ text: "Candidate - Details", bold: true, size: 28 }),
+            ],
+          }),
+          new Paragraph({ text: "" }),
+          new Paragraph({ children: [new TextRun(`ID: ${item.id}`)] }),
+          new Paragraph({ children: [new TextRun(`Name: ${item.name}`)] }),
+          new Paragraph({ children: [new TextRun(`Applied For: ${item.appliedfor || "N/A"}`)] }),
+          new Paragraph({ children: [new TextRun(`Email: ${item.email || "N/A"}`)] }),
+          new Paragraph({ children: [new TextRun(`Phone: ${item.phone || "N/A"}`)] }),
+          new Paragraph({ children: [new TextRun(`Experience: ${item.exp} Years`)] }),
+          new Paragraph({ children: [new TextRun(`Status: ${item.status || "N/A"}`)] }),
+          new Paragraph({ text: "" }),
+          new Paragraph({ children: [new TextRun("--------------------------------------------------")] }),
+          new Paragraph({ text: "" }),
+        ],
+      })),
+    });
+
+    try {
+      const blob = await Packer.toBlob(doc);
+      const fname = `candidates_${new Date().toISOString().slice(0,19).replace(/[:T]/g, "-")}.docx`;
+      saveAs(blob, fname);
+    } catch (err) {
+      console.error("Download error:", err);
+      alert("Failed to generate document. See console for details.");
+    }
+  };
+
+  const handleDeleteSelected = () => {
+    if (selectedRows.length === 0) {
+      alert("Please select at least one candidate to delete.");
+      return;
+    }
+
+    const confirmDelete = window.confirm("Are you sure you want to delete the selected candidate(s)?");
+    if (!confirmDelete) return;
+
+    setRecords((prev) => prev.filter((item) => !selectedRows.includes(item.name)));
+    setSelectedRows([]);
+    alert("Selected candidate(s) deleted successfully.");
+  };
 
   return (
     <div className="candit-wrapper">
-
       <h2 className="candit-title">Candidates</h2>
 
       <div className="candit-filter-row">
-
         <button className="candit-shortlist-btn" >
           <RiShareForwardLine className="icon-candit" /> Shortlist
         </button>
@@ -101,16 +160,16 @@ const Registercandidates = () => {
           <RiShareForwardLine className="icon-candit" /> Forward
         </button>
 
-        <button className="candit-download-btn" >
+        <button className="candit-download-btn" onClick={handleDownloadSelected}>
           <RiDownloadFill className="icon-candit" />Download
         </button>
 
-        <button className="candit-delete-btn">
+        <button className="candit-delete-btn" onClick={handleDeleteSelected}>
           <MdOutlineDeleteOutline className="icon-candit" /> Delete
         </button>
       </div>
 
-     <div className="candit-list-view">
+      <div className="candit-list-view">
         <div className="candit-filter-group">
           <div className="shortlist-count" onClick={handleShortlistview} >
             <p className="mb-0">Shortlisted</p>
@@ -125,9 +184,6 @@ const Registercandidates = () => {
             <p className="mt-0" style={{ color: "#FFBD07", fontSize: "20px", fontWeight: "bold" }}>04</p>
           </div>
         </div>
-
-
-
 
         <div className="candit-filter" >
           <select
@@ -153,6 +209,7 @@ const Registercandidates = () => {
                 onChange={(e) =>
                   setSelectedRows(e.target.checked ? records.map((r) => r.name) : [])
                 }
+                checked={records.length > 0 && selectedRows.length === records.length}
               />
             </th>
             <th>Application Name</th>
@@ -186,11 +243,19 @@ const Registercandidates = () => {
                   className="candit-view-btn"
                   onClick={handlecandidateview}
                 >
-                  View 
+                  View
                 </button>
               </td>
             </tr>
           ))}
+
+          {records.length === 0 && (
+            <tr>
+              <td colSpan={7} style={{ textAlign: "center", padding: "12px" }}>
+                No records found.
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>
