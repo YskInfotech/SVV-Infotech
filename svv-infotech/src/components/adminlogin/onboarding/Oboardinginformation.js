@@ -11,7 +11,7 @@ function Onboardinginformation() {
 
     const handleviewpersonal=()=>{
          setActive("personal");
-        navigate("/dashboard/Onboardinglanding/")
+        navigate("/dashboard/onboardingemployee")
     }
 
     const handleviewdocuments=()=>{

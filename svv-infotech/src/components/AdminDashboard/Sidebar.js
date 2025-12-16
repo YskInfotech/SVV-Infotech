@@ -49,25 +49,21 @@ function Sidebar() {
      
       <ul className="admin-sidebar-menu">
         
-        <li>
+   <li>
           <NavLink
             to="/dashboard"
+
             end
             className={({ isActive }) =>
               `sidebar-link ${isActive ? "active" : ""}`
             }
           >
-            <FaHome className="admin-icon" />
+            <FaHome   className="admin-icon" />
             <span className="admin-menu-item2">Home</span>
           </NavLink>
         </li>
-
-        {/* Contact */}
         
- <li>
- 
-
-          <NavLink
+ <li>     <NavLink
             to="/dashboard/Quickadmin"
 
             end
@@ -80,76 +76,45 @@ function Sidebar() {
           </NavLink>
         </li>
       
-        <li>
-          <div
-            className="admin-menu-item"
-            onClick={() => toggleMenu("registration")}
+
+
+         <li>
+          <NavLink
+            to="/dashboard/AdminJobsList/:jobId"
+
+            end
+            className={({ isActive }) =>
+              `sidebar-link ${isActive ? "active" : ""}`
+            }
           >
-            <FaUserTie className="admin-icon" />
-            <span>Job Applications</span>
-            {openMenus.registration ? <FaChevronUp /> : <FaChevronDown />}
-          </div>
-
-          <ul
-            className={`admin-submenu ${openMenus.registration ? "open" : ""}`}
-          >
-            <li>
-              <NavLink
-
-                to="/dashboard/Registercandidates"
-
-                className={({ isActive }) =>
-                  isActive ? "submenu-link active-submenu" : "submenu-link"
-                }
-              >
-                Candidates
-              </NavLink>
-            </li>
-
-           
-          </ul>
+            <FaUserTie  className="admin-icon" />
+            <span className="admin-menu-item2">All Jobs</span>
+          </NavLink>
         </li>
 
         {/* Jobs */}
-        <li>
-          <div className="admin-menu-item" onClick={() => toggleMenu("jobs")}>
-            <FaBriefcase className="admin-icon" />
-            <span>Jobs</span>
-            {openMenus.jobs ? <FaChevronUp /> : <FaChevronDown />}
-          </div>
+        
+          
+          
+           
+           <li>
+          <NavLink
+            to="/dashboard/AddonJob"
 
-          <ul className={`admin-submenu ${openMenus.jobs ? "open" : ""}`}>
-            <li>
-              <NavLink
-
-                to="/dashboard/AddonJob"
-
-                className={({ isActive }) =>
-                  isActive ? "submenu-link active-submenu" : "submenu-link"
-                }
-              >
-                Add on Job
-              </NavLink>
-            </li>
-
-            <li>
-              <NavLink
-                to="/dashboard/Viewjobs"
-
-                className={({ isActive }) =>
-                  isActive ? "submenu-link active-submenu" : "submenu-link"
-                }
-              >
-                View Jobs
-              </NavLink>
-            </li>
+            end
+            className={({ isActive }) =>
+              `sidebar-link ${isActive ? "active" : ""}`
+            }
+          >
+            <FaBriefcase   className="admin-icon" />
+            <span className="admin-menu-item2">Add on Job</span>
+          </NavLink>
+        </li>
 
            
-          </ul>
-        </li>
+          
+        
         <li>
- 
-
           <NavLink
             to="/dashboard/Onboardingview"
 

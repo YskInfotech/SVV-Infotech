@@ -23,6 +23,26 @@
   gap: 18px;
 }
 
+
+.jobback-btn {
+  padding: 5px 12px;
+  background-color: #164B7B;
+  color: #fff;
+  position: relative;
+  margin-right: auto;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+
+.jobback-btn:hover {
+  background-color: #0f3a5f;
+}
+
+
 .addonjobsvv-field label {
   font-size: 14px;
   font-weight: 500;

@@ -19,13 +19,13 @@ function DashboardHome() {
     {
       icon: <IoIosPeople />,
       title: "CANDIDATES",
-      path: "/dashboard/Registercandidates",
+      path: "/dashboard/AdminJobsList/:jobId",
       status: [{ count: 121, label: "Candidates", color: "green" }],
     },
     {
       icon: <PiSuitcaseSimple />,
       title: "JOBS",
-      path: "/dashboard/Viewjobs",
+      path: "/dashboard/AdminJobsList/:jobId",
       status: [{ count: 50, label: "Jobs", color: "green" }],
     },
     {

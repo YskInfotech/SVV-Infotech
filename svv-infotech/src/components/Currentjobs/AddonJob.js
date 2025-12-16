@@ -10,6 +10,7 @@ const AddonJob = () => {
     department: "",
     workMode: "",
     roles: "",
+    summary:"",
     skills: [],
     experienceMin: "",
     experienceMax: "",
@@ -44,11 +45,22 @@ const AddonJob = () => {
     navigate("/dashboard/AddonJobs");
   };
 
+  
+
   return (
     <div className="addonjobsvv-container">
       <h2 className="addonjobsvv-title">
         ADD ON JOB 
       </h2>
+
+    <button
+  className="jobback-btn"
+  onClick={() => navigate(-1, { replace: true })}
+>
+  Back
+</button>
+
+
 
       <div className="addonjobsvv-form">
         <div className="addonjobsvv-field">
@@ -102,9 +114,9 @@ const AddonJob = () => {
        <div className="addonjobsvv-field">
           <label>Job Summary*</label>
           <textarea
-            name="roles"
+            name="summary"
             placeholder="Enter job summary..."
-            value={formData.roles}
+            value={formData.summary}
             onChange={handleChange}
           ></textarea>
         </div>

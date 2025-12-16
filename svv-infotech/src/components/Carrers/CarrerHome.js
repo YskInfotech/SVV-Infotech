@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 function CarrerHome() {
   const navigate = useNavigate();
+  
 
   return (
     <>
@@ -14,8 +15,14 @@ function CarrerHome() {
       <div className="career-banner-svv mt-5">
         <h1>Find your Dream job</h1>
         <p>Unlocking opportunities to step into a successful career ahead</p>
-        <button className="view-ope">View Openings</button>
-        <button className="apply-btn">Apply Now</button>
+        <button className="view-ope" onClick={() => {
+       document.getElementById("job-list")
+      ?.scrollIntoView({ behavior: "smooth" });
+      }}>View Openings</button>
+        <button className="apply-btn" onClick={() => {
+       document.getElementById("job-list")
+      ?.scrollIntoView({ behavior: "smooth" });
+      }}>Apply Now</button>
       </div>
 
       {/* LIFE @ SVV Section */}
@@ -35,7 +42,7 @@ function CarrerHome() {
         <h2>Your Next Career Milestone Starts Here!</h2>
 
         {/* Search Row */}
-        <div className="search-row">
+        <div className="search-row"  id="job-list"> 
           <input type="text" placeholder="Search by Experience" />
           <input type="text" placeholder="Search by Department" />
           <button className="search-btn">Search</button>

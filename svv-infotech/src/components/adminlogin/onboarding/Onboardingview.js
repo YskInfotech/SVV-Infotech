@@ -15,7 +15,7 @@ const initialData = [
   { id: 4, name: "Neha Kapoor", appliedfor: "UI/UX Designer", email: "neha@example.com", phone: "+91 9988223344", exp: 1, status: "Inactive" },
 ];
 
-const Onboardingview = () => {
+const   Onboardingview = () => {
   const navigate = useNavigate();
   const experienceOptions = ["Fresher (0-1 Years)", "Experienced (1+ Years)"];
 
@@ -45,7 +45,7 @@ const Onboardingview = () => {
   };
 
   const handleonboardviewinfo = () => {
-    navigate("/dashboard/Onboardinglanding");
+    navigate("/Adminonboarding");
   };
 
   const deleteSelected = () => {

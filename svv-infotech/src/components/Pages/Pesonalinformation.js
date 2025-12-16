@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
   
 
 function Pesonalinformation() {
-  const navigate=useNavigate()
+  const navigate = useNavigate()
 
   return (
     <div className="pi-container">

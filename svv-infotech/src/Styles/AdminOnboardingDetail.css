@@ -1,0 +1,229 @@
+.onboarding-detail-container {
+  padding: 2rem 0;
+  min-height: 100vh;
+  
+  background-color: #f8f9fa;
+}
+ 
+
+.adminback {
+  position: absolute;
+  left: 10px;                  
+  padding: 6px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  height: fit-content;
+  border-radius: 999px;
+   background-color: #ffffff;      
+  color: #043766;                  
+  border: 1px solid #043766;
+}
+
+.adminback:hover {
+  background-color: #043766;   /* primary color */
+  color: #ffffff;
+  transform: translateX(-3px);
+  box-shadow: 0 4px 12px rgba(4, 55, 102, 0.25);
+}
+
+
+
+
+.detail-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  border-left: 4px solid #043766;
+}
+ 
+.back-btn {
+  padding: 0.75rem 1.25rem !important;
+  border-radius: 8px !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+ 
+.back-btn:hover {
+  transform: translateX(-2px);
+}
+ 
+.employee-header-info h2 {
+  color: #043766;
+  font-weight: 600;
+  font-size: 1.75rem;
+}
+ 
+.tabs-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: nowrap;
+  margin-bottom: 2rem;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 999px;
+}
+ 
+.tab-btn {
+  position: relative;
+  padding: 0.6rem 1.8rem !important;
+  border-radius: 999px !important;
+  font-weight: 500;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  border: none !important;
+  background-color: #e6e3e3 !important;
+  color: #333 !important;
+  box-shadow: none !important;
+  margin: 0;
+}
+ 
+.tab-btn.btn-primary,
+.tab-btn.btn-outline-primary {
+  border: none !important;
+}
+ 
+.tab-btn.active {
+  background-color: #4b3df6 !important;
+  color: #fff !important;
+  z-index: 2;
+}
+ 
+.tab-btn:first-child::before {
+  content: none;
+}
+ 
+.tab-btn:hover {
+  transform: translateY(-1px);
+}
+ 
+.detail-content {
+  scroll-behavior: smooth;
+}
+ 
+.section-container {
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  opacity: 0.9;
+}
+ 
+.section-container.active {
+  border-color: #043766;
+  box-shadow: 0 6px 20px rgba(4,55,102,0.15) !important;
+  opacity: 1;
+  transform: translateY(-2px);
+}
+ 
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f0f0f0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #043766;
+}
+ 
+.form-group {
+  margin-bottom: 1.5rem;
+}
+ 
+.form-group label {
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+ 
+.form-control-static {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  font-size: 0.95rem;
+  color: #043766;
+  font-weight: 500;
+}
+ 
+.status-badge {
+  padding: 0.375rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+ 
+.status-pending {
+  background: #fff3cd;
+  color: #856404;
+}
+ 
+.status-approved {
+  background: #d4edda;
+  color: #155724;
+}
+ 
+.status-rejected {
+  background: #f8d7da;
+  color: #721c24;
+}
+ 
+@media (max-width: 768px) {
+  .detail-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+ 
+  .tabs-nav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+ 
+  .tabs-nav::-webkit-scrollbar {
+    display: none;
+  }
+ 
+  .tab-btn {
+    flex-shrink: 0;
+  }
+ 
+  .section-container {
+    padding: 1.5rem;
+  }
+}
+ 
+.detail-content::-webkit-scrollbar {
+  width: 8px;
+}
+ 
+.detail-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+ 
+.detail-content::-webkit-scrollbar-thumb {
+  background: #043766;
+  border-radius: 10px;
+}
+ 
+.detail-content::-webkit-scrollbar-thumb:hover {
+  background: #032b51;
+}
+ 
+ 

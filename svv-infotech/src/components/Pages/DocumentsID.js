@@ -4,7 +4,7 @@ import { MdOutlineDoubleArrow, MdKeyboardDoubleArrowLeft } from "react-icons/md"
 import { useNavigate } from "react-router-dom";
 
 
-function Documents_ID() {
+function DocumentsID() {
   const navigate = useNavigate()
   return (
     <div className="pi-container">
@@ -59,4 +59,4 @@ function Documents_ID() {
   );
 }
 
-export default Documents_ID;
+export default DocumentsID;
