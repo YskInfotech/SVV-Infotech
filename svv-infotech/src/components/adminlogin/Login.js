@@ -118,9 +118,10 @@ function Login() {
               <h3 className="login-tittle">Admin Login</h3>
 
               <form onSubmit={handleSubmit} autoComplete="off">
-                <label className="small-label">Email *</label>
+                <label  className="small-label">Email *</label>
                 <input
                   type="email"
+                  placeholder="Email"
                   className="form-control login-input mb-2"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
@@ -130,6 +131,7 @@ function Login() {
                 <label className="small-label">Password *</label>
                 <input
                   type="password"
+                  placeholder="Password"
                   className="form-control login-input mb-2"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}

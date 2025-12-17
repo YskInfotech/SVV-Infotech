@@ -282,9 +282,14 @@ function AdminJobsList() {
                         </div>
 
                         <div className="d-flex justify-content-end align-items-center gap-3 mt-2 small">
-                            <span className={`badge ${job.status === "Open" ? "bg-success" : "bg-secondary"}`}>
+                            <span
+                                className={`badge ${job.status === "Open" ? "bg-success" : "bg-secondary"
+                                    }`}
+                                style={{ fontSize: "13px" }}   // change size as needed
+                            >
                                 {job.status}
                             </span>
+
                             <span className="text-muted">
                                 Posted: <span className="text-warning fw-bold">{job.postedDate}</span>
                             </span>
@@ -292,8 +297,8 @@ function AdminJobsList() {
                     </div>
                 </div>
             ))}
-        
-           {/* Empty state */}
+
+            {/* Empty state */}
             {currentJobs.length === 0 && (
                 <div className="text-center py-5">
                     <h6 className="text-muted">No jobs found</h6>
