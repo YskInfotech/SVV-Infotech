@@ -116,16 +116,21 @@ function DocumentsForm({ experienceType, id, activeTab, onBack, onComplete }) {
                 required={!isExperienced}
               />
             </div>
+             {!isExperienced && (
             <div className="col-md-6">
-              <label className="form-label">Any Internship Proof</label>
+              <label className="form-label">
+                Any Internship Proof <span className="text-danger">*</span>
+              </label>
               <input
                 type="file"
                 className="form-control"
                 name="internship"
                 onChange={handleChange}
                 accept="image/*,.pdf"
+                required
               />
             </div>
+          )}
           </div>
 
           {isExperienced && (
