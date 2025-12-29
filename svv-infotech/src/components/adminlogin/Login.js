@@ -171,7 +171,7 @@ function Login() {
                   Sign In
                 </button>
 
-                <p className="text-center mt-2 small-label">Or With</p>
+                {/* <p className="text-center mt-2 small-label">Or With</p>
 
                 <button
                   type="button"
@@ -179,7 +179,7 @@ function Login() {
                 >
                   <FcGoogle className="mx-2" />
                   Login with Google
-                </button>
+                </button> */}
               </form>
             </div>
           )}
@@ -188,11 +188,10 @@ function Login() {
           {showForgot && step === 1 && (
             <form className="login-body" onSubmit={verifyEmail}>
               <h3 className="login-tittle">Forgot Password</h3>
-
+             <label className="form-label-admin" style={{color:"#fff"}}>Enter your registered email</label>
               <input
                 type="email"
                 className="form-control login-input mb-3"
-                placeholder="Registered Email"
                 value={forgotEmail}
                 onChange={(e) => setForgotEmail(e.target.value)}
                 required

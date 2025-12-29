@@ -67,40 +67,40 @@ function  Navbar() {
 
               <NavDropdown
                 title="IT Services"
-                id="it-services-dropdown"
-                drop="end"
-                className="dropdown-submenu"
+                // id="it-services-dropdown"
+                // drop="end"
+                // className="dropdown-submenu"
                 show={showITServices}
                 onMouseEnter={() => setShowITServices(true)}
                 onMouseLeave={() => setShowITServices(false)}
                 onClick={() => navigate("/itservices")}
 
               >
-                <NavDropdown.Item onClick={() => scrollToSection("services")}>
+                {/* <NavDropdown.Item onClick={() => scrollToSection("services")}>
                   Product-Based Solutions
                 </NavDropdown.Item>
                 <NavDropdown.Item onClick={() => scrollToSection("services")}>
                   Service-Based Solutions
-                </NavDropdown.Item>
+                </NavDropdown.Item> */}
               </NavDropdown>
 
 
               <NavDropdown
                 title="Staffing Solutions"
-                id="staffing-dropdown"
-                drop="end"
-                className="dropdown-submenu"
+                // id="staffing-dropdown"
+                // drop="end"
+                // className="dropdown-submenu"
                 show={showStaffing}
                 onMouseEnter={() => setShowStaffing(true)}
                 onMouseLeave={() => setShowStaffing(false)}
                 onClick={() => navigate("/staffing")}
               >
-                <NavDropdown.Item onClick={() => scrollToSection("services")}>
+                {/* <NavDropdown.Item onClick={() => scrollToSection("services")}>
                   IT Staffing
                 </NavDropdown.Item>
                 <NavDropdown.Item onClick={() => scrollToSection("services")}>
                   Non-IT Staffing
-                </NavDropdown.Item>
+                </NavDropdown.Item> */}
               </NavDropdown>
             </NavDropdown>
 

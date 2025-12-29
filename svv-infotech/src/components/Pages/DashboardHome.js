@@ -16,12 +16,12 @@ function DashboardHome() {
       path: "/dashboard/Quickadmin",
       status: [{ count: 15, label: "Quick Contacts", color: "green" }],
     },
-    {
-      icon: <IoIosPeople />,
-      title: "CANDIDATES",
-      path: "/dashboard/AdminJobsList/:jobId",
-      status: [{ count: 121, label: "Candidates", color: "green" }],
-    },
+    // {
+    //   icon: <IoIosPeople />,
+    //   title: "CANDIDATES",
+    //   path: "/dashboard/AdminJobsList/:jobId",
+    //   status: [{ count: 121, label: "Candidates", color: "green" }],
+    // },
     {
       icon: <PiSuitcaseSimple />,
       title: "JOBS",

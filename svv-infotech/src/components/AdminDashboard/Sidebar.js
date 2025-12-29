@@ -80,7 +80,7 @@ function Sidebar() {
 
          <li>
           <NavLink
-            to="/dashboard/AdminJobsList/:jobId"
+            to="/dashboard/AdminJobsList"
 
             end
             className={({ isActive }) =>
@@ -99,7 +99,7 @@ function Sidebar() {
            
            <li>
           <NavLink
-            to="/dashboard/AddonJob"
+            to="/dashboard/AddonJobs"
 
             end
             className={({ isActive }) =>

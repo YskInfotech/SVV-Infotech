@@ -1,7 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import DashboardHome from "../Pages/DashboardHome";
-import AddonJob from "../Currentjobs/AddonJob";
 import AddonJobs from "../Currentjobs/AddonJobs";
 import Quickadmin from "../Pages/Quickadmin";
 import Shortlistcandidates from "../Pages/Shortlistcandidates";
@@ -20,8 +19,8 @@ function DashboardRoutes() {
   return (
     <Routes>
        <Route path="/" element={<DashboardHome />} />
-       <Route path="AddonJob" element={<AddonJob/>} />
        <Route path="AddonJobs" element={<AddonJobs/>} />
+       <Route path="Jobedit/:id" element={<AddonJobs/>} />
        <Route path="/Quickadmin" element={<Quickadmin/>}/>
        <Route path="/Shortlistcandidates" element={<Shortlistcandidates/>}/>
        <Route path="/Rejectcandidates" element={<Rejectcandidates/>}/>
@@ -29,7 +28,7 @@ function DashboardRoutes() {
        <Route path="/Candidateview" element={<Candidateview/>}/> 
        <Route path="/Onboardingview" element={<Onboardingview/>}/>
        <Route path="/Onboardinglanding/:jobId" element={<Onboardlanding/>}/>
-       <Route path="/AdminJobsList/:jobId" element={<AdminJobsList/>}/>
+       <Route path="/AdminJobsList" element={<AdminJobsList/>}/>
        <Route path="/AdminCandidateList/:jobId" element={<AdminCandidatesList/>}/>
        <Route path="/CandidateProfile/:jobId" element={<CandidateProfile/>}/>
        

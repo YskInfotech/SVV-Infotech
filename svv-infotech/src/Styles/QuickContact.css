@@ -4,6 +4,32 @@
   font-family: "Poppins", sans-serif;
 }
 
+.captcha-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.captcha-input-wrapper input {
+  padding-right: 40px; /* space for icon */
+}
+
+.captcha-refresh-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: 1px solid grey;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #555;
+}
+
+.captcha-refresh-btn:hover {
+  color: #000;
+}
+
+
 
 .contact-box {
   background-color: #ffffff;

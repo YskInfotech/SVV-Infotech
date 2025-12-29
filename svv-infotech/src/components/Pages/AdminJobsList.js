@@ -1,4 +1,5 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
+
 import { useNavigate } from "react-router-dom";
 import { TfiLocationPin } from "react-icons/tfi";
 
@@ -7,88 +8,55 @@ function AdminJobsList() {
     const pageSize = 4;
     const navigate = useNavigate();
 
-    const [jobs, setJobs] = useState([
-        {
-            id: 1,
-            title: "Trainer",
-            location: "Hyderabad",
-            totalResponses: 20,
-            shortlisted: 5,
-            rejected: 10,
-            status: "Open",
-            postedDate: "13 Dec 2025",
-        },
-        {
-            id: 2,
-            title: "React Developer",
-            location: "Hyderabad",
-            totalResponses: 20,
-            shortlisted: 5,
-            rejected: 10,
-            status: "Open",
-            postedDate: "13 Dec 2025",
-        },
-        {
-            id: 3,
-            title: "Backend Developer",
-            location: "Hyderabad",
-            totalResponses: 20,
-            shortlisted: 5,
-            rejected: 10,
-            status: "Closed",
-            postedDate: "13 Dec 2025",
-        },
-        {
-            id: 4,
-            title: "UI / UX Developer",
-            location: "Hyderabad",
-            totalResponses: 20,
-            shortlisted: 5,
-            rejected: 10,
-            status: "Closed",
-            postedDate: "13 Dec 2025",
-        },
-        {
-            id: 5,
-            title: "Full Stack Developer",
-            location: "Hyderabad",
-            totalResponses: 15,
-            shortlisted: 3,
-            rejected: 8,
-            status: "Open",
-            postedDate: "12 Dec 2025",
-        },
-        {
-            id: 6,
-            title: "DevOps Engineer",
-            location: "Hyderabad",
-            totalResponses: 12,
-            shortlisted: 4,
-            rejected: 6,
-            status: "Closed",
-            postedDate: "11 Dec 2025",
-        },
-        {
-            id: 7,
-            title: "QA Engineer",
-            location: "Hyderabad",
-            totalResponses: 18,
-            shortlisted: 6,
-            rejected: 9,
-            status: "Open",
-            postedDate: "10 Dec 2025",
-        },
-        {
-            id: 8,
-            title: "Security Analyst",
-            location: "Hyderabad",
-            totalResponses: 25,
-            shortlisted: 7,
-            rejected: 12,
-            status: "Open",
-            postedDate: "09 Dec 2025",
-        },
-    ]);
+    const [jobs, setJobs] = useState([]);
+
+useEffect(() => {
+  const loadJobs = () => {
+    const storedJobs =
+      JSON.parse(localStorage.getItem("jobs")) || [];
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const formatDate = (date) =>
+      new Date(date).toLocaleDateString("en-GB", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      });
+
+    const getStatusByDeadline = (deadline) => {
+      if (!deadline) return "Open";
+      const d = new Date(deadline);
+      d.setHours(0, 0, 0, 0);
+      return d >= today ? "Open" : "Closed";
+    };
+
+    const normalizedJobs = storedJobs.map((job) => ({
+      id: job.id,
+      title: job.jobTitle || "Untitled Job",
+      location: job.jobLocation || "N/A",
+      totalResponses: job.totalResponses || 0,
+      shortlisted: job.shortlisted || 0,
+      rejected: job.rejected || 0,
+      status: getStatusByDeadline(job.deadline),
+      postedDate: job.postedDate
+        ? formatDate(job.postedDate)
+        : formatDate(today),
+      originalJob: job, // future edit / preview safe
+    }));
+
+    setJobs(normalizedJobs);
+  };
+
+  loadJobs();
+  window.addEventListener("focus", loadJobs);
+
+  return () =>
+    window.removeEventListener("focus", loadJobs);
+}, []);
+
+
 
     const [searchInput, setSearchInput] = useState("");
     const [selectedIds, setSelectedIds] = useState([]);
@@ -143,34 +111,43 @@ function AdminJobsList() {
 
         if (!window.confirm(`Delete ${selectedIds.length} job(s)?`)) return;
 
-        setJobs(prevJobs =>
-            prevJobs.filter(job => !selectedIds.includes(job.id))
-        );
+       const updatedJobs = jobs.filter(
+  job => !selectedIds.includes(job.id)
+);
+
+setJobs(updatedJobs);
+localStorage.setItem("jobs", JSON.stringify(
+  updatedJobs.map(j => j.originalJob)
+));
+
+setSelectedIds([]);
+setPage(1);
+
 
         setSelectedIds([]);
         setPage(1);
     };
 
     const handlePreview = (job) => {
-        navigate("/dashboard/AddonJob", {
-            state: { job, returnPath: "/dashboard/AddonJob" }
+        navigate(`/dashboard/Jobedit/${job.id}`, {
+            state: { job: job.originalJob },
         });
     };
 
     // ✅ FIXED route
     const handleViewResponses = (job) => {
-        navigate(`/dashboard/AdminCandidateList/${job.id}`, {
+        navigate(`/dashboard/AdminCandidateList/:jobId`, {
             state: {
                 jobTitle: job.title,
                 jobId: job.id,
-                returnPath: "/dashboard/AdminCandidateList/:jobId"
+                returnPath: "/dashboard/AdminCandidateList"
             }
         });
     };
 
     const handleAddJob = () => {
-        navigate("/dashboard/AddonJob", {
-            state: { returnPath: "/admin/home" }
+        navigate("/dashboard/AddonJobs", {
+            state: { returnPath: "/dashboard/AddonJobs" }
         });
     };
 
