@@ -1,52 +1,145 @@
 import React, { useState } from "react";
 import OnboardingNavbar from "./OnboardingNavbar";
 import PersonalInformationForm from "./PersonalinformationForm";
-import DocumentsIdProofForm from "./DocumentsIdProofs";
+import DocumentsIdProofs from "./DocumentsIdProofs";
 import ExperiencedDocumentsForm from "./ExperiencedDocumentsForm";
-import NomineeFamilyBankForm from "./NomineeBankDetails";
+import NomineeBankDetails from "./NomineeBankDetails";
 import JoiningDocumentsChecklist from "./JoiningDocumentsChecklist";
+import OnboardingSuccess from "../../src/components/Pages/OnboardingSuccess";
 
 const OnboardingFlow = () => {
   const [step, setStep] = useState(1);
-  const [experienceType, setExperienceType] = useState("fresher");
+  const [experienceType, setExperienceType] = useState("");
+  const [formData, setFormData] = useState({});
+  const [showSuccess, setShowSuccess] = useState(false);
 
-  const goNext = () => setStep((s) => Math.min(4, s + 1));
-  const goBack = () => setStep((s) => Math.max(1, s - 1));
+  /* ==================================================
+     NEXT STEP HANDLER (FINAL SAVE AT STEP 4)
+  ================================================== */
+  const handleNext = (newData = {}) => {
+    setFormData((prev) => {
+      const updatedData = { ...prev, ...newData };
 
+      // -------- FINAL STEP → SAVE TO LOCALSTORAGE --------
+      if (step === 4) {
+        const existing =
+          JSON.parse(localStorage.getItem("employeeOnboarding")) || [];
+
+        const finalPayload = {
+          id: Date.now(), // unique id
+          personalInfo: {
+            fullName: updatedData.name,
+            appliedFor: updatedData.jobRole,
+            email: updatedData.email,
+            phone: updatedData.mobile,
+          },
+          experienceType: updatedData.experienceType || "fresher",
+          onboardingData: updatedData, // FULL FORM DATA
+          createdAt: new Date().toISOString(),
+        };
+
+        localStorage.setItem(
+          "employeeOnboarding",
+          JSON.stringify([...existing, finalPayload])
+        );
+
+        setShowSuccess(true);
+        return updatedData;
+      }
+
+      return updatedData;
+    });
+
+    if (newData.experienceType) {
+      setExperienceType(newData.experienceType);
+    }
+
+    if (step < 4) {
+      setStep((prev) => prev + 1);
+    }
+  };
+
+  /* ==================================================
+     PREVIOUS STEP
+  ================================================== */
+  const handlePrev = () => {
+    setStep((prev) => prev - 1);
+  };
+
+  /* ==================================================
+     CLOSE SUCCESS MODAL
+  ================================================== */
+  const handleCloseSuccess = () => {
+    setShowSuccess(false);
+    setStep(1);      // restart flow
+    setFormData({}); // clear form
+    setExperienceType("");
+  };
+
+  /* ==================================================
+     UI
+  ================================================== */
   return (
     <>
       <OnboardingNavbar currentStep={step} />
 
-      <div style={{ paddingTop: "130px" }}>
-        {step === 1 && (
-          <PersonalInformationForm
-            experienceType={experienceType}
-            setExperienceType={setExperienceType}
-            onNext={(type) => {
-              setExperienceType(type);
-              setStep(2);
-            }}
-          />
-        )}
+      <div className="container py-4" style={{ marginTop: "140px" }}>
+        <h2 className="text-center mb-4">Employee Onboarding</h2>
 
-        {step === 2 &&
-          (experienceType === "experienced" ? (
-            <ExperiencedDocumentsForm onBack={goBack} onNext={goNext} />
-          ) : (
-            <DocumentsIdProofForm onBack={goBack} onNext={goNext} />
-          ))}
+        <div className="card shadow p-4">
+          {/* STEP 1 – PERSONAL INFO */}
+          {step === 1 && (
+            <PersonalInformationForm
+              onNext={handleNext}
+              initialData={formData}
+              experienceType={experienceType}
+              setExperienceType={setExperienceType}
+            />
+          )}
 
-        {step === 3 && (
-          <NomineeFamilyBankForm onBack={goBack} onNext={goNext} />
-        )}
+          {/* STEP 2 – DOCUMENTS */}
+          {step === 2 &&
+            (experienceType === "experienced" ? (
+              <ExperiencedDocumentsForm
+                onNext={handleNext}
+                onBack={handlePrev}
+                personalData={formData}
+                experienceType={experienceType}
+              />
+            ) : (
+              <DocumentsIdProofs
+                onNext={handleNext}
+                onBack={handlePrev}
+                personalData={formData}
+              />
+            ))}
 
-        {step === 4 && (
-          <JoiningDocumentsChecklist
-            onBack={goBack}
-            isFresher={experienceType === "fresher"}
-          />
-        )}
+          {/* STEP 3 – NOMINEE + BANK */}
+          {step === 3 && (
+            <NomineeBankDetails
+              onNext={handleNext}
+              onBack={handlePrev}
+              initialData={formData}
+            />
+          )}
+
+          {/* STEP 4 – JOINING CHECKLIST */}
+          {step === 4 && (
+            <JoiningDocumentsChecklist
+              onNext={handleNext}
+              onBack={handlePrev}
+              initialData={formData}
+            />
+          )}
+        </div>
       </div>
+
+      {/* SUCCESS MODAL */}
+      <OnboardingSuccess
+        show={showSuccess}
+        handleClose={handleCloseSuccess}
+        name={formData?.name}
+      />
     </>
   );
 };

@@ -1,197 +1,290 @@
-import React from "react";
+import React, { useState } from "react";
 
-const UploadRow = ({ label, name, required }) => (
+/* ---------- Upload Row ---------- */
+const UploadRow = ({ label, name, required, helper, onFileSelect }) => (
   <div className="mb-3">
     <label className="form-label">
-      {label}
-      {required && <span className="text-danger">*</span>}
+      {label} {required && <span className="text-danger">*</span>}
     </label>
+
     <div className="input-group">
-      <span className="input-group-text bg-secondary text-white border-0">
-        Upload Photo
+      <span className="input-group-text bg-secondary text-white">
+        Upload
       </span>
-      <input type="file" name={name} className="form-control" />
+      <input
+        type="file"
+        className="form-control"
+        required={required}
+        onChange={(e) => onFileSelect(name, e.target.files[0])}
+      />
     </div>
+
+    {helper && <small className="text-muted">{helper}</small>}
   </div>
 );
 
-const ExperiencedDocumentsForm = ({ onBack, onNext }) => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onNext();
+/* ---------- MAIN COMPONENT ---------- */
+const ExperiencedDocumentsForm = ({
+  onBack,
+  onNext,
+  personalData,
+  experienceType = "", // 🔥 SAFETY DEFAULT
+}) => {
+  /* ================= FRESHER DOCS ================= */
+  const [fresherDocs, setFresherDocs] = useState({
+    aadhar: null,
+    qualification: null,
+    bankProof: null,
+    pan: null,
+    photo: null,
+    internship: null,
+  });
+
+  /* ================= EXPERIENCE DATA ================= */
+  const [experienceData, setExperienceData] = useState({
+    companyName: "",
+    jobRole: "",
+    doj: "",
+    doe: "",
+    esiNumber: "",
+    uanNumber: "",
+    totalExperience: "",
+    paySlips: null,
+    offerLetter: null,
+    hikeLetter: null,
+    experienceLetter: null,
+    relievingLetter: null,
+  });
+
+  /* ---------- HANDLERS ---------- */
+  const handleFresherFile = (name, file) => {
+    setFresherDocs((prev) => ({ ...prev, [name]: file }));
   };
 
+  const handleExperienceChange = (e) => {
+    setExperienceData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleExperienceFile = (name, file) => {
+    setExperienceData((prev) => ({ ...prev, [name]: file }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const payload =
+      experienceType === "experienced"
+        ? {
+            ...personalData,
+            experienceDocuments: experienceData,
+          }
+        : {
+            ...personalData,
+            fresherDocuments: fresherDocs,
+          };
+
+    localStorage.setItem("onboardingData", JSON.stringify(payload));
+    console.log("Onboarding Docs Saved:", payload);
+
+    onNext(payload);
+  };
+
+  /* ================= UI ================= */
   return (
-    <form className="container text-start my-4" onSubmit={handleSubmit}>
-      <h5 className="mb-3 text-center">Work Experience Details</h5>
+    <form className="container my-4 text-start" onSubmit={handleSubmit}>
+      <h5 className="text-center fw-bold mb-4">
+        {experienceType === "experienced"
+          ? "Experience & Documents"
+          : "Documents & ID Proofs"}
+      </h5>
 
-      {/* Row 1 */}
-      <div className="row g-3">
-        <div className="col-md-6">
-          <label className="form-label">
-            Company Name<span className="text-danger">*</span>
-          </label>
-          <input
-            type="text"
-            name="companyName"
-            className="form-control"
-            required
-          />
-        </div>
+      {/* ================= EXPERIENCE SECTION ================= */}
+      {experienceType === "experienced" && (
+        <>
+          <h6 className="fw-bold mb-3">Work Experience Details</h6>
 
-        <div className="col-md-6">
-          <label className="form-label">
-            Job Role<span className="text-danger">*</span>
-          </label>
-          <input
-            type="text"
-            name="jobRole"
-            className="form-control"
-            required
-          />
-        </div>
-      </div>
+          <div className="row g-3">
+            <div className="col-md-6">
+              <label className="form-label">Company Name *</label>
+              <input
+                type="text"
+                name="companyName"
+                className="form-control"
+                required
+                onChange={handleExperienceChange}
+              />
+            </div>
 
-      {/* Row 2 */}
-      <div className="row g-3 mt-1">
-        <div className="col-md-6">
-          <label className="form-label">
-            Date Of Joining<span className="text-danger">*</span>
-          </label>
-          <input type="date" name="doj" className="form-control" required />
-        </div>
-        <div className="col-md-6">
-          <label className="form-label">
-            Date Of Exit<span className="text-danger">*</span>
-          </label>
-          <input type="date" name="doe" className="form-control" required />
-        </div>
-      </div>
+            <div className="col-md-6">
+              <label className="form-label">Job Role *</label>
+              <input
+                type="text"
+                name="jobRole"
+                className="form-control"
+                required
+                onChange={handleExperienceChange}
+              />
+            </div>
+          </div>
 
-     
+          <div className="row g-3 mt-2">
+            <div className="col-md-6">
+              <label className="form-label">Date of Joining *</label>
+              <input
+                type="date"
+                name="doj"
+                className="form-control"
+                required
+                onChange={handleExperienceChange}
+              />
+            </div>
 
-      
-      
-       
-      
+            <div className="col-md-6">
+              <label className="form-label">Date of Exit *</label>
+              <input
+                type="date"
+                name="doe"
+                className="form-control"
+                required
+                onChange={handleExperienceChange}
+              />
+            </div>
+          </div>
 
+          <h6 className="fw-bold mt-4">Experience Documents</h6>
 
-      <div className="row g-3 mt-1">
-        <div className="col-md-6">
-          <UploadRow
-            label="Last 3 Months Pay Slips"
-            name="paySlips"
-            required
-          />
-         
-        </div>
-        <div className="col-md-6">
-          <UploadRow label="Offer Letter" name="offerLetter" required />
-        </div>
-      </div>
+          <div className="row g-3 mt-2">
+            <div className="col-md-6">
+              <UploadRow
+                label="Last 3 Months Pay Slips"
+                name="paySlips"
+                required
+                onFileSelect={handleExperienceFile}
+              />
+              <UploadRow
+                label="Offer Letter"
+                name="offerLetter"
+                required
+                onFileSelect={handleExperienceFile}
+              />
+            </div>
 
-      <div className="row g-3 mt-1">
-        <div className="col-md-6">
-          <UploadRow label="Hike Letter" name="hikeLetter" />
-          <UploadRow label="Experience Letter" name="experienceLetter" />
-        </div>
-        <div className="col-md-6">
-          <UploadRow label="Relieving Letter" name="relievingLetter" />
-        </div>
-      </div>
+            <div className="col-md-6">
+              <UploadRow
+                label="Hike Letter"
+                name="hikeLetter"
+                onFileSelect={handleExperienceFile}
+              />
+              <UploadRow
+                label="Experience Letter"
+                name="experienceLetter"
+                onFileSelect={handleExperienceFile}
+              />
+              <UploadRow
+                label="Relieving Letter"
+                name="relievingLetter"
+                onFileSelect={handleExperienceFile}
+              />
+            </div>
+          </div>
 
-      {/* ESI / UAN / Total experience */}
-      <div className="row g-3 mt-1">
-        <div className="col-md-6">
-          <label className="form-label">
-            ESI Number (If already available)
-          </label>
-          <input type="text" name="esiNumber" className="form-control" />
-        </div>
-        <div className="col-md-6">
-          <label className="form-label">UAN Number</label>
-          <input type="text" name="uanNumber" className="form-control" />
-        </div>
-      </div>
+          <div className="row g-3 mt-2">
+            <div className="col-md-6">
+              <label className="form-label">ESI Number</label>
+              <input
+                type="text"
+                name="esiNumber"
+                className="form-control"
+                onChange={handleExperienceChange}
+              />
+            </div>
 
-      <div className="row g-3 mt-1">
-        <div className="col-md-6">
-          <label className="form-label">
-            Total Experience (in years)
-            <span className="text-danger">*</span>
-          </label>
-          <input
-            type="number"
-            step="0.1"
-            name="totalExperience"
-            className="form-control"
-            required
-          />
-        </div>
-      </div>
+            <div className="col-md-6">
+              <label className="form-label">UAN Number</label>
+              <input
+                type="text"
+                name="uanNumber"
+                className="form-control"
+                onChange={handleExperienceChange}
+              />
+            </div>
+          </div>
 
-       {/* Files */}
+          <div className="row g-3 mt-2">
+            <div className="col-md-6">
+              <label className="form-label">Total Experience (Years) *</label>
+              <input
+                type="number"
+                name="totalExperience"
+                className="form-control"
+                required
+                onChange={handleExperienceChange}
+              />
+            </div>
+          </div>
 
-      <div className="row g-3 mt-1">
-        <div className="col-md-6">
-          <UploadRow
-            label="Aadhar Card Photo"
-            name="paySlips"
-            required
-          />
-        
-        </div>
-        <div className="col-md-6">
-          <UploadRow label="Pan Card Photo" name="Pan card Photo" required />
-        </div>
-      </div>
+          <hr className="my-4" />
+        </>
+      )}
 
-      <div className="row g-3 mt-1">
-        <div className="col-md-6">
-          <UploadRow
-            label="Qualification Proof"
-            name="paySlips"
-            required
-          />
-           <small className="text-muted">
-            Upload all college proofs (single PDF | Max 10MB)
-          </small>
-        </div>
-        <div className="col-md-6">
-          <UploadRow label="Passport Size Photo" name="offerLetter" required />
-        </div>
+      {/* ================= FRESHER SECTION ================= */}
+      {experienceType === "fresher" && (
+        <div className="row g-4">
+          <div className="col-md-6">
+            <UploadRow
+              label="Aadhar Card"
+              name="aadhar"
+              required
+              onFileSelect={handleFresherFile}
+            />
+            <UploadRow
+              label="Qualification Proof"
+              name="qualification"
+              required
+              helper="Upload all certificates as single PDF"
+              onFileSelect={handleFresherFile}
+            />
+            <UploadRow
+              label="Bank Account Proof"
+              name="bankProof"
+              required
+              onFileSelect={handleFresherFile}
+            />
+          </div>
 
           <div className="col-md-6">
-          <UploadRow
-            label="Bank Account Proof"
-            name="paySlips"
-            required
-          />
-          
+            <UploadRow
+              label="PAN Card"
+              name="pan"
+              required
+              onFileSelect={handleFresherFile}
+            />
+            <UploadRow
+              label="Passport Size Photo"
+              name="photo"
+              required
+              onFileSelect={handleFresherFile}
+            />
+            <UploadRow
+              label="Internship Proof (Optional)"
+              name="internship"
+              onFileSelect={handleFresherFile}
+            />
+          </div>
         </div>
-      </div>
+      )}
 
-      {/* Buttons */}
-      <div className="d-flex justify-content-between align-items-center mt-4">
-        <button
-          type="button"
-          className="btn btn-outline-secondary"
-          onClick={onBack}
-        >
-          Back
+      {/* ================= ACTION BUTTONS ================= */}
+      <div className="d-flex justify-content-between mt-4">
+        <button type="button" className="btn btn-outline-secondary" onClick={onBack}>
+          ← Back
         </button>
-
-        <div className="d-flex align-items-center gap-3">
-          <button
-            type="button"
-            className="btn btn-outline-primary btn-sm"
-          >
-            Add Second Company Details +
-          </button>
-          <button type="submit" className="btn btn-primary">
-            Next: Documents &amp; ID Proof
-          </button>
-        </div>
+        <button type="submit" className="btn btn-primary">
+          Next →
+        </button>
       </div>
     </form>
   );

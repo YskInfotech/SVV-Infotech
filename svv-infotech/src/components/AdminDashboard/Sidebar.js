@@ -116,7 +116,7 @@ function Sidebar() {
         
         <li>
           <NavLink
-            to="/dashboard/Onboardingview"
+            to="/dashboard/AdminOnBoarding"
 
             end
             className={({ isActive }) =>

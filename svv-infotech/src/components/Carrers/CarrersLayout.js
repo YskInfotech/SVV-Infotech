@@ -9,7 +9,7 @@ function CarrersLayout() {
     <>
     <Navbar />
       <CarrerHome />
-      
+       
       <Footer/>
     
     </>

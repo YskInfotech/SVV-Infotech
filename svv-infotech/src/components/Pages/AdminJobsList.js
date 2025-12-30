@@ -136,7 +136,7 @@ setPage(1);
 
     // ✅ FIXED route
     const handleViewResponses = (job) => {
-        navigate(`/dashboard/AdminCandidateList/:jobId`, {
+        navigate(`/dashboard/AdminCandidateList/${job.id}`, {
             state: {
                 jobTitle: job.title,
                 jobId: job.id,
