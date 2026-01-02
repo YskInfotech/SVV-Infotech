@@ -73,8 +73,9 @@ const AdminOnboardingDetail = () => {
         {/* ===== DOCUMENTS ===== */}
         <DocumentsForm
           experienceType={employee.personalInfo?.experienceType}
-          employeeDocuments={employee.documents || {}}
+          employeeDocuments={employee.documents}
         />
+
 
         {/* ===== BANK ===== */}
         <BankForm employeeData={employee.bankDetails || {}} />

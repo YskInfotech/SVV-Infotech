@@ -13,72 +13,87 @@ const OnboardingFlow = () => {
   const [formData, setFormData] = useState({});
   const [showSuccess, setShowSuccess] = useState(false);
 
-  /* ==================================================
-     NEXT STEP HANDLER (FINAL SAVE AT STEP 4)
-  ================================================== */
+  /* ================= SAVE FINAL DATA ================= */
+  const saveToLocalStorage = (data) => {
+    const existing =
+      JSON.parse(localStorage.getItem("employeeOnboarding")) || [];
+
+    const finalPayload = {
+      id: Date.now(),
+
+      personalInfo: {
+        fullName: data.name,
+        dob: data.dob,
+        gender: data.gender,
+        maritalStatus: data.maritalStatus,
+        aadharNumber: data.aadhar,
+        fatherName: data.fatherName,
+        motherName: data.motherName,
+        spouseName: data.spouseName,
+        communicationPin: data.communicationPin,
+        permanentPin: data.permanentPin,
+        mobile: data.mobile,
+        email: data.email,
+        bloodGroup: data.bloodGroup,
+        appliedFor: data.jobRole,
+
+        // ✅ SINGLE SOURCE OF TRUTH
+        experienceType: experienceType,
+      },
+
+      // ✅ DOCUMENTS
+      documents:
+        experienceType === "experienced"
+          ? data.experienceDocuments || {}
+          : data.fresherDocuments || {},
+
+      bankDetails: data.bank || {},
+
+      nominees: {
+        pf: data.pfNominees || [],
+        esi: data.esiNominees || [],
+        accident: data.accidentNominees || [],
+        family: data.familyMembers || [],
+      },
+
+      joiningChecklist: data.joiningChecklist || [],
+      createdAt: new Date().toISOString(),
+    };
+
+    localStorage.setItem(
+      "employeeOnboarding",
+      JSON.stringify([...existing, finalPayload])
+    );
+  };
+
+  /* ================= NEXT ================= */
   const handleNext = (newData = {}) => {
-    setFormData((prev) => {
-      const updatedData = { ...prev, ...newData };
+    const updatedData = { ...formData, ...newData };
 
-      // -------- FINAL STEP → SAVE TO LOCALSTORAGE --------
-      if (step === 4) {
-        const existing =
-          JSON.parse(localStorage.getItem("employeeOnboarding")) || [];
+    if (step === 4) {
+      saveToLocalStorage(updatedData);
+      setShowSuccess(true);
+      return;
+    }
 
-        const finalPayload = {
-          id: Date.now(), // unique id
-          personalInfo: {
-            fullName: updatedData.name,
-            appliedFor: updatedData.jobRole,
-            email: updatedData.email,
-            phone: updatedData.mobile,
-          },
-          experienceType: updatedData.experienceType || "fresher",
-          onboardingData: updatedData, // FULL FORM DATA
-          createdAt: new Date().toISOString(),
-        };
-
-        localStorage.setItem(
-          "employeeOnboarding",
-          JSON.stringify([...existing, finalPayload])
-        );
-
-        setShowSuccess(true);
-        return updatedData;
-      }
-
-      return updatedData;
-    });
+    setFormData(updatedData);
 
     if (newData.experienceType) {
       setExperienceType(newData.experienceType);
     }
 
-    if (step < 4) {
-      setStep((prev) => prev + 1);
-    }
+    setStep((prev) => prev + 1);
   };
 
-  /* ==================================================
-     PREVIOUS STEP
-  ================================================== */
-  const handlePrev = () => {
-    setStep((prev) => prev - 1);
-  };
+  const handlePrev = () => setStep((prev) => prev - 1);
 
-  /* ==================================================
-     CLOSE SUCCESS MODAL
-  ================================================== */
   const handleCloseSuccess = () => {
     setShowSuccess(false);
-    setStep(1);      // restart flow
-    setFormData({}); // clear form
+    setStep(1);
+    setFormData({});
     setExperienceType("");
   };
 
-  /* ==================================================
-     UI
-  ================================================== */
   return (
     <>
       <OnboardingNavbar currentStep={step} />
@@ -87,7 +102,6 @@ const OnboardingFlow = () => {
         <h2 className="text-center mb-4">Employee Onboarding</h2>
 
         <div className="card shadow p-4">
-          {/* STEP 1 – PERSONAL INFO */}
           {step === 1 && (
             <PersonalInformationForm
               onNext={handleNext}
@@ -97,24 +111,23 @@ const OnboardingFlow = () => {
             />
           )}
 
-          {/* STEP 2 – DOCUMENTS */}
-          {step === 2 &&
-            (experienceType === "experienced" ? (
-              <ExperiencedDocumentsForm
-                onNext={handleNext}
-                onBack={handlePrev}
-                personalData={formData}
-                experienceType={experienceType}
-              />
-            ) : (
-              <DocumentsIdProofs
-                onNext={handleNext}
-                onBack={handlePrev}
-                personalData={formData}
-              />
-            ))}
+          {step === 2 && experienceType === "experienced" && (
+            <ExperiencedDocumentsForm
+              onNext={handleNext}
+              onBack={handlePrev}
+              personalData={formData}
+              experienceType={experienceType}
+            />
+          )}
 
-          {/* STEP 3 – NOMINEE + BANK */}
+          {step === 2 && experienceType === "fresher" && (
+            <DocumentsIdProofs
+              onNext={handleNext}
+              onBack={handlePrev}
+              personalData={formData}
+            />
+          )}
+
           {step === 3 && (
             <NomineeBankDetails
               onNext={handleNext}
@@ -123,7 +136,6 @@ const OnboardingFlow = () => {
             />
           )}
 
-          {/* STEP 4 – JOINING CHECKLIST */}
           {step === 4 && (
             <JoiningDocumentsChecklist
               onNext={handleNext}
@@ -134,7 +146,6 @@ const OnboardingFlow = () => {
         </div>
       </div>
 
-      {/* SUCCESS MODAL */}
       <OnboardingSuccess
         show={showSuccess}
         handleClose={handleCloseSuccess}

@@ -5,8 +5,6 @@ const emptyNominee = { name: "", age: "", dob: "", relation: "" };
 const emptyFamily = { name: "", dob: "", relation: "" };
 
 const NomineeBankDetails = ({ onBack, onNext, initialData }) => {
-
-  /* ✅ STATE INITIALIZED ONCE (NO RESET ISSUE) */
   const [formData, setFormData] = useState(() => ({
     pfNominees: initialData?.pfNominees ?? [{ ...emptyNominee }],
     esiNominees: initialData?.esiNominees ?? [{ ...emptyNominee }],
@@ -48,95 +46,209 @@ const NomineeBankDetails = ({ onBack, onNext, initialData }) => {
     onNext(formData);
   };
 
-  /* ---------- Nominee Block ---------- */
-  const NomineeSection = ({ title, sectionKey }) => (
-    <div className="bg-light p-3 mb-4 rounded">
-      <h6 className="fw-bold mb-3">{title}</h6>
-
-      {formData[sectionKey].map((n, i) => (
-        <div className="row g-2 mb-2" key={i}>
-          <div className="col-md-3">
-            <label className="form-label">Name</label>
-            <input
-              className="form-control"
-              value={n.name}
-              onChange={(e) =>
-                updateArray(sectionKey, i, "name", e.target.value)
-              }
-            />
-          </div>
-
-          <div className="col-md-3">
-            <label className="form-label">Age</label>
-            <input
-              type="text"
-              className="form-control"
-              value={n.age}
-              onChange={(e) =>
-                updateArray(sectionKey, i, "age", e.target.value)
-              }
-            />
-          </div>
-
-          <div className="col-md-3">
-            <label className="form-label">DOB</label>
-            <input
-              type="date"
-              className="form-control"
-              value={n.dob}
-              onChange={(e) =>
-                updateArray(sectionKey, i, "dob", e.target.value)
-              }
-            />
-          </div>
-
-          <div className="col-md-3">
-            <label className="form-label">Relation</label>
-            <input
-              className="form-control"
-              value={n.relation}
-              onChange={(e) =>
-                updateArray(sectionKey, i, "relation", e.target.value)
-              }
-            />
-          </div>
-        </div>
-      ))}
-
-      <button
-        type="button"
-        className="btn btn-sm btn-outline-primary mt-2"
-        onClick={() => addRow(sectionKey, emptyNominee)}
-      >
-        + Add Nominee
-      </button>
-    </div>
-  );
-
   return (
     <form className="container my-4" onSubmit={handleSubmit}>
       <h5 className="text-center fw-bold mb-4">
         Nominee, Family & Bank Details
       </h5>
 
-      {/* PF → ESI → ACCIDENT */}
-      <NomineeSection title="PF Nominee" sectionKey="pfNominees" />
-      <NomineeSection title="ESI Nominee" sectionKey="esiNominees" />
-      <NomineeSection
-        title="Accident Insurance Nominee"
-        sectionKey="accidentNominees"
-      />
+      {/* ================= PF NOMINEE ================= */}
+      <div className="bg-light p-3 mb-4 rounded">
+        <h6 className="fw-bold mb-3">PF Nominee</h6>
 
-      {/* FAMILY */}
+        {formData.pfNominees.map((n, i) => (
+          <div className="row g-2 mb-2" key={i}>
+            <div className="col-md-3">
+              <label className="form-label">Name</label>
+              <input
+                className="form-control"
+                placeholder="Name"
+                value={n.name}
+                onChange={(e) =>
+                  updateArray("pfNominees", i, "name", e.target.value)
+                }
+              />
+            </div>
+            <div className="col-md-3">
+            <label className="form-label">Age</label>
+              <input
+                className="form-control"
+                placeholder="Age"
+                value={n.age}
+                onChange={(e) =>
+                  updateArray("pfNominees", i, "age", e.target.value)
+                }
+              />
+            </div>
+            <div className="col-md-3">
+             <label className="form-label">DOB</label>
+              <input
+                type="date"
+                className="form-control"
+                value={n.dob}
+                onChange={(e) =>
+                  updateArray("pfNominees", i, "dob", e.target.value)
+                }
+              />
+            </div>
+            <div className="col-md-3">
+           <label className="form-label">Relation</label>
+              <input
+                className="form-control"
+                placeholder="Relation"
+                value={n.relation}
+                onChange={(e) =>
+                  updateArray("pfNominees", i, "relation", e.target.value)
+                }
+              />
+            </div>
+          </div>
+        ))}
+
+        <button
+          type="button"
+          className="btn btn-sm btn-outline-primary"
+          onClick={() => addRow("pfNominees", emptyNominee)}
+        >
+          + Add PF Nominee
+        </button>
+      </div>
+
+      {/* ================= ESI NOMINEE ================= */}
+      <div className="bg-light p-3 mb-4 rounded">
+        <h6 className="fw-bold mb-3">ESI Nominee</h6>
+
+        {formData.esiNominees.map((n, i) => (
+          <div className="row g-2 mb-2" key={i}>
+            <div className="col-md-3">
+              <label className="form-label">Name</label>
+              <input
+                className="form-control"
+                placeholder="Name"
+                value={n.name}
+                onChange={(e) =>
+                  updateArray("esiNominees", i, "name", e.target.value)
+                }
+              />
+            </div>
+            <div className="col-md-3">
+              <label className="form-label">Age</label>
+              <input
+                className="form-control"
+                placeholder="Age"
+                value={n.age}
+                onChange={(e) =>
+                  updateArray("esiNominees", i, "age", e.target.value)
+                }
+              />
+            </div>
+            <div className="col-md-3">
+              <label className="form-label">DOB</label>
+              <input
+                type="date"
+                className="form-control"
+                value={n.dob}
+                onChange={(e) =>
+                  updateArray("esiNominees", i, "dob", e.target.value)
+                }
+              />
+            </div>
+            <div className="col-md-3">
+           <label className="form-label">Relation</label>
+              <input
+                className="form-control"
+                placeholder="Relation"
+                value={n.relation}
+                onChange={(e) =>
+                  updateArray("esiNominees", i, "relation", e.target.value)
+                }
+              />
+            </div>
+          </div>
+        ))}
+
+        <button
+          type="button"
+          className="btn btn-sm btn-outline-primary"
+          onClick={() => addRow("esiNominees", emptyNominee)}
+        >
+          + Add ESI Nominee
+        </button>
+      </div>
+
+      {/* ================= ACCIDENT NOMINEE ================= */}
+      <div className="bg-light p-3 mb-4 rounded">
+        <h6 className="fw-bold mb-3">Accident Insurance Nominee</h6>
+
+        {formData.accidentNominees.map((n, i) => (
+          <div className="row g-2 mb-2" key={i}>
+            <div className="col-md-3">
+              <label className="form-label">Name</label>
+              <input
+                className="form-control"
+                placeholder="Name"
+                value={n.name}
+                onChange={(e) =>
+                  updateArray("accidentNominees", i, "name", e.target.value)
+                }
+              />
+            </div>
+            <div className="col-md-3">
+           <label className="form-label">Age</label>
+              <input
+                className="form-control"
+                placeholder="Age"
+                value={n.age}
+                onChange={(e) =>
+                  updateArray("accidentNominees", i, "age", e.target.value)
+                }
+              />
+            </div>
+            <div className="col-md-3">
+        <label className="form-label">DOB</label>
+              <input
+                type="date"
+                className="form-control"
+                value={n.dob}
+                onChange={(e) =>
+                  updateArray("accidentNominees", i, "dob", e.target.value)
+                }
+              />
+            </div>
+            <div className="col-md-3">
+        <label className="form-label">Relation</label>
+              <input
+                className="form-control"
+                placeholder="Relation"
+                value={n.relation}
+                onChange={(e) =>
+                  updateArray("accidentNominees", i, "relation", e.target.value)
+                }
+              />
+            </div>
+          </div>
+        ))}
+
+        <button
+          type="button"
+          className="btn btn-sm btn-outline-primary"
+          onClick={() => addRow("accidentNominees", emptyNominee)}
+        >
+          + Add Accident Nominee
+        </button>
+      </div>
+
+      {/* ================= FAMILY ================= */}
       <div className="bg-light p-3 mb-4 rounded">
         <h6 className="fw-bold">Family Members</h6>
 
         {formData.familyMembers.map((m, i) => (
           <div className="row g-2 mb-2" key={i}>
             <div className="col-md-4">
-              <label className="form-label">Name</label>
+        <label className="form-label">Name</label>
               <input
                 className="form-control"
+                placeholder="Name"
                 value={m.name}
                 onChange={(e) =>
                   updateArray("familyMembers", i, "name", e.target.value)
@@ -144,7 +256,7 @@ const NomineeBankDetails = ({ onBack, onNext, initialData }) => {
               />
             </div>
             <div className="col-md-4">
-              <label className="form-label">DOB</label>
+        <label className="form-label">DOB</label>
               <input
                 type="date"
                 className="form-control"
@@ -155,9 +267,10 @@ const NomineeBankDetails = ({ onBack, onNext, initialData }) => {
               />
             </div>
             <div className="col-md-4">
-              <label className="form-label">Relation</label>
+        <label className="form-label">Relation</label>
               <input
                 className="form-control"
+                placeholder="Relation"
                 value={m.relation}
                 onChange={(e) =>
                   updateArray("familyMembers", i, "relation", e.target.value)
@@ -169,49 +282,51 @@ const NomineeBankDetails = ({ onBack, onNext, initialData }) => {
 
         <button
           type="button"
-          className="btn btn-sm btn-outline-primary mt-2"
+          className="btn btn-sm btn-outline-primary"
           onClick={() => addRow("familyMembers", emptyFamily)}
         >
           + Add Family Member
         </button>
       </div>
 
-      {/* BANK – 2 PER ROW */}
+      {/* ================= BANK ================= */}
       <div className="bg-light p-3 mb-4 rounded">
         <h6 className="fw-bold">Bank Details</h6>
 
         <div className="row g-2">
           <div className="col-md-6">
-            <label className="form-label">Account Holder Name</label>
+          <label className="form-label">Account Holder Name</label>
             <input
               className="form-control"
+              placeholder="Account Holder Name"
               value={formData.bank.accountName}
               onChange={(e) => updateBank("accountName", e.target.value)}
             />
           </div>
-
           <div className="col-md-6">
-            <label className="form-label">Account Number</label>
+      <label className="form-label">Account Number</label>
             <input
               className="form-control"
+              placeholder="Account Number"
               value={formData.bank.accountNumber}
               onChange={(e) => updateBank("accountNumber", e.target.value)}
             />
           </div>
-
           <div className="col-md-6">
-            <label className="form-label">IFSC Code</label>
+
+        <label className="form-label">IFSC Code</label>
             <input
               className="form-control"
+              placeholder="IFSC Code"
               value={formData.bank.ifsc}
               onChange={(e) => updateBank("ifsc", e.target.value)}
             />
           </div>
-
           <div className="col-md-6">
-            <label className="form-label">Branch Name</label>
+        <label className="form-label">Branch Name</label>
             <input
               className="form-control"
+              placeholder="Branch Name"
               value={formData.bank.branch}
               onChange={(e) => updateBank("branch", e.target.value)}
             />
@@ -219,7 +334,7 @@ const NomineeBankDetails = ({ onBack, onNext, initialData }) => {
         </div>
       </div>
 
-      {/* ACTIONS */}
+      {/* ================= ACTIONS ================= */}
       <div className="d-flex justify-content-between">
         <button type="button" className="btn btn-outline-secondary" onClick={onBack}>
           ← Back

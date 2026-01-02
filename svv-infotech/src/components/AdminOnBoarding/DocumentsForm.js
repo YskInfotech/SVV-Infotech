@@ -55,7 +55,7 @@ function DocumentsForm({ experienceType, employeeDocuments }) {
             <div className="col-md-6">
               <label className="form-label">Passport Size Photo</label>
               <div>
-                <FileView file={docs.passport} />
+                <FileView file={docs.photo} />
               </div>
             </div>
           </div>
@@ -65,7 +65,7 @@ function DocumentsForm({ experienceType, employeeDocuments }) {
             <div className="col-md-6">
               <label className="form-label">Bank Account Proof</label>
               <div>
-                <FileView file={docs.bank} />
+                <FileView file={docs.bankProof} />
               </div>
             </div>
 

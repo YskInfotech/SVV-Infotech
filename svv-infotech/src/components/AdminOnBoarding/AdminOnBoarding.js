@@ -28,8 +28,8 @@ function AdminOnBoarding() {
       name: emp.personalInfo?.fullName || "",
       appliedFor: emp.personalInfo?.appliedFor || "",
       email: emp.personalInfo?.email || "",
-      phone: emp.personalInfo?.phone || "",
-      experience: emp.experienceType || "Fresher",
+      mobile: emp.personalInfo?.mobile || "",
+       experience: emp.personalInfo?.experienceType || "Fresher",
     }));
 
     // ✅ REMOVE DUPLICATES USING ID
@@ -287,8 +287,10 @@ function AdminOnBoarding() {
                   <td>{emp.name}</td>
                   <td>{emp.appliedFor}</td>
                   <td>{emp.email}</td>
-                  <td>{emp.phone}</td>
+                  <td>{emp.mobile}</td>
                   <td>{emp.experience}</td>
+
+
                   <td>
                     <button
                       className="view-btn"

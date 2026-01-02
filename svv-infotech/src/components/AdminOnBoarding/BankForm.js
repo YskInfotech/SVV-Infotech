@@ -86,9 +86,9 @@ const BankForm = ({ employeeId }) => {
           <div key={index} className="mb-3">
             <p className="fw-semibold">Family Member {index + 1}</p>
             <div className="row g-2">
-              <input className="form-control col-md-4" value={member.name || ""} disabled />
-              <input className="form-control col-md-4" value={member.dob || ""} disabled />
-              <input className="form-control col-md-4" value={member.relationship || ""} disabled />
+              <input className="form-control col-md-4" value={member.name || ""} />
+              <input className="form-control col-md-4" value={member.dob || ""} />
+              <input className="form-control col-md-4" value={member.relationship || ""}/>
             </div>
           </div>
         ))}
@@ -98,10 +98,10 @@ const BankForm = ({ employeeId }) => {
       <div className="bg-light p-3 mb-3 rounded">
         <h6 className="mb-3">3. Bank Details</h6>
         <div className="row g-3">
-          <input className="form-control col-md-6" value={bankName || ""} disabled />
-          <input className="form-control col-md-6" value={accountNumber || ""} disabled />
-          <input className="form-control col-md-6" value={ifscCode || ""} disabled />
-          <input className="form-control col-md-6" value={branchName || ""} disabled />
+          <input className="form-control col-md-6" value={bankName || ""}/>
+          <input className="form-control col-md-6" value={accountNumber || ""}  />
+          <input className="form-control col-md-6" value={ifscCode || ""} />
+          <input className="form-control col-md-6" value={branchName || ""}  />
         </div>
       </div>
 
@@ -113,11 +113,11 @@ const BankForm = ({ employeeId }) => {
         {employerReferences.map((ref, index) => (
           <div key={index} className="mb-3">
             <div className="row g-2">
-              <input className="form-control col-md-4" value={ref.name || ""} disabled />
-              <input className="form-control col-md-4" value={ref.designation || ""} disabled />
-              <input className="form-control col-md-4" value={ref.phone || ""} disabled />
-              <input className="form-control col-md-6" value={ref.email || ""} disabled />
-              <input className="form-control col-md-6" value={ref.lastEmployer || ""} disabled />
+              <input className="form-control col-md-4" value={ref.name || ""}  />
+              <input className="form-control col-md-4" value={ref.designation || ""}  />
+              <input className="form-control col-md-4" value={ref.phone || ""} />
+              <input className="form-control col-md-6" value={ref.email || ""}  />
+              <input className="form-control col-md-6" value={ref.lastEmployer || ""} />
             </div>
           </div>
         ))}
@@ -126,9 +126,9 @@ const BankForm = ({ employeeId }) => {
         {personalReferences.map((ref, index) => (
           <div key={index} className="mb-3">
             <div className="row g-2">
-              <input className="form-control col-md-4" value={ref.name || ""} disabled />
-              <input className="form-control col-md-4" value={ref.occupation || ""} disabled />
-              <input className="form-control col-md-4" value={ref.phone || ""} disabled />
+              <input className="form-control col-md-4" value={ref.name || ""} />
+              <input className="form-control col-md-4" value={ref.occupation || ""} />
+              <input className="form-control col-md-4" value={ref.phone || ""} />
             </div>
           </div>
         ))}

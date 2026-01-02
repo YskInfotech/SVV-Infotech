@@ -18,11 +18,6 @@ import AdminOnBoarding from "../AdminOnBoarding/AdminOnBoarding";
 
 
 
-
-
-
-
-
 function DashboardRoutes() {
   return (
     <Routes>

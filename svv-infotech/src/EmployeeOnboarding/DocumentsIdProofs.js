@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+/* ---------- Upload Row ---------- */
 const UploadRow = ({ label, name, required, helper, onFileSelect }) => (
   <div className="mb-3">
     <label className="form-label">
@@ -22,7 +23,9 @@ const UploadRow = ({ label, name, required, helper, onFileSelect }) => (
   </div>
 );
 
+/* ---------- MAIN COMPONENT ---------- */
 const DocumentsIdProofs = ({ onBack, onNext, personalData }) => {
+  /* ================= FRESHER DOCS ================= */
   const [docs, setDocs] = useState({
     aadhar: null,
     qualification: null,
@@ -32,24 +35,27 @@ const DocumentsIdProofs = ({ onBack, onNext, personalData }) => {
     internship: null,
   });
 
+  /* ================= FILE HANDLER (✅ FIX) ================= */
   const handleFile = (name, file) => {
-    setDocs((prev) => ({ ...prev, [name]: file }));
+    setDocs((prev) => ({
+      ...prev,
+      [name]: URL.createObjectURL(file), // ✅ IMPORTANT
+    }));
   };
 
+  /* ================= SUBMIT ================= */
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const payload = {
       ...personalData,
-      fresherDocuments: docs,
+      fresherDocuments: docs, // ✅ SAME STRUCTURE AS EXPERIENCE
     };
-
-    localStorage.setItem("onboarding_fresher_docs", JSON.stringify(payload));
-    console.log("Fresher Docs Saved:", payload);
 
     onNext(payload);
   };
 
+  /* ================= UI ================= */
   return (
     <form className="container my-4 text-start" onSubmit={handleSubmit}>
       <h5 className="text-center fw-bold mb-4">Documents & ID Proofs</h5>
@@ -62,13 +68,15 @@ const DocumentsIdProofs = ({ onBack, onNext, personalData }) => {
             required
             onFileSelect={handleFile}
           />
+
           <UploadRow
-            label="Qualification Certificates"
+            label="Qualification Proof"
             name="qualification"
             required
             helper="Upload all certificates as single PDF"
             onFileSelect={handleFile}
           />
+
           <UploadRow
             label="Bank Account Proof"
             name="bankProof"
@@ -84,12 +92,14 @@ const DocumentsIdProofs = ({ onBack, onNext, personalData }) => {
             required
             onFileSelect={handleFile}
           />
+
           <UploadRow
             label="Passport Size Photo"
             name="photo"
             required
             onFileSelect={handleFile}
           />
+
           <UploadRow
             label="Internship Proof (Optional)"
             name="internship"
@@ -99,9 +109,14 @@ const DocumentsIdProofs = ({ onBack, onNext, personalData }) => {
       </div>
 
       <div className="d-flex justify-content-between mt-4">
-        <button type="button" className="btn btn-outline-secondary" onClick={onBack}>
+        <button
+          type="button"
+          className="btn btn-outline-secondary"
+          onClick={onBack}
+        >
           ← Back
         </button>
+
         <button type="submit" className="btn btn-primary">
           Next →
         </button>
