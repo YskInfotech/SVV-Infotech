@@ -9,6 +9,8 @@ const AdminOnboardingDetail = () => {
   const { id } = useParams();
   const [employee, setEmployee] = useState(null);
 
+
+
   /* ===============================
      LOAD EMPLOYEE FROM LOCALSTORAGE
   =============================== */
@@ -77,8 +79,12 @@ const AdminOnboardingDetail = () => {
         />
 
 
-        {/* ===== BANK ===== */}
-        <BankForm employeeData={employee.bankDetails || {}} />
+
+        <BankForm
+          bankDetails={employee.bankDetails}
+          nominees={employee.nominees}
+        />
+
 
         {/* ===== JOINING ===== */}
         <AdminJoiningDocsChecklist

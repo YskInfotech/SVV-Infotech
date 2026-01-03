@@ -47,14 +47,15 @@ const OnboardingFlow = () => {
           ? data.experienceDocuments || {}
           : data.fresherDocuments || {},
 
-      bankDetails: data.bank || {},
+bankDetails: formData.bank ?? data.bank ?? {},
 
-      nominees: {
-        pf: data.pfNominees || [],
-        esi: data.esiNominees || [],
-        accident: data.accidentNominees || [],
-        family: data.familyMembers || [],
-      },
+nominees: {
+  pf: formData.pfNominees ?? data.pfNominees ?? [],
+  esi: formData.esiNominees ?? data.esiNominees ?? [],
+  accident: formData.accidentNominees ?? data.accidentNominees ?? [],
+  family: formData.familyMembers ?? data.familyMembers ?? [],
+},
+
 
       joiningChecklist: data.joiningChecklist || [],
       createdAt: new Date().toISOString(),

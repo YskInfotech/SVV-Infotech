@@ -1,139 +1,99 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-const BankForm = ({ employeeId }) => {
-  const [data, setData] = useState(null);
+const BankForm = ({ bankDetails = {}, nominees = {} }) => {
+  const { accountName, accountNumber, ifsc, branch } = bankDetails;
 
-  /* ===============================
-     LOAD EMPLOYEE DATA
-  =============================== */
-  useEffect(() => {
-    const stored = JSON.parse(localStorage.getItem("employeeOnboarding")) || [];
-    const employee = stored.find((emp) => emp.id === employeeId);
-    setData(employee?.bankDetails || null);
-  }, [employeeId]);
-
-  if (!data) {
-    return (
-      <div className="container my-4 text-center">
-        <h6 className="text-muted">No Bank Details Found</h6>
-      </div>
-    );
-  }
-
-  const {
-    pfNomineeName,
-    pfNomineeAge,
-    pfNomineeDob,
-    pfNomineeRelation,
-    esiNomineeName,
-    esiNomineeAge,
-    esiNomineeDob,
-    esiNomineeRelation,
-    accNomineeName,
-    accNomineeAge,
-    accNomineeDob,
-    accNomineeRelation,
-    bankName,
-    accountNumber,
-    ifscCode,
-    branchName,
-    familyMembers = [],
-    employerReferences = [],
-    personalReferences = []
-  } = data;
+  const pf = nominees.pf || [];
+  const esi = nominees.esi || [];
+  const accident = nominees.accident || [];
+  const family = nominees.family || [];
 
   return (
-    <form id="bank" className="container text-start my-4">
+    <div id="bank" className="container text-start my-4">
       <h5 className="mb-3 text-center">Nominee, Family & Bank Details</h5>
 
-      {/* 1. Statutory Forms Nominee Details */}
+      {/* ===== PF NOMINEES ===== */}
       <div className="bg-light p-3 mb-3 rounded">
-        <h6 className="mb-3">1. Statutory Forms Nominee Details</h6>
-
-        {/* PF */}
-        <p className="fw-semibold mb-2">Provident Fund (PF)</p>
-        <div className="row g-2 mb-3">
-          <input className="form-control col" value={pfNomineeName || ""} disabled />
-          <input className="form-control col" value={pfNomineeAge || ""} disabled />
-          <input className="form-control col" value={pfNomineeDob || ""} disabled />
-          <input className="form-control col" value={pfNomineeRelation || ""} disabled />
-        </div>
-
-        {/* ESI */}
-        <p className="fw-semibold mb-2">Employees' State Insurance (ESI)</p>
-        <div className="row g-2 mb-3">
-          <input className="form-control col" value={esiNomineeName || ""} disabled />
-          <input className="form-control col" value={esiNomineeAge || ""} disabled />
-          <input className="form-control col" value={esiNomineeDob || ""} disabled />
-          <input className="form-control col" value={esiNomineeRelation || ""} disabled />
-        </div>
-
-        {/* Accident */}
-        <p className="fw-semibold mb-2">Accident Insurance</p>
-        <div className="row g-2">
-          <input className="form-control col" value={accNomineeName || ""} disabled />
-          <input className="form-control col" value={accNomineeAge || ""} disabled />
-          <input className="form-control col" value={accNomineeDob || ""} disabled />
-          <input className="form-control col" value={accNomineeRelation || ""} disabled />
-        </div>
-      </div>
-
-      {/* 2. Family Details */}
-      <div className="bg-light p-3 mb-3 rounded">
-        <h6 className="mb-3">2. Family Particulars of Insured Person</h6>
-
-        {familyMembers.map((member, index) => (
-          <div key={index} className="mb-3">
-            <p className="fw-semibold">Family Member {index + 1}</p>
-            <div className="row g-2">
-              <input className="form-control col-md-4" value={member.name || ""} />
-              <input className="form-control col-md-4" value={member.dob || ""} />
-              <input className="form-control col-md-4" value={member.relationship || ""}/>
-            </div>
+        <h6 className="fw-bold mb-2">PF Nominees</h6>
+        {(pf.length ? pf : [{}]).map((n, i) => (
+          <div key={i} className="row g-2 mb-2">
+            <input className="form-control col" value={n.name || ""} disabled />
+            <input className="form-control col" value={n.age || ""} disabled />
+            <input className="form-control col" value={n.dob || ""} disabled />
+            <input className="form-control col" value={n.relation || ""} disabled />
           </div>
         ))}
       </div>
 
-      {/* 3. Bank Details */}
+      {/* ===== ESI NOMINEES ===== */}
       <div className="bg-light p-3 mb-3 rounded">
-        <h6 className="mb-3">3. Bank Details</h6>
-        <div className="row g-3">
-          <input className="form-control col-md-6" value={bankName || ""}/>
-          <input className="form-control col-md-6" value={accountNumber || ""}  />
-          <input className="form-control col-md-6" value={ifscCode || ""} />
-          <input className="form-control col-md-6" value={branchName || ""}  />
-        </div>
+        <h6 className="fw-bold mb-2">ESI Nominees</h6>
+        {(esi.length ? esi : [{}]).map((n, i) => (
+          <div key={i} className="row g-2 mb-2">
+            <input className="form-control col" value={n.name || ""} disabled />
+            <input className="form-control col" value={n.age || ""} disabled />
+            <input className="form-control col" value={n.dob || ""} disabled />
+            <input className="form-control col" value={n.relation || ""} disabled />
+          </div>
+        ))}
       </div>
 
-      {/* 4. References */}
+      {/* ===== ACCIDENT NOMINEES ===== */}
+      <div className="bg-light p-3 mb-3 rounded">
+        <h6 className="fw-bold mb-2">Accident Insurance Nominees</h6>
+        {(accident.length ? accident : [{}]).map((n, i) => (
+          <div key={i} className="row g-2 mb-2">
+            <input className="form-control col" value={n.name || ""} disabled />
+            <input className="form-control col" value={n.age || ""} disabled />
+            <input className="form-control col" value={n.dob || ""} disabled />
+            <input className="form-control col" value={n.relation || ""} disabled />
+          </div>
+        ))}
+      </div>
+
+      {/* ===== FAMILY ===== */}
+      <div className="bg-light p-3 mb-3 rounded">
+        <h6 className="fw-bold mb-2">Family Members</h6>
+        {(family.length ? family : [{}, {}, {}]).map((f, i) => (
+          <div key={i} className="row g-2 mb-2">
+            <input className="form-control col" value={f.name || ""} disabled />
+            <input className="form-control col" value={f.dob || ""} disabled />
+            <input className="form-control col" value={f.relation || ""} disabled />
+          </div>
+        ))}
+      </div>
+
+      {/* ===== BANK DETAILS (ALWAYS SHOW) ===== */}
       <div className="bg-light p-3 rounded">
-        <h6 className="mb-3">4. References</h6>
-
-        <p className="fw-semibold">A. Employer Reference</p>
-        {employerReferences.map((ref, index) => (
-          <div key={index} className="mb-3">
-            <div className="row g-2">
-              <input className="form-control col-md-4" value={ref.name || ""}  />
-              <input className="form-control col-md-4" value={ref.designation || ""}  />
-              <input className="form-control col-md-4" value={ref.phone || ""} />
-              <input className="form-control col-md-6" value={ref.email || ""}  />
-              <input className="form-control col-md-6" value={ref.lastEmployer || ""} />
-            </div>
-          </div>
-        ))}
-
-        <p className="fw-semibold mt-4">B. Relative or Friends Reference</p>
-        {personalReferences.map((ref, index) => (
-          <div key={index} className="mb-3">
-            <div className="row g-2">
-              <input className="form-control col-md-4" value={ref.name || ""} />
-              <input className="form-control col-md-4" value={ref.occupation || ""} />
-              <input className="form-control col-md-4" value={ref.phone || ""} />
-            </div>
-          </div>
-        ))}
+        <h6 className="fw-bold mb-2">Bank Details</h6>
+        <div className="row g-2">
+          <input
+            className="form-control col-md-6"
+            placeholder="Account Holder Name"
+            value={accountName || ""}
+            disabled
+          />
+          <input
+            className="form-control col-md-6"
+            placeholder="Account Number"
+            value={accountNumber || ""}
+            disabled
+          />
+          <input
+            className="form-control col-md-6"
+            placeholder="IFSC Code"
+            value={ifsc || ""}
+            disabled
+          />
+          <input
+            className="form-control col-md-6"
+            placeholder="Branch"
+            value={branch || ""}
+            disabled
+          />
+        </div>
       </div>
-    </form>
+    </div>
   );
 };
 
