@@ -3,11 +3,13 @@ import { useParams } from "react-router-dom";
 import AdminPersInformation from "./AdminPersInformation";
 import DocumentsForm from "./DocumentsForm";
 import BankForm from "./BankForm";
+import "../../Styles/Onboardingview.css";
 import AdminJoiningDocsChecklist from "./AdminJoiningDocsChecklist";
 
 const AdminOnboardingDetail = () => {
   const { id } = useParams();
   const [employee, setEmployee] = useState(null);
+  const [activeTab, setActiveTab] = useState("personal");
 
 
 
@@ -40,33 +42,58 @@ const AdminOnboardingDetail = () => {
      RENDER
   =============================== */
   return (
-    <div className="onboarding-detail-container">
+    <div className="onboarding-detail-container mt-5">
       {/* ===== TABS ===== */}
       <div className="tabs-nav">
-        <button onClick={() =>
-          document.getElementById("personal")?.scrollIntoView({ behavior: "smooth" })
-        }>
+        <button
+          className={activeTab === "personal" ? "active" : ""}
+          onClick={() => {
+            setActiveTab("personal");
+            document
+              .getElementById("personal")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
           1. Personal
         </button>
 
-        <button onClick={() =>
-          document.getElementById("documents")?.scrollIntoView({ behavior: "smooth" })
-        }>
+        <button
+          className={activeTab === "documents" ? "active" : ""}
+          onClick={() => {
+            setActiveTab("documents");
+            document
+              .getElementById("documents")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
           2. Documents
         </button>
 
-        <button onClick={() =>
-          document.getElementById("bank")?.scrollIntoView({ behavior: "smooth" })
-        }>
+        <button
+          className={activeTab === "bank" ? "active" : ""}
+          onClick={() => {
+            setActiveTab("bank");
+            document
+              .getElementById("bank")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
           3. Bank
         </button>
 
-        <button onClick={() =>
-          document.getElementById("joining")?.scrollIntoView({ behavior: "smooth" })
-        }>
+        <button
+          className={activeTab === "joining" ? "active" : ""}
+          onClick={() => {
+            setActiveTab("joining");
+            document
+              .getElementById("joining")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
           4. Joining
         </button>
       </div>
+
 
       <div className="detail-content mt-4">
         {/* ===== PERSONAL ===== */}

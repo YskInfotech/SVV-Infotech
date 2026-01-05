@@ -76,6 +76,11 @@ const AdminPersInformation = ({ employeeData = {} }) => {
         {/* ROW 6 */}
         <div className="row g-3 mt-1">
           <div className="col-md-6">
+            <label className="form-label">Contact Number (LL)</label>
+            <input className="form-control" value={p.contactLL || ""} readOnly />
+          </div>
+
+          <div className="col-md-6">
             <label className="form-label">Mobile Number</label>
             <input className="form-control" value={p.mobile || ""} readOnly />
           </div>
@@ -84,19 +89,55 @@ const AdminPersInformation = ({ employeeData = {} }) => {
             <label className="form-label">Email</label>
             <input className="form-control" value={p.email || ""} readOnly />
           </div>
+
+          <div className="col-md-6">
+            <label className="form-label">Blood Group</label>
+            <input className="form-control" value={p.bloodGroup || ""} readOnly />
+          </div>
         </div>
 
         {/* ROW 7 */}
         <div className="row g-3 mt-1">
           <div className="col-md-6">
-            <label className="form-label">Blood Group</label>
-            <input className="form-control" value={p.bloodGroup || ""} readOnly />
+            <label className="form-label">Emergency Contact – 1 *</label>
+            <input className="form-control" value={p.emergency1 || ""} readOnly />
+          </div>
+
+          <div className="col-md-6">
+            <label className="form-label">Emergency Contact – 2*</label>
+            <input className="form-control" value={p.emergency2 || ""} readOnly />
+          </div>
+
+          <div className="col-md-6">
+            <label className="form-label">Education Qualification *</label>
+            <input className="form-control" value={p.education || ""} readOnly />
           </div>
 
           <div className="col-md-6">
             <label className="form-label">Experience Type</label>
             <input className="form-control" value={p.experienceType || ""} readOnly />
           </div>
+
+          <div className="col-md-6">
+          <label className="form-label">Driving License</label>
+          <div className="form-check">
+            <input type="radio" className="form-check-input" name="drivingLicense" value={p.drivingLicense || ""} />
+            <label className="form-check-label">Yes</label>
+          </div>
+          <div className="form-check">
+            <input type="radio" className="form-check-input" name="drivingLicense" value={p.drivingLicense || ""} />
+            <label className="form-check-label">No</label>
+          </div>
+          </div>
+
+
+          
+          <div className="col-md-6">
+            <label className="form-label">Vehicle Registration Number</label>
+            <input className="form-control" value={p.vehicleNumber || ""} readOnly />
+          </div>
+
+
         </div>
 
         {/* ROW 8 */}

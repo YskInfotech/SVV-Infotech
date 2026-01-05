@@ -131,7 +131,7 @@ function AdminOnBoarding() {
       rows
         .map(
           (e) =>
-            `${e.name},${e.appliedFor},${e.email},${e.phone},${e.experience}`
+            `${e.name},${e.appliedFor},${e.email},${e.mobile},${e.experience}`
         )
         .join("\n");
 
