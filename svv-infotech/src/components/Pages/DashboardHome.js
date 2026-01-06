@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MdOutlinePhoneCallback } from "react-icons/md";
-import { IoIosPeople } from "react-icons/io";
 import { PiSuitcaseSimple } from "react-icons/pi";
 import { GrDocumentSound } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
@@ -9,30 +8,57 @@ import "../../Styles/DashboardHome.css";
 function DashboardHome() {
   const navigate = useNavigate();
 
+  /* ================= COUNTS ================= */
+  const [quickCount, setQuickCount] = useState(0);
+  const [jobCount, setJobCount] = useState(0);
+  const [onboardCount, setOnboardCount] = useState(0);
+
+  /* ================= LOAD COUNTS ================= */
+  useEffect(() => {
+    const loadCounts = () => {
+      const contacts =
+        JSON.parse(localStorage.getItem("contactRequests")) || [];
+      const jobs =
+        JSON.parse(localStorage.getItem("jobs")) || [];
+      const onboarding =
+        JSON.parse(localStorage.getItem("employeeOnboarding")) || [];
+
+      setQuickCount(contacts.length);
+      setJobCount(jobs.length);
+
+      // remove duplicate onboarding by id (same logic as your onboarding page)
+      const uniqueOnboarding = Array.from(
+        new Map(onboarding.map(e => [e.id, e])).values()
+      );
+      setOnboardCount(uniqueOnboarding.length);
+    };
+
+    loadCounts();
+
+    // 🔁 auto refresh when user comes back
+    window.addEventListener("focus", loadCounts);
+    return () => window.removeEventListener("focus", loadCounts);
+  }, []);
+
+  /* ================= DASHBOARD CARDS ================= */
   const varOcg = [
     {
       icon: <MdOutlinePhoneCallback />,
       title: "QUICK CONTACTS",
       path: "/dashboard/Quickadmin",
-      status: [{ count: 15, label: "Quick Contacts", color: "green" }],
+      count: quickCount,
     },
-    // {
-    //   icon: <IoIosPeople />,
-    //   title: "CANDIDATES",
-    //   path: "/dashboard/AdminJobsList/:jobId",
-    //   status: [{ count: 121, label: "Candidates", color: "green" }],
-    // },
     {
       icon: <PiSuitcaseSimple />,
       title: "JOBS",
-      path: "/dashboard/AdminJobsList/:jobId",
-      status: [{ count: 50, label: "Jobs", color: "green" }],
+      path: "/dashboard/AdminJobsList",
+      count: jobCount,
     },
     {
       icon: <GrDocumentSound />,
       title: "ON BOARDING",
       path: "/dashboard/Onboardingview",
-      status: [{ count: 30, label: "ON Boarding", color: "green" }],
+      count: onboardCount,
     },
   ];
 
@@ -41,22 +67,16 @@ function DashboardHome() {
       <div className="dashboard-card-row">
         {varOcg.map((card, index) => (
           <div
-            className="dashboard-big-card"
             key={index}
+            className="dashboard-big-card"
             onClick={() => navigate(card.path)}
-            style={{ cursor: "pointer" }}
           >
             <div className="dashboard-big-icon">{card.icon}</div>
 
-            <div className="dashboard-status-boxes">
-              {card.status.map((s, i) => (
-                <div key={i}>
-                  <div className={`dashboard-status-item dashboard-${s.color}`}>
-                    <p>{s.label}</p>
-                    <span className="dashboard-count-num">{s.count}</span>
-                  </div>
-                </div>
-              ))}
+            <h6 className="dashboard-title">{card.title}</h6>
+
+            <div className="dashboard-status-item dashboard-green">
+              <span className="dashboard-count-num">{card.count}</span>
             </div>
           </div>
         ))}

@@ -77,7 +77,7 @@ const QuickContact = () => {
   return (
     <div className="quickcontact-section">
       <h2 className="text-white text-center fw-bold mb-2">QUICK CONTACT</h2>
-       <p className="text-center text-white mb-4">
+      <p className="text-center text-white mb-4">
         Build your future with SVV Infotech — where talent meets innovation and growth begins.
       </p>
       <div className="container contact-box shadow">
@@ -148,22 +148,22 @@ const QuickContact = () => {
               <div className="mb-3">
                 <label className="form-label">Captcha*</label>
                 <div className="captcha-row">
-                 <div className="captcha-input-wrapper">
-  <input
-    className="form-control captcha-box fw-bold"
-    value={captcha}
-    readOnly
-  />
+                  <div className="captcha-input-wrapper">
+                    <input
+                      className="form-control captcha-box fw-bold"
+                      value={captcha}
+                      readOnly
+                    />
 
-  <button
-    type="button"
-    onClick={handleRefreshCaptcha}
-    className="captcha-refresh-btn"
-    aria-label="Refresh Captcha"
-  >
-    <MdRefresh size={18} />
-  </button>
-</div>
+                    <button
+                      type="button"
+                      onClick={handleRefreshCaptcha}
+                      className="captcha-refresh-btn"
+                      aria-label="Refresh Captcha"
+                    >
+                      <MdRefresh size={18} />
+                    </button>
+                  </div>
 
                   <input
                     type="text"

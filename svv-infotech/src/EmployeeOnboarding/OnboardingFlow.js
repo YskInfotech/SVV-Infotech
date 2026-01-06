@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import OnboardingNavbar from "./OnboardingNavbar";
-import PersonalInformationForm from "./PersonalinformationForm";
-import DocumentsIdProofs from "./DocumentsIdProofs";
-import ExperiencedDocumentsForm from "./ExperiencedDocumentsForm";
-import NomineeBankDetails from "./NomineeBankDetails";
-import JoiningDocumentsChecklist from "./JoiningDocumentsChecklist";
+import PersonalInformationForm from "../EmployeeOnboarding/PersonalinformationForm";
+import DocumentsIdProofs from "../EmployeeOnboarding/DocumentsIdProofs";
+import ExperiencedDocumentsForm from "../EmployeeOnboarding/ExperiencedDocumentsForm";
+import NomineeBankDetails from "../EmployeeOnboarding/NomineeBankDetails";
+import JoiningDocumentsChecklist from "../EmployeeOnboarding/JoiningDocumentsChecklist";
 import OnboardingSuccess from "../../src/components/Pages/OnboardingSuccess";
 
 const OnboardingFlow = () => {

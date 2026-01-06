@@ -37,8 +37,6 @@ function DashboardRoutes() {
        <Route path="/CandidateProfile/:id" element={<CandidateProfile/>}/>
        <Route path="/onboardingsuccess" element={<OnboardingSuccess/>}/>
        
-
-
     </Routes>
   );
 }
